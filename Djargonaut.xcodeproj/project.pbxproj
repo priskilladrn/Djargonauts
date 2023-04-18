@@ -51,9 +51,10 @@
 		0A42FAFB29EE55280031AB01 /* Djargonaut */ = {
 			isa = PBXGroup;
 			children = (
-				0A42FAFC29EE55280031AB01 /* DjargonautApp.swift */,
+				0A42FB0C29EE55EC0031AB01 /* Features */,
+				0A42FB0B29EE55E60031AB01 /* Core */,
+				0A42FB0A29EE55C00031AB01 /* Application */,
 				0A42FAFE29EE55280031AB01 /* ContentView.swift */,
-				0A42FB0029EE552A0031AB01 /* Assets.xcassets */,
 				0A42FB0229EE552A0031AB01 /* Preview Content */,
 			);
 			path = Djargonaut;
@@ -65,6 +66,85 @@
 				0A42FB0329EE552A0031AB01 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0A42FB0A29EE55C00031AB01 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				0A42FAFC29EE55280031AB01 /* DjargonautApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		0A42FB0B29EE55E60031AB01 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0A42FB1329EE564D0031AB01 /* Resources */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0A42FB0C29EE55EC0031AB01 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				0A42FB0F29EE56210031AB01 /* Presenters */,
+				0A42FB0E29EE56170031AB01 /* ViewModels */,
+				0A42FB0D29EE56060031AB01 /* Models */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		0A42FB0D29EE56060031AB01 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0A42FB0E29EE56170031AB01 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0A42FB0F29EE56210031AB01 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				0A42FB1229EE563B0031AB01 /* Extensions */,
+				0A42FB1129EE56340031AB01 /* Components */,
+				0A42FB1029EE562E0031AB01 /* Views */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		0A42FB1029EE562E0031AB01 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0A42FB1129EE56340031AB01 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		0A42FB1229EE563B0031AB01 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0A42FB1329EE564D0031AB01 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0A42FB0029EE552A0031AB01 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
