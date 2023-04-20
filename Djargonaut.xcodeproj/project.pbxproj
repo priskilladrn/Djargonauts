@@ -11,6 +11,7 @@
 		0A42FAFF29EE55280031AB01 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A42FAFE29EE55280031AB01 /* ContentView.swift */; };
 		0A42FB0129EE552A0031AB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A42FB0029EE552A0031AB01 /* Assets.xcassets */; };
 		0A42FB0429EE552A0031AB01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A42FB0329EE552A0031AB01 /* Preview Assets.xcassets */; };
+		81A4193029F10BEA00B645B8 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A4192F29F10BEA00B645B8 /* SliderView.swift */; };
 		A352E24829EE95FB0000C7D5 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A352E24729EE95FB0000C7D5 /* SearchResultView.swift */; };
 		A38487AE29EE859800DC25EF /* SearchPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38487AD29EE859800DC25EF /* SearchPageView.swift */; };
 /* End PBXBuildFile section */
@@ -21,6 +22,7 @@
 		0A42FAFE29EE55280031AB01 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0A42FB0029EE552A0031AB01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A42FB0329EE552A0031AB01 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		81A4192F29F10BEA00B645B8 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		A352E24729EE95FB0000C7D5 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		A38487AD29EE859800DC25EF /* SearchPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +63,7 @@
 				0A42FAFE29EE55280031AB01 /* ContentView.swift */,
 				A352E24729EE95FB0000C7D5 /* SearchResultView.swift */,
 				A38487AD29EE859800DC25EF /* SearchPageView.swift */,
+				81A4192F29F10BEA00B645B8 /* SliderView.swift */,
 				0A42FB0229EE552A0031AB01 /* Preview Content */,
 			);
 			path = Djargonaut;
@@ -227,6 +230,7 @@
 				A352E24829EE95FB0000C7D5 /* SearchResultView.swift in Sources */,
 				0A42FAFD29EE55280031AB01 /* DjargonautApp.swift in Sources */,
 				A38487AE29EE859800DC25EF /* SearchPageView.swift in Sources */,
+				81A4193029F10BEA00B645B8 /* SliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
