@@ -20,10 +20,14 @@ class MultipeerSession: NSObject, ObservableObject {
     private let log = Logger()
     
     @Published var availablePeers: [MCPeerID] = []
+    
+    @Published var hasReceivedData: Bool = false
     @Published var receivedData: String = ""
-    @Published var recvdInvite: Bool = false
-    @Published var recvdInviteFrom: MCPeerID? = nil
-    @Published var paired: Bool = false
+    
+    @Published var hasReceivedInvite: Bool = false
+    @Published var invitationSender: MCPeerID? = nil
+    
+    @Published var hasPaired: Bool = false
     @Published var invitationHandler: ((Bool, MCSession?) -> Void)?
     
     init(nickname: String) {
@@ -68,7 +72,7 @@ extension MultipeerSession: MCSessionDelegate {
         case MCSessionState.notConnected:
             // Peer disconnected
             DispatchQueue.main.async {
-                self.paired = false
+                self.hasPaired = false
             }
             // Peer disconnected, start accepting invitaions again
             serviceAdvertiser.startAdvertisingPeer()
@@ -76,7 +80,7 @@ extension MultipeerSession: MCSessionDelegate {
         case MCSessionState.connected:
             // Peer connected
             DispatchQueue.main.async {
-                self.paired = true
+                self.hasPaired = true
             }
             // We are paired, stop accepting invitations
             serviceAdvertiser.stopAdvertisingPeer()
@@ -84,7 +88,7 @@ extension MultipeerSession: MCSessionDelegate {
         default:
             // Peer connecting or something else
             DispatchQueue.main.async {
-                self.paired = false
+                self.hasPaired = false
             }
             break
         }
@@ -95,6 +99,7 @@ extension MultipeerSession: MCSessionDelegate {
             log.info("didReceive move \(string)")
             // We received a move from the opponent, tell the GameView
             DispatchQueue.main.async {
+                self.hasReceivedData = true
                 self.receivedData = string
             }
         } else {
@@ -129,9 +134,9 @@ extension MultipeerSession: MCNearbyServiceAdvertiserDelegate {
         
         DispatchQueue.main.async {
             // Tell PairView to show the invitation alert
-            self.recvdInvite = true
+            self.hasReceivedInvite = true
             // Give PairView the peerID of the peer who invited us
-            self.recvdInviteFrom = peerID
+            self.invitationSender = peerID
             // Give PairView the `invitationHandler` so it can accept/deny the invitation
             self.invitationHandler = invitationHandler
         }

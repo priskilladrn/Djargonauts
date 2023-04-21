@@ -16,7 +16,7 @@ struct MultipeerConnectView: View {
     var logger = Logger()
         
     var body: some View {
-        if !multipeerSession.paired && !isRoomCreator {
+        if !multipeerSession.hasPaired && !isRoomCreator {
             HStack {
                 List(multipeerSession.availablePeers, id: \.self) { peer in
                     Button(peer.displayName) {
@@ -26,23 +26,31 @@ struct MultipeerConnectView: View {
                 }
             }
             
-        } else if !multipeerSession.paired && isRoomCreator {
+        } else if !multipeerSession.hasPaired && isRoomCreator {
             Text("tunggu ada yang join")
-                .alert("Received an invite from \(multipeerSession.recvdInviteFrom?.displayName ?? "ERR")!", isPresented: $multipeerSession.recvdInvite) {
+                .alert("Received an invite from \(multipeerSession.invitationSender?.displayName ?? "ERR")!", isPresented: $multipeerSession.hasReceivedInvite) {
                     Button("Accept invite") {
                         if (multipeerSession.invitationHandler != nil) {
                             multipeerSession.invitationHandler!(true, multipeerSession.session)
-                            opponentName = multipeerSession.recvdInviteFrom?.displayName ?? "ERR"
+                            opponentName = multipeerSession.invitationSender?.displayName ?? "ERR"
                         }
                     }
                     Button("Reject invite") {
                         if (multipeerSession.invitationHandler != nil) {
                             multipeerSession.invitationHandler!(false, nil)
+                            
                         }
                     }
                 }
         } else {
             Text("masuk, udah paired sama \(opponentName)")
+//                .alert("masuk: \(multipeerSession.receivedData)", isPresented: $multipeerSession.hasReceivedData){
+//
+//                }
+//
+//            ButtonView(text: "coba"){
+//                multipeerSession.send(data: "halo, \(opponentName)")
+//            }
         }
     }
 }
