@@ -9,6 +9,9 @@ import SwiftUI
 import os
 struct MultipeerConnectView: View {
     @StateObject var multipeerSession: MultipeerSession
+    
+    @State var opponentName: String = ""
+    
     var isRoomCreator: Bool = false
     var logger = Logger()
         
@@ -17,6 +20,7 @@ struct MultipeerConnectView: View {
             HStack {
                 List(multipeerSession.availablePeers, id: \.self) { peer in
                     Button(peer.displayName) {
+                        opponentName = peer.displayName
                         multipeerSession.serviceBrowser.invitePeer(peer, to: multipeerSession.session, withContext: nil, timeout: 30)
                     }
                 }
@@ -28,6 +32,7 @@ struct MultipeerConnectView: View {
                     Button("Accept invite") {
                         if (multipeerSession.invitationHandler != nil) {
                             multipeerSession.invitationHandler!(true, multipeerSession.session)
+                            opponentName = multipeerSession.recvdInviteFrom?.displayName ?? "ERR"
                         }
                     }
                     Button("Reject invite") {
@@ -37,8 +42,7 @@ struct MultipeerConnectView: View {
                     }
                 }
         } else {
-            Text("masuk, udah paired")
-//            GameView(rpsSession: rpsSession)
+            Text("masuk, udah paired sama \(opponentName)")
         }
     }
 }
