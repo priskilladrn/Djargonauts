@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct MultipeerInitView: View {
-    @State var nicknameTxt: String = ""
-    
+//    @State var nicknameTxt: String = ""
+    @StateObject var multipeerViewModel = MultipeerViewModel()
     var body: some View {
         VStack{
             Spacer()
@@ -18,12 +18,12 @@ struct MultipeerInitView: View {
                 .textCase(.uppercase)
                 .foregroundColor(Color("Title"))
                 .bold()
-            TextFieldView(text: $nicknameTxt)
+            TextFieldView(text: $multipeerViewModel.nickname)
             
             Spacer()
             
-            ButtonLinkView(text: "Create Room", destination: MultipeerCreateView())
-            ButtonLinkView(text: "Join Room", isPrimary: false, destination: MultipeerJoinView())
+            ButtonLinkView(text: "Create Room", destination: MultipeerCreateView(multipeerViewModel: multipeerViewModel))
+            ButtonLinkView(text: "Join Room", isPrimary: false, destination: MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname)))
         }
         .padding()
         .navigationTitle("Play Together")

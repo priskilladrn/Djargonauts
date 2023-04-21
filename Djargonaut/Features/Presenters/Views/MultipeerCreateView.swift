@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MultipeerCreateView: View {
+    @ObservedObject var multipeerViewModel: MultipeerViewModel
     @State var chosenCategory: String = "Tech"
     @State var duration: Int = 15
     @State var cardCount: Int = 10
@@ -63,15 +64,15 @@ struct MultipeerCreateView: View {
             Spacer()
             
             // TODO: fix destination (change empty view)
-            ButtonLinkView(text: "Start The Journey", isPrimary: false, destination: EmptyView())
+            ButtonLinkView(text: "Start The Journey", isPrimary: false, destination: MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), isRoomCreator: true))
         }
         .padding()
         .navigationTitle("New Game")
     }
 }
 
-struct MultipeerCreateView_Previews: PreviewProvider {
-    static var previews: some View {
-        MultipeerCreateView()
-    }
-}
+//struct MultipeerCreateView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MultipeerCreateView()
+//    }
+//}

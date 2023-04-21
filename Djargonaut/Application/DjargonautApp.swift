@@ -11,7 +11,7 @@ import SwiftUI
 struct DjargonautApp: App {
     var body: some Scene {
         WindowGroup {
-            SearchPageView()
+            ContentView()
         }
     }
 }
