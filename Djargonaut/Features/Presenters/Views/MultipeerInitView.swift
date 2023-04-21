@@ -22,14 +22,11 @@ struct MultipeerInitView: View {
             
             Spacer()
             
-            ButtonView(text: "Create Room"){
-                
-            }
-            ButtonView(text: "Join Room", isPrimary: false){
-                
-            }
+            ButtonLinkView(text: "Create Room", destination: MultipeerCreateView())
+            ButtonLinkView(text: "Join Room", isPrimary: false, destination: MultipeerJoinView())
         }
         .padding()
+        .navigationTitle("Play Together")
     }
 }
 
