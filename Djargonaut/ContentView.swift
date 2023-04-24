@@ -10,8 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationStack{
-            // TODO: belom ada homepage, test ini dulu ya hehe
-            MultipeerInitView()
+            HomeView()
         }
     }
 }

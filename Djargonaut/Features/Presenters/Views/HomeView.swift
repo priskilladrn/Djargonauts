@@ -17,7 +17,7 @@ struct HomeView: View {
                         .scaledToFill()
                         .frame(width: geometry.size.width, height: 280) // TODO: test other devices' height
                         .padding(.top, -geometry.safeAreaInsets.top)
-                        
+                    
                     HStack {
                         Spacer()
                         VStack (alignment: .leading, spacing: 10){
@@ -41,15 +41,11 @@ struct HomeView: View {
                             
                             Text("Something is acknowledged, but discouraged.")
                             
-                            Button {
-                                
-                            } label: {
-                                HStack{
-                                    Text("Read More")
-                                    Image(systemName: "chevron.right")
-                                }
-                                .foregroundColor(Color("Secondary"))
+                            HStack{
+                                Text("Read More")
+                                Image(systemName: "chevron.right")
                             }
+                            .foregroundColor(Color("Secondary"))
                         }
                         .padding()
                         .frame(width: geometry.size.width * 0.6)
@@ -58,43 +54,11 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                Button{
-                    
-                } label: {
-                    VStack{
-                        Image("home_search")
-                            .resizable()
-                            .scaledToFit()
-                        Text("SEARCH")
-                            .foregroundColor(Color("Default"))
-                    }
-                    .frame(width: geometry.size.width * 0.3)
-                    
-                }
+                ImageButtonLink(text: "Search", imageName: "home_search", destination: SearchPageView())
                 
                 HStack (spacing: 30){
-                    Button{
-                        
-                    } label: {
-                        VStack{
-                            Image("home_solo")
-                                .resizable()
-                                .scaledToFit()
-                            Text("SOLO")
-                        }
-                        .frame(width: geometry.size.width * 0.3)
-                    }
-                    Button{
-                        
-                    } label: {
-                        VStack{
-                            Image("home_1v1")
-                                .resizable()
-                                .scaledToFit()
-                            Text("1 VS 1")
-                        }
-                        .frame(width: geometry.size.width * 0.3)
-                    }
+                    ImageButtonLink(text: "Solo", imageName: "home_solo", destination: SearchPageView())
+                    ImageButtonLink(text: "1 VS 1", imageName: "home_1v1", destination: SearchPageView())
                 }
                 .padding()
                 
