@@ -14,11 +14,10 @@ private struct ButtonContent: View {
         Text(text)
             .textCase(.uppercase)
             .bold()
-            .foregroundColor(isPrimary ? .white : Color("Title"))
+            .foregroundColor(isPrimary ? .white : AppColor.title)
             .padding()
             .frame(maxWidth: .infinity)
-            .background(isPrimary ? Color(
-                "Title") : Color("Secondary"))
+            .background(isPrimary ? AppColor.title : AppColor.secondary)
             .cornerRadius(12)
     }
 }

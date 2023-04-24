@@ -14,7 +14,7 @@ struct TextFieldView: View {
             .padding(10)
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
-                    .stroke(Color("Title"), lineWidth: 2)
+                    .stroke(AppColor.title, lineWidth: 2)
             )
     }
 }

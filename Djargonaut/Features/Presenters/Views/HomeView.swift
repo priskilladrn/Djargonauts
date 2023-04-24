@@ -17,7 +17,6 @@ struct HomeView: View {
                         .scaledToFill()
                         .frame(width: geometry.size.width, height: 280) // TODO: test other devices' height
                         .padding(.top, -geometry.safeAreaInsets.top)
-                    
                     HStack {
                         Spacer()
                         VStack (alignment: .leading, spacing: 10){
@@ -32,7 +31,7 @@ struct HomeView: View {
                                     
                                 } label: {
                                     Image(systemName: "shuffle")
-                                        .foregroundColor(Color("Secondary"))
+                                        .foregroundColor(AppColor.secondary)
                                 }
                             }
                             
@@ -45,7 +44,7 @@ struct HomeView: View {
                                 Text("Read More")
                                 Image(systemName: "chevron.right")
                             }
-                            .foregroundColor(Color("Secondary"))
+                            .foregroundColor(AppColor.secondary)
                         }
                         .padding()
                         .frame(width: geometry.size.width * 0.6)
