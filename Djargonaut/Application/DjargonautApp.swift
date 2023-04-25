@@ -11,7 +11,10 @@ import SwiftUI
 struct DjargonautApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let viewContext = CoreDataManager.shared.container.viewContext
+            
+            ContentView(vm: JargonListViewModel(context: viewContext))
+                .environment(\.managedObjectContext, viewContext)
         }
     }
 }
