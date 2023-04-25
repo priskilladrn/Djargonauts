@@ -21,6 +21,7 @@
 		0ACD839329F6BA880031E9BD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD839229F6BA880031E9BD /* HomeView.swift */; };
 		0ACD839529F6CB9E0031E9BD /* ImageButtonLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD839429F6CB9E0031E9BD /* ImageButtonLink.swift */; };
 		0ACD839929F6CE940031E9BD /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD839829F6CE940031E9BD /* AppColor.swift */; };
+		26878DE429F827210036497D /* PlayAlonePickCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26878DE329F827210036497D /* PlayAlonePickCategoryView.swift */; };
 		26B9653129F6440300A9465A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B9653029F6440300A9465A /* CoreDataManager.swift */; };
 		26B9653529F6445C00A9465A /* DjargonautModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26B9653329F6445C00A9465A /* DjargonautModel.xcdatamodeld */; };
 		26B9653729F6448400A9465A /* JargonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B9653629F6448400A9465A /* JargonModel.swift */; };
@@ -49,6 +50,7 @@
 		0ACD839229F6BA880031E9BD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0ACD839429F6CB9E0031E9BD /* ImageButtonLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageButtonLink.swift; sourceTree = "<group>"; };
 		0ACD839829F6CE940031E9BD /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		26878DE329F827210036497D /* PlayAlonePickCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAlonePickCategoryView.swift; sourceTree = "<group>"; };
 		26B9653029F6440300A9465A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		26B9653429F6445C00A9465A /* JargonData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JargonData.xcdatamodel; sourceTree = "<group>"; };
 		26B9653629F6448400A9465A /* JargonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JargonModel.swift; path = Djargonaut/Core/Utilities/CoreData/JargonModel.swift; sourceTree = SOURCE_ROOT; };
@@ -173,6 +175,7 @@
 				0ACD838729F273910031E9BD /* MultipeerCreateView.swift */,
 				0ACD838C29F285270031E9BD /* MultipeerConnectView.swift */,
 				0ACD839229F6BA880031E9BD /* HomeView.swift */,
+				26878DE329F827210036497D /* PlayAlonePickCategoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 		0A42FB1329EE564D0031AB01 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				26B9654029F6794400A9465A /* Suggestion Data.csv */,
 				0A42FB0029EE552A0031AB01 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -233,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				26B9653329F6445C00A9465A /* DjargonautModel.xcdatamodeld */,
-				26B9654029F6794400A9465A /* Suggestion Data.csv */,
 				26B9653029F6440300A9465A /* CoreDataManager.swift */,
 			);
 			path = CoreData;
@@ -317,6 +320,7 @@
 				0ACD838B29F282870031E9BD /* MultipeerSession.swift in Sources */,
 				0ACD838829F273910031E9BD /* MultipeerCreateView.swift in Sources */,
 				0ACD839329F6BA880031E9BD /* HomeView.swift in Sources */,
+				26878DE429F827210036497D /* PlayAlonePickCategoryView.swift in Sources */,
 				0A42FAFF29EE55280031AB01 /* ContentView.swift in Sources */,
 				0ACD838229F26C7E0031E9BD /* TextFieldView.swift in Sources */,
 				26B9653729F6448400A9465A /* JargonModel.swift in Sources */,

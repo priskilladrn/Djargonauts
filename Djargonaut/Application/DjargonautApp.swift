@@ -13,8 +13,8 @@ struct DjargonautApp: App {
         WindowGroup {
             let viewContext = CoreDataManager.shared.container.viewContext
             
-            ContentView(vm: JargonListViewModel(context: viewContext))
-                .environment(\.managedObjectContext, viewContext)
+            ContentView()
+                .environmentObject(JargonListViewModel(context: viewContext))
         }
     }
 }

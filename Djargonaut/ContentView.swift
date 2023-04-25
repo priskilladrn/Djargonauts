@@ -9,27 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @Environment(\.managedObjectContext) var viewContext
-    private var JargonListVM: JargonListViewModel
-    @State private var jargons = [Jargon]()
-    
-    init(vm: JargonListViewModel) {
-        self.JargonListVM = vm
-    }
-    
     var body: some View {
         NavigationStack{
-            HomeView()
+            VStack {
+                HomeView()
+            }
         }
-        .onAppear(perform: {
-            jargons = JargonListVM.populate()
-        })
+//        .onAppear(perform: {
+//            jargonListVM.populate()
+//        })
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let viewContext = CoreDataManager.shared.container.viewContext
-        ContentView(vm: JargonListViewModel(context: viewContext))
+        ContentView()
+            .environmentObject(JargonListViewModel(context: viewContext))
     }
 }

@@ -8,10 +8,11 @@
 import Foundation
 import CoreData
 
-class JargonListViewModel {
+class JargonListViewModel: ObservableObject {
     
     private (set) var context: NSManagedObjectContext
-    var jargons = loadCSV(from: "Suggestion Data")
+    private var jargons = loadCSV(from: "Suggestion Data")
+    @Published var jargonList: [Jargon] = []
     
     init(context: NSManagedObjectContext) {
         self.context = context
@@ -41,37 +42,37 @@ class JargonListViewModel {
         }
     }
     
-    func populate() -> [Jargon] {
+    func populate() {
         let fetchRequest: NSFetchRequest<Jargon> = Jargon.fetchRequest()
         
         saveAll()
         
         do {
-            return try context.fetch(fetchRequest)
+        jargonList = try context.fetch(fetchRequest)
         } catch {
-            return []
+            print(error)
         }
     }
     
-    func searchWord(word: String) -> [Jargon] {
+    func searchWord(word: String) {
         let fetchRequest: NSFetchRequest<Jargon> = Jargon.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "word = %@", word)
+        fetchRequest.predicate = NSPredicate(format: "base = %@", word)
         
         do {
-            return try context.fetch(fetchRequest)
+            jargonList = try context.fetch(fetchRequest)
         } catch {
-            return []
+            print(error)
         }
     }
     
-    func searchCategory(category: String) -> [Jargon] {
+    func searchCategory(category: String) {
         let fetchRequest: NSFetchRequest<Jargon> = Jargon.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "category = %@", category)
         
         do {
-            return try context.fetch(fetchRequest)
+            jargonList = try context.fetch(fetchRequest)
         } catch {
-            return []
+            print(error)
         }
     }
 }
