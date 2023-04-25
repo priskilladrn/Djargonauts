@@ -16,7 +16,7 @@ struct MultipeerCreateView: View {
         VStack(spacing: 20){
             HStack{
                 Text("Category")
-                    .foregroundColor(Color("Title"))
+                    .foregroundColor(AppColor.title)
                     .bold()
                 
                 Spacer()
@@ -41,7 +41,7 @@ struct MultipeerCreateView: View {
             
             HStack{
                 Text("Duration")
-                    .foregroundColor(Color("Title"))
+                    .foregroundColor(AppColor.title)
                     .bold()
                 
                 Spacer()
@@ -52,7 +52,7 @@ struct MultipeerCreateView: View {
             
             HStack{
                 Text("Cards")
-                    .foregroundColor(Color("Title"))
+                    .foregroundColor(AppColor.title)
                     .bold()
                 
                 Spacer()
