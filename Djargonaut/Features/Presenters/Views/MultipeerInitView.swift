@@ -16,7 +16,7 @@ struct MultipeerInitView: View {
             
             Text("Nickname")
                 .textCase(.uppercase)
-                .foregroundColor(Color("Title"))
+                .foregroundColor(AppColor.title)
                 .bold()
             TextFieldView(text: $multipeerViewModel.nickname)
             
