@@ -11,19 +11,20 @@ struct ContentView: View {
     
     @Environment(\.managedObjectContext) var viewContext
     private var JargonListVM: JargonListViewModel
-    @State private var jargons = [Jargon]()
+    var jargons: [Jargon]
     
     init(vm: JargonListViewModel) {
         self.JargonListVM = vm
+        jargons = JargonListVM.populate()
     }
     
     var body: some View {
         NavigationStack{
-            HomeView()
+            HomeView(jargons: jargons)
         }
-        .onAppear(perform: {
-            jargons = JargonListVM.populate()
-        })
+//        .onAppear(perform: {
+//            jargons = JargonListVM.populate()
+//        })
     }
 }
 

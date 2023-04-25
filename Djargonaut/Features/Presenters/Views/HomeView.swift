@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    var jargons: [Jargon]
+    @State private var randomJargon: Jargon?
+    
     var body: some View {
         GeometryReader { geometry in
             VStack{
@@ -20,9 +23,13 @@ struct HomeView: View {
                     HStack {
                         Spacer()
                         VStack (alignment: .leading, spacing: 10){
-                            Text("Technology")
+                            Text(randomJargon?.category ?? "")
+                                .padding(.horizontal)
+                                .padding(.vertical, 5)
+                                .background(AppColor.purple)
+                                .cornerRadius(12)
                             HStack {
-                                Text("Deprecated")
+                                Text(randomJargon?.base ?? "")
                                     .font(.title3)
                                     .bold()
                                 Spacer()
@@ -36,9 +43,9 @@ struct HomeView: View {
                             }
                             
                             Divider()
-                                .overlay(.black)
+                                .overlay(AppColor.def)
                             
-                            Text("Something is acknowledged, but discouraged.")
+                            Text(randomJargon?.desc ?? "")
                             
                             HStack{
                                 Text("Read More")
@@ -56,8 +63,8 @@ struct HomeView: View {
                 ImageButtonLink(text: "Search", imageName: "home_search", destination: SearchPageView())
                 
                 HStack (spacing: 30){
-                    ImageButtonLink(text: "Solo", imageName: "home_solo", destination: SearchPageView())
-                    ImageButtonLink(text: "1 VS 1", imageName: "home_1v1", destination: SearchPageView())
+                    ImageButtonLink(text: "Solo", imageName: "home_solo", destination: EmptyView())
+                    ImageButtonLink(text: "1 VS 1", imageName: "home_1v1", destination: MultipeerInitView())
                 }
                 .padding()
                 
@@ -71,11 +78,15 @@ struct HomeView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .onAppear{
+            randomJargon = jargons.randomElement()!
+        }
     }
+        
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView()
+//    }
+//}
