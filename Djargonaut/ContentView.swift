@@ -9,18 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @Environment(\.managedObjectContext) var viewContext
-    private var JargonListVM: JargonListViewModel
-    var jargons: [Jargon]
-    
-    init(vm: JargonListViewModel) {
-        self.JargonListVM = vm
-        jargons = JargonListVM.populate()
-    }
+    @EnvironmentObject var jargonListVM: JargonListViewModel
     
     var body: some View {
         NavigationStack{
-            HomeView(jargons: jargons)
+            HomeView()
         }
 //        .onAppear(perform: {
 //            jargonListVM.populate()

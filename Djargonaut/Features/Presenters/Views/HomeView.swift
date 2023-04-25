@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    var jargons: [Jargon]
+    @EnvironmentObject var jargonListVM: JargonListViewModel
     @State private var randomJargon: Jargon?
     
     var body: some View {
@@ -35,7 +35,7 @@ struct HomeView: View {
                                 Spacer()
                                 
                                 Button{
-                                    
+                                    randomJargon = jargonListVM.jargonList.randomElement()
                                 } label: {
                                     Image(systemName: "shuffle")
                                         .foregroundColor(AppColor.secondary)
@@ -79,7 +79,8 @@ struct HomeView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .onAppear{
-            randomJargon = jargons.randomElement()!
+            jargonListVM.populate()
+            randomJargon = jargonListVM.jargonList.randomElement()!
         }
     }
         
