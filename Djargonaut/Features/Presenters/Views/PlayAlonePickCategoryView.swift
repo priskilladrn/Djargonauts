@@ -108,11 +108,18 @@ struct PlayAlonePickCategoryView: View {
                         
                     } label: {
                         ZStack {
-                            RoundedRectangle(cornerRadius: 20)
+                            RoundedRectangle(cornerRadius: 15)
                                 .fill()
+                                .foregroundColor(AppColor.secondary)
+                                .overlay(content: {
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .stroke(AppColor.def, lineWidth: 3)
+                                })
+                            Text("Randomize")
+                                .foregroundColor(Color("Title"))
                         }
                     }
-                    .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.08)
+                    .frame(width: geo.size.width * 0.7, height: geo.size.height * 0.07)
                     
                     Spacer()
                 }
