@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "home_search.svg",
+      "filename" : "Accounting Light.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,6 +12,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "Accounting Dark.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },

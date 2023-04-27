@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "home_search.svg",
+      "filename" : "BG_Light_Mode.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,6 +12,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "BG Dark Opacity 50%.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },

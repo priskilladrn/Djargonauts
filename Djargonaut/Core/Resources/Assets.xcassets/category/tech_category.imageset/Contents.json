@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "home_search.svg",
+      "filename" : "Tech Light.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,6 +12,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "Tech Dark.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
