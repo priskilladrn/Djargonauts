@@ -14,12 +14,21 @@ struct HomeView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack{
-                ZStack (alignment: .top){
+                HStack{
+                    Text("Hi, Djargonauts")
+                        .font(.system(size: 18))
+                        .bold()
+                    Spacer()
+                    
+                    Image(systemName: "magnifyingglass")
+                }
+                .padding(.horizontal, 16)
+                ZStack {
+                    
                     Image("home_astronot")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: geometry.size.width, height: 280) // TODO: test other devices' height
-                        .padding(.top, -geometry.safeAreaInsets.top)
+//                        .frame(width: geometry.size.width, height: 280) // TODO: test other devices' height
                     HStack {
                         Spacer()
                         VStack (alignment: .leading, spacing: 10){
@@ -54,17 +63,25 @@ struct HomeView: View {
                             .foregroundColor(AppColor.secondary)
                         }
                         .padding()
-                        .frame(width: geometry.size.width * 0.6)
+                        .frame(width: geometry.size.width * 0.55)
                     }
                 }
+                .background(AppColor.purpleDark.opacity(0.8))
+                .frame(height: 220)
+                .cornerRadius(20)
+                .padding(.horizontal, 16)
+                .padding(.top, 16)
                 
                 Spacer()
                 
-                ImageButtonLink(text: "Search", imageName: "home_search", destination: SearchPageView())
-                
+                Text("Select Mode")
+                    .bold()
+                    .textCase(.uppercase)
+                    .foregroundColor(AppColor.def)
+                    .kerning(4)
                 HStack (spacing: 30){
-                    ImageButtonLink(text: "Solo", imageName: "home_solo", destination: EmptyView())
-                    ImageButtonLink(text: "1 VS 1", imageName: "home_1v1", destination: MultipeerInitView())
+                    ImageButtonLink(text: "Solo Mode", imageName: "home_solo", destination: EmptyView())
+                    ImageButtonLink(text: "Multiplayer", imageName: "home_1v1", destination: MultipeerInitView())
                 }
                 .padding()
                 

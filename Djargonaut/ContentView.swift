@@ -14,6 +14,8 @@ struct ContentView: View {
     var body: some View {
         NavigationStack{
             HomeView()
+                .background(Image("background").resizable()
+                    .aspectRatio( contentMode: .fill))
         }
 //        .onAppear(perform: {
 //            jargonListVM.populate()

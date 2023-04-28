@@ -20,7 +20,6 @@ struct ImageButtonLink: View {
                     .resizable()
                     .scaledToFit()
                 Text(text)
-                    .textCase(.uppercase)
                     .foregroundColor(AppColor.def)
             }
             .frame(width: 118.55)
