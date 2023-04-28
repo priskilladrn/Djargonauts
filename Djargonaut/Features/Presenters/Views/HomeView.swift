@@ -10,6 +10,8 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var jargonListVM: JargonListViewModel
     @State private var randomJargon: Jargon?
+    @State var isPresented = false //Variabel popup
+
     
     var body: some View {
         GeometryReader { geometry in
