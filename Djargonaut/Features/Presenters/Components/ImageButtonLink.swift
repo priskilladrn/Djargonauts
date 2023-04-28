@@ -20,9 +20,10 @@ struct ImageButtonLink: View {
                     .resizable()
                     .scaledToFit()
                 Text(text)
+                    .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(AppColor.def)
             }
-            .frame(width: 118.55)
+            .frame(width: 132)
         }
     }
 }

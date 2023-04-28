@@ -13,7 +13,7 @@ struct HomeView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack{
+            VStack(spacing: 0){
                 HStack{
                     Text("Hi, Djargonauts")
                         .font(.system(size: 18))
@@ -22,59 +22,73 @@ struct HomeView: View {
                     
                     Image(systemName: "magnifyingglass")
                 }
-                .padding(.horizontal, 16)
-                ZStack {
-                    
-                    Image("home_astronot")
-                        .resizable()
-                        .scaledToFill()
-//                        .frame(width: geometry.size.width, height: 280) // TODO: test other devices' height
-                    HStack {
-                        Spacer()
-                        VStack (alignment: .leading, spacing: 10){
-                            Text(randomJargon?.category ?? "")
-                                .padding(.horizontal)
-                                .padding(.vertical, 5)
-                                .background(AppColor.purple)
-                                .cornerRadius(12)
-                            HStack {
-                                Text(randomJargon?.base ?? "")
-                                    .font(.title3)
-                                    .bold()
-                                Spacer()
-                                
-                                Button{
-                                    randomJargon = jargonListVM.jargonList.randomElement()
-                                } label: {
-                                    Image(systemName: "shuffle")
-                                        .foregroundColor(AppColor.secondary)
-                                }
+                .padding([.horizontal, .bottom], 16)
+                HStack {
+                    Spacer()
+                    VStack (alignment: .leading, spacing: 10){
+                        Text(randomJargon?.category ?? "")
+                            .padding(.horizontal)
+                            .padding(.vertical, 5)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(AppColor.defReverse))
+                            .foregroundColor(AppColor.defReverse)
+                            .font(.system(size: 14))
+                        HStack {
+                            Text(randomJargon?.base ?? "")
+                                .font(.system(size: 20))
+                                .bold()
+                                .foregroundColor(AppColor.defReverse)
+                            Spacer()
+                            
+                            Button{
+                                randomJargon = jargonListVM.jargonList.randomElement()
+                            } label: {
+                                Image(systemName: "shuffle")
+                                    .foregroundColor(AppColor.secondary)
                             }
-                            
-                            Divider()
-                                .overlay(AppColor.def)
-                            
-                            Text(randomJargon?.desc ?? "")
-                            
-                            HStack{
-                                Text("Read More")
-                                Image(systemName: "chevron.right")
-                            }
-                            .foregroundColor(AppColor.secondary)
                         }
-                        .padding()
-                        .frame(width: geometry.size.width * 0.55)
+                        
+                        Divider()
+                            .overlay(AppColor.defReverse)
+                        
+                        Text(randomJargon?.desc ?? "")
+                            .foregroundColor(AppColor.defReverse)
+                            .font(.system(size: 15, weight: .medium))
+                        
+                        
+                        NavigationLink{
+                            // destination
+                        } label: {
+                            Text("Read More >")
+                                .underline()
+                                .font(.system(size: 12))
+                                .foregroundColor(AppColor.secondary)                        }
                     }
+                    .padding()
+                    .frame(width: geometry.size.width * 0.55)
                 }
-                .background(AppColor.purpleDark.opacity(0.8))
+                .background(
+                    ZStack (alignment: .top){
+                        RoundedRectangle(cornerRadius: 32)
+                            .fill(AppColor.purpleDark)
+                            .opacity(0.8)
+                        RoundedRectangle(cornerRadius: 32)
+                            .strokeBorder(AppColor.purple, lineWidth: 3)
+                            .opacity(0.8)
+                        Image("home_astronot")
+                            .resizable()
+                            .scaledToFill()
+                            .padding(.top, -16)
+                    }
+                )
                 .frame(height: 220)
-                .cornerRadius(20)
                 .padding(.horizontal, 16)
-                .padding(.top, 16)
                 
                 Spacer()
                 
                 Text("Select Mode")
+                    .font(.system(size: 21))
                     .bold()
                     .textCase(.uppercase)
                     .foregroundColor(AppColor.def)
@@ -87,7 +101,25 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                Image("home_how_to_play")
+                Button{
+                    
+                } label: {
+                    ZStack {
+                        Image("home_how_to_play_btn")
+                            .resizable()
+                            .scaledToFit()
+                            .padding(.bottom, -10)
+                        Text("How To Play")
+                            .foregroundColor(AppColor.def)
+                            .textCase(.uppercase)
+                            .font(.system(size: 12))
+                            .underline()
+                    }
+                    .frame(width: 75)
+                }
+                
+                
+                Image("home_how_to_play_rock")
                     .resizable()
                     .scaledToFit()
                     .padding(.bottom, -geometry.safeAreaInsets.bottom)
@@ -100,7 +132,7 @@ struct HomeView: View {
             randomJargon = jargonListVM.jargonList.randomElement()!
         }
     }
-        
+    
 }
 
 //struct HomeView_Previews: PreviewProvider {

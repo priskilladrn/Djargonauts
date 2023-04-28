@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "BG_Light_Mode.png",
+      "filename" : "BG Light 50_.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "BG Dark Opacity 50%.svg",
+      "filename" : "BG Dark Opacity 50_.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
