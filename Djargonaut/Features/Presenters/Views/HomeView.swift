@@ -18,9 +18,15 @@ struct HomeView: View {
                     Text("Hi, Djargonauts")
                         .font(.system(size: 18))
                         .bold()
+                        .foregroundColor(AppColor.title)
                     Spacer()
                     
-                    Image(systemName: "magnifyingglass")
+                    NavigationLink{
+                        SearchPageView()
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(AppColor.title)
+                    }
                 }
                 .padding([.horizontal, .bottom], 16)
                 HStack {
@@ -31,14 +37,14 @@ struct HomeView: View {
                             .padding(.vertical, 5)
                             .background(
                                 RoundedRectangle(cornerRadius: 8)
-                                    .stroke(AppColor.defReverse))
-                            .foregroundColor(AppColor.defReverse)
+                                    .stroke(.white))
+                            .foregroundColor(.white)
                             .font(.system(size: 14))
                         HStack {
                             Text(randomJargon?.base ?? "")
                                 .font(.system(size: 20))
                                 .bold()
-                                .foregroundColor(AppColor.defReverse)
+                                .foregroundColor(.white)
                             Spacer()
                             
                             Button{
@@ -50,10 +56,10 @@ struct HomeView: View {
                         }
                         
                         Divider()
-                            .overlay(AppColor.defReverse)
+                            .overlay(.white)
                         
                         Text(randomJargon?.desc ?? "")
-                            .foregroundColor(AppColor.defReverse)
+                            .foregroundColor(.white)
                             .font(.system(size: 15, weight: .medium))
                         
                         
@@ -91,9 +97,9 @@ struct HomeView: View {
                     .font(.system(size: 21))
                     .bold()
                     .textCase(.uppercase)
-                    .foregroundColor(AppColor.def)
+                    .foregroundColor(AppColor.title)
                     .kerning(4)
-                HStack (spacing: 30){
+                HStack (spacing: 32){
                     ImageButtonLink(text: "Solo Mode", imageName: "home_solo", destination: EmptyView())
                     ImageButtonLink(text: "Multiplayer", imageName: "home_1v1", destination: MultipeerInitView())
                 }
@@ -110,9 +116,9 @@ struct HomeView: View {
                             .scaledToFit()
                             .padding(.bottom, -10)
                         Text("How To Play")
-                            .foregroundColor(AppColor.def)
+                            .foregroundColor(.black)
                             .textCase(.uppercase)
-                            .font(.system(size: 12))
+                            .font(.system(size: 12, weight: .bold))
                             .underline()
                     }
                     .frame(width: 75)

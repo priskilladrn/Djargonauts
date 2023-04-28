@@ -21,7 +21,7 @@ struct ImageButtonLink: View {
                     .scaledToFit()
                 Text(text)
                     .font(.system(size: 16, weight: .semibold))
-                    .foregroundColor(AppColor.def)
+                    .foregroundColor(AppColor.title)
             }
             .frame(width: 132)
         }

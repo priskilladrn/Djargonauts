@@ -113,7 +113,7 @@ struct PlayAlonePickCategoryView: View {
                                 .foregroundColor(AppColor.secondary)
                                 .overlay(content: {
                                     RoundedRectangle(cornerRadius: 15)
-                                        .stroke(AppColor.def, lineWidth: 3)
+                                        .stroke(AppColor.title, lineWidth: 3)
                                 })
                             Text("Randomize")
                                 .foregroundColor(Color("Title"))
