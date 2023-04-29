@@ -64,10 +64,19 @@ struct MultipeerCreateView: View {
             Spacer()
             
             // TODO: fix destination (change empty view)
-            ButtonLinkView(text: "Start The Journey", isPrimary: false, destination: MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), isRoomCreator: true))
+            ButtonLinkView(text: "Start The Journey", isPrimary: false, destination: MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), multipeerViewModel: multipeerViewModel, isRoomCreator: true))
         }
         .padding()
         .navigationTitle("New Game")
+        .onChange(of: chosenCategory){ chosenCategory in
+            multipeerViewModel.roomSetting.chosenCategory = chosenCategory
+        }
+        .onChange(of: duration){ duration in
+            multipeerViewModel.roomSetting.duration = duration
+        }
+        .onChange(of: cardCount){ cardCount in
+            multipeerViewModel.roomSetting.cardCount = cardCount
+        }
     }
 }
 

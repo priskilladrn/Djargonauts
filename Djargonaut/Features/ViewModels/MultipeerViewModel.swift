@@ -9,4 +9,6 @@ import Foundation
 
 class MultipeerViewModel: ObservableObject {
     @Published var nickname: String = ""
+    @Published var roomSetting: RoomSetting = RoomSetting()
+    
 }

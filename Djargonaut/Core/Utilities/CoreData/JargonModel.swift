@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct JargonModel: Identifiable {
+struct JargonModel: Identifiable, Codable {
     var base: String
     var jargon: String
     var category: String
