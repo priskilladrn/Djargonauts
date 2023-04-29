@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-enum Stage{
-    case explain, answer, revealCorrectAnswer
-}
+
 
 struct MultipeerPlayView: View {
+    @ObservedObject var multipeerSession: MultipeerSession
     @ObservedObject var vm: MultipeerViewModel
-    @State private var currentStage: Stage = .explain
+    
+    @State private var currentQuestionIndex = 0
+    @State private var isAnswerCorrect = false
     var body: some View {
         VStack{
             HStack{
@@ -23,24 +24,67 @@ struct MultipeerPlayView: View {
             }
             Spacer()
             
-            Text("Words")
-            ForEach(vm.roomSetting.words, id: \.id){w in
-                Text("- \(w.base)")
-            }
-            
-            if currentStage == .explain {
-                VStack{
+            VStack{
+                if vm.roomSetting.words.isEmpty {
+                    Text("Loading")
+                } else if vm.currentStage == .explain {
                     HStack{
                         Text("[Category]")
                         Spacer()
                         Text("1 / [total]")
                     }
-                    Text("[word]")
+                    Text("soal: \(vm.roomSetting.words[currentQuestionIndex].base)")
                     Divider()
                     Text("[Description]")
+                } else if vm.currentStage == .guess {
+                    Text("Jawabannya:")
+                    Button("\(vm.roomSetting.words[currentQuestionIndex].base)"){
+                        isAnswerCorrect = true
+                        multipeerSession.send(data: GameMessage(type: GameMessageType.answer, isAnswerCorrect: true))
+                        vm.currentStage = .revealResultGuesser
+                    }
+                    Button("[ini opsi yang salah]"){
+                        isAnswerCorrect = false
+                        multipeerSession.send(data: GameMessage(type: GameMessageType.answer, isAnswerCorrect: false))
+                        vm.currentStage = .revealResultGuesser
+                    }
+                } else if vm.currentStage == .revealResultGuesser {
+                    if isAnswerCorrect {
+                        Text("jawaban bener!")
+                    } else {
+                        Text("jawaban salah!")
+                    }
+                    Button("Next"){
+                        multipeerSession.send(data: GameMessage(type: GameMessageType.triggerNext))
+                        
+                        currentQuestionIndex += 1
+                        // guesser become explainer
+                        vm.currentStage = .explain
+                    }
+                } else if vm.currentStage == .revealResultExplainer {
+                    if multipeerSession.receivedData?.isAnswerCorrect == true {
+                        Text("tebakan guesser bener")
+                    } else {
+                        Text("tebakan guesser salah")
+                    }
+                    Button("Next"){
+                        multipeerSession.send(data: GameMessage(type: GameMessageType.triggerNext))
+                        
+                        currentQuestionIndex += 1
+                        // explainer become guesser
+                        vm.currentStage = .guess
+                    }
                 }
-                .padding(.vertical)
-                .border(AppColor.purpleDark)                
+            }
+            .padding(.vertical)
+            .border(AppColor.purpleDark)
+            .onChange(of: multipeerSession.receivedData){ receivedData in
+                if receivedData?.type == GameMessageType.answer && vm.currentStage == .explain {
+                    vm.currentStage = .revealResultExplainer
+                } else if receivedData?.type == GameMessageType.triggerNext {
+                    currentQuestionIndex += 1
+                    vm.currentStage = vm.currentStage == .revealResultGuesser ? .explain : .guess
+                }
             }
             
             Spacer()

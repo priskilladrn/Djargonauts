@@ -50,7 +50,7 @@ struct MultipeerConnectView: View {
                     print("\(vm.roomSetting.chosenCategory)")
                     print("\(vm.roomSetting.duration)")
                     do{
-                        let string = try String(data: GameMessage(type: 0, roomSetting: vm.roomSetting).encode(), encoding: .utf8) ?? "ERR"
+                        let string = try String(data: GameMessage(type: GameMessageType.roomSetting, roomSetting: vm.roomSetting).encode(), encoding: .utf8) ?? "ERR"
                         print(string)
                         
                     } catch {
@@ -59,17 +59,19 @@ struct MultipeerConnectView: View {
                 }
             }
         } else {
-            MultipeerPlayView(vm: vm)
+            MultipeerPlayView(multipeerSession: multipeerSession, vm: vm)
                 .onAppear{
                     if isRoomCreator {
                         vm.roomSetting.words = jargonListVM.jargonList.shuffled().prefix(vm.roomSetting.cardCount).map{ JargonModel(from: $0) }
-                        print(vm.roomSetting.words)
-                        multipeerSession.send(data: GameMessage(type: 0, roomSetting: vm.roomSetting))
+//                        print(vm.roomSetting.words)
+                        vm.currentStage = .explain
+                        multipeerSession.send(data: GameMessage(type: GameMessageType.roomSetting, roomSetting: vm.roomSetting))
                     }
                 }
-                .onChange(of: multipeerSession.hasReceivedData){ hasReceivedData in
-                    if hasReceivedData {
-                        vm.roomSetting = multipeerSession.receivedData!.roomSetting!
+                .onChange(of: multipeerSession.receivedData){ receivedData in
+                    if !isRoomCreator && receivedData != nil && vm.currentStage == .pregame {
+                        vm.currentStage = .guess
+                        vm.roomSetting = receivedData!.roomSetting!
                     }
                 }
         }
