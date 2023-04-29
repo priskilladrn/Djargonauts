@@ -25,7 +25,7 @@ struct MultipeerInitView: View {
             Spacer()
             
             ButtonLinkView(text: "Create Room", destination: MultipeerCreateView(multipeerViewModel: multipeerViewModel))
-            ButtonLinkView(text: "Join Room", isPrimary: false, destination: MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), multipeerViewModel: multipeerViewModel))
+            ButtonLinkView(text: "Join Room", isPrimary: false, destination: MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), vm: multipeerViewModel))
         }
         .padding()
         .navigationTitle("Play Together")

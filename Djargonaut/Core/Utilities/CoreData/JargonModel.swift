@@ -22,6 +22,14 @@ struct JargonModel: Identifiable, Codable {
         self.desc = raw[3]
         self.partOfSpeech = raw[4]
     }
+    
+    init(from: Jargon){
+        self.base = from.base ?? ""
+        self.jargon = from.jargon ?? ""
+        self.category = from.category ?? ""
+        self.desc = from.desc ?? ""
+        self.partOfSpeech = from.partOfSpeech ?? ""
+    }
 }
 
 func loadCSV(from csvName: String) -> [JargonModel] {

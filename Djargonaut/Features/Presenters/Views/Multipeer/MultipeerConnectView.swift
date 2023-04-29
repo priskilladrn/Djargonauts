@@ -9,12 +9,13 @@ import SwiftUI
 import os
 struct MultipeerConnectView: View {
     @StateObject var multipeerSession: MultipeerSession
-    @ObservedObject var multipeerViewModel: MultipeerViewModel
+    @ObservedObject var vm: MultipeerViewModel
     @State var opponentName: String = ""
     
     var isRoomCreator: Bool = false
     var logger = Logger()
-        
+    
+    @EnvironmentObject var jargonListVM: JargonListViewModel
     var body: some View {
         if !multipeerSession.hasPaired && !isRoomCreator {
             HStack {
@@ -46,10 +47,10 @@ struct MultipeerConnectView: View {
                 }
                 
                 Button("liat setting"){
-                    print("\(multipeerViewModel.roomSetting.chosenCategory)")
-                    print("\(multipeerViewModel.roomSetting.duration)")
+                    print("\(vm.roomSetting.chosenCategory)")
+                    print("\(vm.roomSetting.duration)")
                     do{
-                        let string = try String(data: GameMessage(type: 0, roomSetting: multipeerViewModel.roomSetting).encode(), encoding: .utf8) ?? "ERR"
+                        let string = try String(data: GameMessage(type: 0, roomSetting: vm.roomSetting).encode(), encoding: .utf8) ?? "ERR"
                         print(string)
                         
                     } catch {
@@ -58,29 +59,24 @@ struct MultipeerConnectView: View {
                 }
             }
         } else {
-            Text("masuk, udah paired sama \(opponentName)")
+            MultipeerPlayView(vm: vm)
                 .onAppear{
                     if isRoomCreator {
-                        multipeerSession.send(data: GameMessage(type: 0, roomSetting: multipeerViewModel.roomSetting))
+                        vm.roomSetting.words = jargonListVM.jargonList.shuffled().prefix(vm.roomSetting.cardCount).map{ JargonModel(from: $0) }
+                        print(vm.roomSetting.words)
+                        multipeerSession.send(data: GameMessage(type: 0, roomSetting: vm.roomSetting))
                     }
                 }
-                .alert("masuk: ", isPresented: $multipeerSession.hasReceivedData){
-
+                .onChange(of: multipeerSession.hasReceivedData){ hasReceivedData in
+                    if hasReceivedData {
+                        vm.roomSetting = multipeerSession.receivedData!.roomSetting!
+                    }
                 }
-//
-            ButtonView(text: "coba"){
-                do {
-                    var cat: String = multipeerSession.receivedData!.roomSetting!.chosenCategory
-                    var dur: Int = multipeerSession.receivedData!.roomSetting!.duration
-                    
-                    print("category: \(cat), duration: \(dur)")
-                } catch {
-                    
-                }
-            }
         }
     }
 }
+
+
 
 //struct MultipeerConnectView_Previews: PreviewProvider {
 //    static var previews: some View {

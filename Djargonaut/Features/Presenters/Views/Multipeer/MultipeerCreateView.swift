@@ -64,7 +64,7 @@ struct MultipeerCreateView: View {
             Spacer()
             
             // TODO: fix destination (change empty view)
-            ButtonLinkView(text: "Start The Journey", isPrimary: false, destination: MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), multipeerViewModel: multipeerViewModel, isRoomCreator: true))
+            ButtonLinkView(text: "Start The Journey", isPrimary: false, destination: MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), vm: multipeerViewModel, isRoomCreator: true))
         }
         .padding()
         .navigationTitle("New Game")

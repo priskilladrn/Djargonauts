@@ -7,7 +7,13 @@
 
 import SwiftUI
 
+enum Stage{
+    case explain, answer, revealCorrectAnswer
+}
+
 struct MultipeerPlayView: View {
+    @ObservedObject var vm: MultipeerViewModel
+    @State private var currentStage: Stage = .explain
     var body: some View {
         VStack{
             HStack{
@@ -17,18 +23,25 @@ struct MultipeerPlayView: View {
             }
             Spacer()
             
-            VStack{
-                HStack{
-                    Text("[Category]")
-                    Spacer()
-                    Text("1 / [total]")
-                }
-                Text("[word]")
-                Divider()
-                Text("[Description]")
+            Text("Words")
+            ForEach(vm.roomSetting.words, id: \.id){w in
+                Text("- \(w.base)")
             }
-            .padding(.vertical)
-            .border(AppColor.purpleDark)
+            
+            if currentStage == .explain {
+                VStack{
+                    HStack{
+                        Text("[Category]")
+                        Spacer()
+                        Text("1 / [total]")
+                    }
+                    Text("[word]")
+                    Divider()
+                    Text("[Description]")
+                }
+                .padding(.vertical)
+                .border(AppColor.purpleDark)                
+            }
             
             Spacer()
             
@@ -38,8 +51,8 @@ struct MultipeerPlayView: View {
     }
 }
 
-struct MultipeerPlayView_Previews: PreviewProvider {
-    static var previews: some View {
-        MultipeerPlayView()
-    }
-}
+//struct MultipeerPlayView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MultipeerPlayView()
+//    }
+//}

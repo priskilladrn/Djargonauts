@@ -18,8 +18,9 @@ public struct GameMessage: Codable {
     var opponentFinalPoints: Int?
 }
 
+// TODO: move to models
 public struct RoomSetting: Codable {
-    var chosenCategory: String = ""
+    var chosenCategory: String = "Tech"
     var duration: Int = 0
     var cardCount: Int = 0
     var words: [JargonModel] = []
