@@ -22,6 +22,8 @@
 		0ACD839529F6CB9E0031E9BD /* ImageButtonLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD839429F6CB9E0031E9BD /* ImageButtonLink.swift */; };
 		0ACD839929F6CE940031E9BD /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD839829F6CE940031E9BD /* AppColor.swift */; };
 		26878DE429F827210036497D /* PlayAlonePickCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26878DE329F827210036497D /* PlayAlonePickCategoryView.swift */; };
+		26AA110629FD82490003B82A /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AA110529FD82490003B82A /* ColorExtension.swift */; };
+		26AA110A29FD8AC80003B82A /* RandomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AA110929FD8AC80003B82A /* RandomView.swift */; };
 		26B9653129F6440300A9465A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B9653029F6440300A9465A /* CoreDataManager.swift */; };
 		26B9653529F6445C00A9465A /* DjargonautModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26B9653329F6445C00A9465A /* DjargonautModel.xcdatamodeld */; };
 		26B9653729F6448400A9465A /* JargonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B9653629F6448400A9465A /* JargonModel.swift */; };
@@ -52,6 +54,8 @@
 		0ACD839429F6CB9E0031E9BD /* ImageButtonLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageButtonLink.swift; sourceTree = "<group>"; };
 		0ACD839829F6CE940031E9BD /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		26878DE329F827210036497D /* PlayAlonePickCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAlonePickCategoryView.swift; sourceTree = "<group>"; };
+		26AA110529FD82490003B82A /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		26AA110929FD8AC80003B82A /* RandomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomView.swift; sourceTree = "<group>"; };
 		26B9653029F6440300A9465A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		26B9653429F6445C00A9465A /* JargonData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JargonData.xcdatamodel; sourceTree = "<group>"; };
 		26B9653629F6448400A9465A /* JargonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JargonModel.swift; path = Djargonaut/Core/Utilities/CoreData/JargonModel.swift; sourceTree = SOURCE_ROOT; };
@@ -179,6 +183,7 @@
 				0ACD839229F6BA880031E9BD /* HomeView.swift */,
 				26878DE329F827210036497D /* PlayAlonePickCategoryView.swift */,
 				2855D86329FA106C00833BDD /* ScoreView.swift */,
+				26AA110929FD8AC80003B82A /* RandomView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 		0A42FB1229EE563B0031AB01 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				26AA110529FD82490003B82A /* ColorExtension.swift */,
 				26B9653C29F65EA400A9465A /* JargonExtension.swift */,
 			);
 			path = Extensions;
@@ -319,6 +325,7 @@
 				2855D86429FA106C00833BDD /* ScoreView.swift in Sources */,
 				26B9653F29F6600E00A9465A /* BaseModel.swift in Sources */,
 				26B9653529F6445C00A9465A /* DjargonautModel.xcdatamodeld in Sources */,
+				26AA110629FD82490003B82A /* ColorExtension.swift in Sources */,
 				26B9653929F6476400A9465A /* JargonListViewModel.swift in Sources */,
 				26B9653D29F65EA400A9465A /* JargonExtension.swift in Sources */,
 				0ACD838B29F282870031E9BD /* MultipeerSession.swift in Sources */,
@@ -333,6 +340,7 @@
 				0A42FAFD29EE55280031AB01 /* DjargonautApp.swift in Sources */,
 				26B9653129F6440300A9465A /* CoreDataManager.swift in Sources */,
 				0ACD838F29F286920031E9BD /* MultipeerViewModel.swift in Sources */,
+				26AA110A29FD8AC80003B82A /* RandomView.swift in Sources */,
 				A38487AE29EE859800DC25EF /* SearchPageView.swift in Sources */,
 				0ACD838D29F285270031E9BD /* MultipeerConnectView.swift in Sources */,
 				0ACD839929F6CE940031E9BD /* AppColor.swift in Sources */,

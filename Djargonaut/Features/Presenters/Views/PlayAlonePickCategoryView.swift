@@ -10,7 +10,6 @@ import SwiftUI
 struct PlayAlonePickCategoryView: View {
     
     @EnvironmentObject var jargonListVM: JargonListViewModel
-    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         GeometryReader { geo in
@@ -39,84 +38,44 @@ struct PlayAlonePickCategoryView: View {
                     Spacer()
                     
                     HStack {
-                        Button {
-                            
-                        } label: {
-                            VStack{
-                                Image("tech_category")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: geo.size.width * 0.3)
-                                Text("Technology")
-                                    .font(.title3)
-                                    .foregroundColor(AppColor.title)
-                            }
-                        }
-                        .padding(.trailing, geo.size.width * 0.1)
+                        ImageButtonLink(text: "Technology", imageName: "tech_category", destination: EmptyView())
+                            .padding(.trailing, geo.size.width * 0.1)
                         
-                        Button {
-                            
-                        } label: {
-                            VStack{
-                                Image("design_category")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: geo.size.width * 0.3)
-                                Text("Design")
-                                    .font(.title3)
-                                    .foregroundColor(AppColor.title)
-                            }
-                        }
+                        ImageButtonLink(text: "Design", imageName: "design_category", destination: EmptyView())
                     }
                     .padding(.bottom, geo.size.height * 0.055)
                     .padding(.top, geo.size.height * 0.08)
                     
                     HStack {
-                        Button {
-                            
-                        } label: {
-                            VStack{
-                                Image("game_category")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: geo.size.width * 0.3)
-                                Text("Gaming")
-                                    .font(.title3)
-                                    .foregroundColor(AppColor.title)
-                            }
-                        }
-                        .padding(.trailing, geo.size.width * 0.1)
+                        ImageButtonLink(text: "Gaming", imageName: "game_category", destination: EmptyView())
+                            .padding(.trailing, geo.size.width * 0.1)
                         
-                        Button {
-                            
-                        } label: {
-                            VStack{
-                                Image("accounting_category")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: geo.size.width * 0.3)
-                                Text("Accounting")
-                                    .font(.title3)
-                                    .foregroundColor(AppColor.title)
-                            }
-                        }
+                        ImageButtonLink(text: "Accounting", imageName: "accounting_category", destination: EmptyView())
                     }
                     
                     Spacer()
                     
                     Button {
+                        let categories = ["Tech", "Design", "Gaming", "Accounting"]
                         
+                        jargonListVM.searchCategory(category: categories.randomElement()!)
+                        print(jargonListVM.jargonList)
                     } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 15)
-                                .fill()
-                                .foregroundColor(AppColor.secondary)
-                                .overlay(content: {
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .stroke(AppColor.title, lineWidth: 3)
-                                })
-                            Text("Randomize")
-                                .foregroundColor(Color("Title"))
+                        NavigationLink {
+                            AnyView(RandomView())
+                        } label: {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .fill()
+                                    .foregroundColor(AppColor.secondary)
+                                    .overlay(content: {
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .stroke(AppColor.title, lineWidth: 3)
+                                    })
+                                Text("Randomize")
+                                    .foregroundColor(Color(hex: 001477))
+                                    .fontWeight(.semibold)
+                            }
                         }
                     }
                     .frame(width: geo.size.width * 0.7, height: geo.size.height * 0.07)

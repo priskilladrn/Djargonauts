@@ -143,6 +143,8 @@ struct HomeView: View {
 
 //struct HomeView_Previews: PreviewProvider {
 //    static var previews: some View {
+//        let viewContext = CoreDataManager.shared.container.viewContext
 //        HomeView()
+//            .environmentObject(JargonListViewModel(context: viewContext))
 //    }
 //}
