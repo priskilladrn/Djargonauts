@@ -29,7 +29,8 @@
 		26B9653D29F65EA400A9465A /* JargonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B9653C29F65EA400A9465A /* JargonExtension.swift */; };
 		26B9653F29F6600E00A9465A /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B9653E29F6600E00A9465A /* BaseModel.swift */; };
 		26B9654129F6794400A9465A /* Suggestion Data.csv in Resources */ = {isa = PBXBuildFile; fileRef = 26B9654029F6794400A9465A /* Suggestion Data.csv */; };
-		2855D86429FA106C00833BDD /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2855D86329FA106C00833BDD /* ScoreView.swift */; };
+		283A6CD329FE541F0063F966 /* ScoreSoloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283A6CD229FE541F0063F966 /* ScoreSoloView.swift */; };
+		2855D86429FA106C00833BDD /* ScoreMultipeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2855D86329FA106C00833BDD /* ScoreMultipeerView.swift */; };
 		81A4193029F10BEA00B645B8 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A4192F29F10BEA00B645B8 /* SliderView.swift */; };
 		A352E24829EE95FB0000C7D5 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A352E24729EE95FB0000C7D5 /* SearchResultView.swift */; };
 		A38487AE29EE859800DC25EF /* SearchPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38487AD29EE859800DC25EF /* SearchPageView.swift */; };
@@ -59,7 +60,8 @@
 		26B9653C29F65EA400A9465A /* JargonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JargonExtension.swift; path = Djargonaut/Features/Presenters/Views/JargonExtension.swift; sourceTree = SOURCE_ROOT; };
 		26B9653E29F6600E00A9465A /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseModel.swift; path = Djargonaut/Features/Presenters/Views/BaseModel.swift; sourceTree = SOURCE_ROOT; };
 		26B9654029F6794400A9465A /* Suggestion Data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Suggestion Data.csv"; sourceTree = "<group>"; };
-		2855D86329FA106C00833BDD /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		283A6CD229FE541F0063F966 /* ScoreSoloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSoloView.swift; sourceTree = "<group>"; };
+		2855D86329FA106C00833BDD /* ScoreMultipeerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreMultipeerView.swift; sourceTree = "<group>"; };
 		81A4192F29F10BEA00B645B8 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		A352E24729EE95FB0000C7D5 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		A38487AD29EE859800DC25EF /* SearchPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageView.swift; sourceTree = "<group>"; };
@@ -178,7 +180,8 @@
 				0ACD838C29F285270031E9BD /* MultipeerConnectView.swift */,
 				0ACD839229F6BA880031E9BD /* HomeView.swift */,
 				26878DE329F827210036497D /* PlayAlonePickCategoryView.swift */,
-				2855D86329FA106C00833BDD /* ScoreView.swift */,
+				2855D86329FA106C00833BDD /* ScoreMultipeerView.swift */,
+				283A6CD229FE541F0063F966 /* ScoreSoloView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,7 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2855D86429FA106C00833BDD /* ScoreView.swift in Sources */,
+				2855D86429FA106C00833BDD /* ScoreMultipeerView.swift in Sources */,
 				26B9653F29F6600E00A9465A /* BaseModel.swift in Sources */,
 				26B9653529F6445C00A9465A /* DjargonautModel.xcdatamodeld in Sources */,
 				26B9653929F6476400A9465A /* JargonListViewModel.swift in Sources */,
@@ -326,6 +329,7 @@
 				0ACD839329F6BA880031E9BD /* HomeView.swift in Sources */,
 				26878DE429F827210036497D /* PlayAlonePickCategoryView.swift in Sources */,
 				0A42FAFF29EE55280031AB01 /* ContentView.swift in Sources */,
+				283A6CD329FE541F0063F966 /* ScoreSoloView.swift in Sources */,
 				0ACD838229F26C7E0031E9BD /* TextFieldView.swift in Sources */,
 				26B9653729F6448400A9465A /* JargonModel.swift in Sources */,
 				0ACD838429F26DE00031E9BD /* ButtonView.swift in Sources */,
