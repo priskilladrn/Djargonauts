@@ -59,30 +59,16 @@ struct PlayAlonePickCategoryView: View {
                         let categories = ["Tech", "Design", "Gaming", "Accounting"]
                         
                         jargonListVM.searchCategory(category: categories.randomElement()!)
-                        print(jargonListVM.jargonList)
+                        
                     } label: {
-                        NavigationLink {
-                            AnyView(RandomView())
-                        } label: {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 15)
-                                    .fill()
-                                    .foregroundColor(AppColor.secondary)
-                                    .overlay(content: {
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .stroke(AppColor.title, lineWidth: 3)
-                                    })
-                                Text("Randomize")
-                                    .foregroundColor(Color(hex: 001477))
-                                    .fontWeight(.semibold)
-                            }
-                        }
+                        BorderedButtonView(text: "Randomize", destination: RandomView())
                     }
                     .frame(width: geo.size.width * 0.7, height: geo.size.height * 0.07)
                     
                     Spacer()
                 }
             }
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
