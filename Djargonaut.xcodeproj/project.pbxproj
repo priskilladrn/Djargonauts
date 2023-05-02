@@ -32,7 +32,6 @@
 		26B9654129F6794400A9465A /* Suggestion Data.csv in Resources */ = {isa = PBXBuildFile; fileRef = 26B9654029F6794400A9465A /* Suggestion Data.csv */; };
 		283A6CD329FE541F0063F966 /* ScoreSoloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283A6CD229FE541F0063F966 /* ScoreSoloView.swift */; };
 		2855D86429FA106C00833BDD /* ScoreMultipeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2855D86329FA106C00833BDD /* ScoreMultipeerView.swift */; };
-		2855D86429FA106C00833BDD /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2855D86329FA106C00833BDD /* ScoreView.swift */; };
 		815177BC29FB7F1C007B4E2E /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815177BB29FB7F1C007B4E2E /* PopupView.swift */; };
 		81A4193029F10BEA00B645B8 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A4192F29F10BEA00B645B8 /* SliderView.swift */; };
 		A352E24829EE95FB0000C7D5 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A352E24729EE95FB0000C7D5 /* SearchResultView.swift */; };
@@ -66,7 +65,6 @@
 		26B9654029F6794400A9465A /* Suggestion Data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Suggestion Data.csv"; sourceTree = "<group>"; };
 		283A6CD229FE541F0063F966 /* ScoreSoloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSoloView.swift; sourceTree = "<group>"; };
 		2855D86329FA106C00833BDD /* ScoreMultipeerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreMultipeerView.swift; sourceTree = "<group>"; };
-		2855D86329FA106C00833BDD /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		815177BB29FB7F1C007B4E2E /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		81A4192F29F10BEA00B645B8 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		A352E24729EE95FB0000C7D5 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
