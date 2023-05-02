@@ -45,9 +45,9 @@ struct RandomView: View {
                             .foregroundColor(RandomView.randomColor)
                             .animation(
                                 Animation
-                                    .interpolatingSpring(mass: 8, stiffness: 10, damping: 5, initialVelocity: 0.8)
+                                    .interpolatingSpring(mass: 10, stiffness: 10, damping: 5, initialVelocity: 0.5)
                                     .repeatForever(autoreverses: true)
-                                    .speed(90)
+                                    .speed(60)
                                         ,value: self.CurrentColor)
                                     .foregroundColor(RandomView.randomColor)
                                     .onAppear() {
@@ -67,7 +67,6 @@ struct RandomView: View {
                     isActive: $navigateToCategoryPage,
                     label: {}
                 )
-            
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
