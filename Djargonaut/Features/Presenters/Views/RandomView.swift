@@ -9,7 +9,17 @@ import SwiftUI
 
 struct RandomView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Image("background")
+                .resizable()
+                .scaledToFill()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .ignoresSafeArea()
+            
+            Text("Randomizing")
+                .fontWeight(.bold)
+                .kerning(1)
+        }
     }
 }
 
