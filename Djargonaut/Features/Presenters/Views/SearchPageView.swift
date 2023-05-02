@@ -8,6 +8,26 @@
 import SwiftUI
 
 struct SearchPageView: View {
+    
+    @State private var searchText: String = ""
+    
+    var searchBar: some View {
+        HStack {
+            Image(systemName:"magnifyingglass")
+                .foregroundColor(Color("Title"))
+            TextField("Search", text: $searchText)
+                .opacity(2)
+                .foregroundColor(Color("Title"))
+            Spacer()
+        }
+        .padding(10)
+        .cornerRadius(23)
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color("Title"), lineWidth: 2)
+        )
+    }
+    
     var body: some View {
         VStack {
             HStack {
@@ -23,20 +43,10 @@ struct SearchPageView: View {
             .frame(maxWidth: .infinity)
             .padding(.vertical, 10)
             
-            HStack {
-                Image(systemName:"magnifyingglass")
-                    .foregroundColor(Color("Title"))
-                Text("Search")
-                    .opacity(2)
-                    .foregroundColor(Color("Title"))
-                Spacer()
-            }
-            .padding(10)
-            .cornerRadius(23)
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color("Title"), lineWidth: 2)
-            )
+            searchBar
+            
+            SearchResultView()
+            
         }
         .padding(.bottom, 20)
         .padding(.horizontal, 25)
