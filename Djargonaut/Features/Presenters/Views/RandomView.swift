@@ -74,7 +74,6 @@ struct RandomView: View {
             }
         }
     }
-
 }
     
     struct RandomView_Previews: PreviewProvider {
@@ -82,4 +81,3 @@ struct RandomView: View {
             RandomView()
         }
     }
-    
