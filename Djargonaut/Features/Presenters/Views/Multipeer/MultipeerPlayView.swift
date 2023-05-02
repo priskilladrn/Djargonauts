@@ -15,6 +15,7 @@ struct MultipeerPlayView: View {
     
     @State private var currentQuestionIndex = 0
     @State private var isAnswerCorrect = false
+    @State private var redirectToScore = false
     var body: some View {
         VStack{
             HStack{
@@ -25,7 +26,11 @@ struct MultipeerPlayView: View {
             Spacer()
             
             VStack{
-                if vm.roomSetting.words.isEmpty {
+                //                if currentQuestionIndex >= vm.roomSetting.words.count {
+                //                    ScoreMultipeerView()
+                //
+                //                } else
+                if vm.roomSetting.words.isEmpty || currentQuestionIndex >= vm.roomSetting.words.count {
                     Text("Loading")
                 } else if vm.currentStage == .explain {
                     HStack{
@@ -92,6 +97,14 @@ struct MultipeerPlayView: View {
             Text("[time]")
         }
         .padding(.horizontal, 16)
+        .onChange(of: currentQuestionIndex){ index in
+            if index >= vm.roomSetting.words.count {
+                redirectToScore = true
+            }
+        }
+        .navigationDestination(isPresented: $redirectToScore) {
+            ScoreMultipeerView()
+        }
     }
 }
 

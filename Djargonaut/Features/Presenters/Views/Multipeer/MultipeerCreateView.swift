@@ -57,7 +57,7 @@ struct MultipeerCreateView: View {
                 
                 Spacer()
                 
-                Stepper("\(cardCount)", value: $cardCount, in: 5...30, step: 5)
+                Stepper("\(cardCount)", value: $cardCount, in: 2...30, step: 2)
                     .frame(width: 150)
             }
             

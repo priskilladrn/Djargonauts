@@ -14,7 +14,7 @@ struct ScoreMultipeerView: View {
                 Image("background")
                     .resizable()
                     .scaledToFill()
-                    .frame(width: .infinity, height: .infinity)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .ignoresSafeArea()
                 
                 VStack {
@@ -80,24 +80,12 @@ struct ScoreMultipeerView: View {
                     Button {
                         
                     } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 15)
-                                .fill()
-                                .foregroundColor(AppColor.secondary)
-                                .shadow(color: .black, radius: 4)
-                                .overlay(content: {
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .stroke(.white, lineWidth: 3)
-                                })
-                            
-                            Text("Exit to Main Menu")
-                                .foregroundColor(Color("Title"))
-                                .fontWeight(.bold)
-                        }
+                        BorderedButtonView(text: "Exit to Main Menu", destination: HomeView())
                     }
                 .frame(width: geo.size.width * 0.7, height: geo.size.height * 0.07)
                 }
                 .padding(.bottom)
+                .navigationBarBackButtonHidden(true)
             }
         }
     }

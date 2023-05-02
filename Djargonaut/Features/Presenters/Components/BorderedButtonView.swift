@@ -23,7 +23,7 @@ struct BorderedButtonView: View {
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(AppColor.title, lineWidth: 3)
                     })
-                Text("Randomize")
+                Text(text)
                     .foregroundColor(Color(hex: 001477))
                     .fontWeight(.semibold)
             }
