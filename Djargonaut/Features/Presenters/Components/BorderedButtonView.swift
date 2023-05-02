@@ -19,9 +19,10 @@ struct BorderedButtonView: View {
                 RoundedRectangle(cornerRadius: 15)
                     .fill()
                     .foregroundColor(AppColor.secondary)
+                    .shadow(color: .black, radius: 4)
                     .overlay(content: {
                         RoundedRectangle(cornerRadius: 15)
-                            .stroke(AppColor.title, lineWidth: 3)
+                            .stroke(Color(.white), lineWidth: 3)
                     })
                 Text(text)
                     .foregroundColor(Color(hex: 001477))
