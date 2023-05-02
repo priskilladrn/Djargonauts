@@ -9,6 +9,42 @@ import Foundation
 import MultipeerConnectivity
 import os
 
+// TODO: move to models
+struct GameMessageType {
+    static var roomSetting = 0, answer = 1, triggerNext = 2, opponentFinalPoints = 3
+}
+public struct GameMessage: Codable, Equatable, Identifiable {
+    public static func == (lhs: GameMessage, rhs: GameMessage) -> Bool {
+        return lhs.id == rhs.id
+    }
+    public var id = UUID()
+    var type: Int // 0 = room setting (di room setting sekalian udh lengkap wordsnya), 1 = answer, 2 = result / opponent points?
+    
+    var roomSetting: RoomSetting?
+    var isAnswerCorrect: Bool = false
+    var opponentFinalPoints: Int?
+}
+
+// TODO: move to models
+public struct RoomSetting: Codable {
+    var chosenCategory: String = "Tech"
+    var duration: Int = 15
+    var cardCount: Int = 10
+    var words: [JargonModel] = []
+}
+
+//TODO: move extensions to its own directory
+extension Encodable {
+    func encode(with encoder: JSONEncoder = JSONEncoder()) throws -> Data {
+        return try encoder.encode(self)
+    }
+}
+extension Decodable {
+    static func decode(with decoder: JSONDecoder = JSONDecoder(), from data: Data) throws -> Self {
+        return try decoder.decode(Self.self, from: data)
+    }
+}
+
 class MultipeerSession: NSObject, ObservableObject {
     private let serviceType = "djargonaut-srv"
     private var myPeerID: MCPeerID
@@ -22,7 +58,7 @@ class MultipeerSession: NSObject, ObservableObject {
     @Published var availablePeers: [MCPeerID] = []
     
     @Published var hasReceivedData: Bool = false
-    @Published var receivedData: String = ""
+    @Published var receivedData: GameMessage?
     
     @Published var hasReceivedInvite: Bool = false
     @Published var invitationSender: MCPeerID? = nil
@@ -52,11 +88,11 @@ class MultipeerSession: NSObject, ObservableObject {
         serviceBrowser.stopBrowsingForPeers()
     }
     
-    func send(data: String) {
+    func send(data: GameMessage) {
         if !session.connectedPeers.isEmpty {
-            log.info("sendMove: \(data) to \(self.session.connectedPeers[0].displayName)")
+            log.info("sendMove: \(data.type) to \(self.session.connectedPeers[0].displayName)")
             do {
-                try session.send(data.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
+                try session.send(data.encode(), toPeers: session.connectedPeers, with: .reliable)
             } catch {
                 log.error("Error sending: \(String(describing: error))")
             }
@@ -98,9 +134,13 @@ extension MultipeerSession: MCSessionDelegate {
         if let string = String(data: data, encoding: .utf8) {
             log.info("didReceive move \(string)")
             // We received a move from the opponent, tell the GameView
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 self.hasReceivedData = true
-                self.receivedData = string
+                do {
+                    try self.receivedData = GameMessage.decode(from: data)
+                } catch {
+                    log.error("Error receiving: \(String(describing: error))")
+                }
             }
         } else {
             log.info("didReceive invalid value \(data.count) bytes")

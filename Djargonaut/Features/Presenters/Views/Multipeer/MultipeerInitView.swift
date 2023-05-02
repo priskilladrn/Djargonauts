@@ -18,12 +18,14 @@ struct MultipeerInitView: View {
                 .textCase(.uppercase)
                 .foregroundColor(AppColor.title)
                 .bold()
+            
+            // TODO: validate nickname must be filled
             TextFieldView(text: $multipeerViewModel.nickname)
             
             Spacer()
             
             ButtonLinkView(text: "Create Room", destination: MultipeerCreateView(multipeerViewModel: multipeerViewModel))
-            ButtonLinkView(text: "Join Room", isPrimary: false, destination: MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname)))
+            ButtonLinkView(text: "Join Room", isPrimary: false, destination: MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), vm: multipeerViewModel))
         }
         .padding()
         .navigationTitle("Play Together")
