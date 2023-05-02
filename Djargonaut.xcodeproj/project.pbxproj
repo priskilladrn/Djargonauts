@@ -21,6 +21,7 @@
 		0ACD839329F6BA880031E9BD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD839229F6BA880031E9BD /* HomeView.swift */; };
 		0ACD839529F6CB9E0031E9BD /* ImageButtonLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD839429F6CB9E0031E9BD /* ImageButtonLink.swift */; };
 		0ACD839929F6CE940031E9BD /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD839829F6CE940031E9BD /* AppColor.swift */; };
+		0AE848F529FCFA58004FB5CF /* MultipeerPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE848F429FCFA58004FB5CF /* MultipeerPlayView.swift */; };
 		26878DE429F827210036497D /* PlayAlonePickCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26878DE329F827210036497D /* PlayAlonePickCategoryView.swift */; };
 		26B9653129F6440300A9465A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B9653029F6440300A9465A /* CoreDataManager.swift */; };
 		26B9653529F6445C00A9465A /* DjargonautModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26B9653329F6445C00A9465A /* DjargonautModel.xcdatamodeld */; };
@@ -54,6 +55,7 @@
 		0ACD839229F6BA880031E9BD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0ACD839429F6CB9E0031E9BD /* ImageButtonLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageButtonLink.swift; sourceTree = "<group>"; };
 		0ACD839829F6CE940031E9BD /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		0AE848F429FCFA58004FB5CF /* MultipeerPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerPlayView.swift; sourceTree = "<group>"; };
 		26878DE329F827210036497D /* PlayAlonePickCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAlonePickCategoryView.swift; sourceTree = "<group>"; };
 		26B9653029F6440300A9465A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		26B9653429F6445C00A9465A /* JargonData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JargonData.xcdatamodel; sourceTree = "<group>"; };
@@ -177,11 +179,9 @@
 		0A42FB1029EE562E0031AB01 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0AE848F329FCFA3D004FB5CF /* Multipeer */,
 				A38487AD29EE859800DC25EF /* SearchPageView.swift */,
 				A352E24729EE95FB0000C7D5 /* SearchResultView.swift */,
-				0ACD837F29F26A730031E9BD /* MultipeerInitView.swift */,
-				0ACD838729F273910031E9BD /* MultipeerCreateView.swift */,
-				0ACD838C29F285270031E9BD /* MultipeerConnectView.swift */,
 				0ACD839229F6BA880031E9BD /* HomeView.swift */,
 				26878DE329F827210036497D /* PlayAlonePickCategoryView.swift */,
 				2855D86329FA106C00833BDD /* ScoreMultipeerView.swift */,
@@ -242,6 +242,17 @@
 				0ACD839829F6CE940031E9BD /* AppColor.swift */,
 			);
 			path = Colors;
+			sourceTree = "<group>";
+		};
+		0AE848F329FCFA3D004FB5CF /* Multipeer */ = {
+			isa = PBXGroup;
+			children = (
+				0ACD837F29F26A730031E9BD /* MultipeerInitView.swift */,
+				0ACD838729F273910031E9BD /* MultipeerCreateView.swift */,
+				0ACD838C29F285270031E9BD /* MultipeerConnectView.swift */,
+				0AE848F429FCFA58004FB5CF /* MultipeerPlayView.swift */,
+			);
+			path = Multipeer;
 			sourceTree = "<group>";
 		};
 		26B9653229F6442400A9465A /* CoreData */ = {
@@ -344,6 +355,7 @@
 				26B9653129F6440300A9465A /* CoreDataManager.swift in Sources */,
 				0ACD838F29F286920031E9BD /* MultipeerViewModel.swift in Sources */,
 				A38487AE29EE859800DC25EF /* SearchPageView.swift in Sources */,
+				0AE848F529FCFA58004FB5CF /* MultipeerPlayView.swift in Sources */,
 				0ACD838D29F285270031E9BD /* MultipeerConnectView.swift in Sources */,
 				0ACD839929F6CE940031E9BD /* AppColor.swift in Sources */,
 				0ACD839529F6CB9E0031E9BD /* ImageButtonLink.swift in Sources */,
