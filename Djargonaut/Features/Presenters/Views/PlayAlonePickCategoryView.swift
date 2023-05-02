@@ -10,6 +10,7 @@ import SwiftUI
 struct PlayAlonePickCategoryView: View {
     
     @EnvironmentObject var jargonListVM: JargonListViewModel
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         GeometryReader { geo in
@@ -21,19 +22,8 @@ struct PlayAlonePickCategoryView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    HStack {
-                        Image(systemName: "arrow.left")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: geo.size.width * 0.05)
-                            .padding(.leading, geo.size.width * 0.05)
-                            .padding(.trailing, geo.size.width * 0.02)
-                        Text("Pick a Category")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .foregroundColor(AppColor.title)
-                        Spacer()
-                    }
+                    CustomBackButton(text: "Pick a Category")
+                        .frame(height: geo.size.height * 0.05)
                     
                     Spacer()
                     

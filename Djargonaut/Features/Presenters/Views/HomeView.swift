@@ -102,7 +102,7 @@ struct HomeView: View {
                     .foregroundColor(AppColor.title)
                     .kerning(4)
                 HStack (spacing: 32){
-                    ImageButtonLink(text: "Solo Mode", imageName: "home_solo", destination: EmptyView())
+                    ImageButtonLink(text: "Solo Mode", imageName: "home_solo", destination: PlayAlonePickCategoryView())
                     ImageButtonLink(text: "Multiplayer", imageName: "home_1v1", destination: MultipeerInitView())
                 }
                 .padding()
@@ -143,10 +143,10 @@ struct HomeView: View {
     
 }
 
-//struct HomeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let viewContext = CoreDataManager.shared.container.viewContext
-//        HomeView()
-//            .environmentObject(JargonListViewModel(context: viewContext))
-//    }
-//}
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        let viewContext = CoreDataManager.shared.container.viewContext
+        HomeView()
+            .environmentObject(JargonListViewModel(context: viewContext))
+    }
+}
