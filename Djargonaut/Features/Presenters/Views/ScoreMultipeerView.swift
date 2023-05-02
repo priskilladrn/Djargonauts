@@ -20,7 +20,7 @@ struct ScoreMultipeerView: View {
                 VStack {
                     Text("Multiplayer")
                         .foregroundColor(Color("Title"))
-                        .fontWeight(.semibold)
+                        .fontWeight(.bold)
                         .kerning(1)
                     Divider()
                         .frame(width: 120)

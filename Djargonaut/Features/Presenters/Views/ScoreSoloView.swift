@@ -20,7 +20,7 @@ struct ScoreSoloView: View {
                 VStack {
                     Text("Solo Mode")
                         .foregroundColor(Color("Title"))
-                        .fontWeight(.semibold)
+                        .fontWeight(.bold)
                         .kerning(1)
                     Divider()
                         .frame(width: 120)
