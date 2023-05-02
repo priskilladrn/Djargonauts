@@ -31,10 +31,8 @@ struct ScoreMultipeerView: View {
                         .kerning(1)
                     Image("Score_Multipeer")
                         .resizable()
-                        .scaledToFit()
+                        .scaledToFill()
                         .ignoresSafeArea()
-                        .aspectRatio(contentMode: .fit)
-                        .offset(y: UIScreen.main.bounds.height / 16 - 50)
                     
                     Spacer()
                         .frame(height: geo.size.height * 0.08)
