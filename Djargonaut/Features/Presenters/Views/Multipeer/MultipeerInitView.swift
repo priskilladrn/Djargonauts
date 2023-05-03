@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct MultipeerInitView: View {
-//    @State var nicknameTxt: String = ""
+    //    @State var nicknameTxt: String = ""
     @StateObject var multipeerViewModel = MultipeerViewModel()
+    @State private var errorMsg = ""
+    @State private var navigateToCreateView = false
+    @State private var navigateToConnectView = false
     var body: some View {
         VStack{
             Spacer()
@@ -21,14 +24,38 @@ struct MultipeerInitView: View {
             
             // TODO: validate nickname must be filled
             TextFieldView(text: $multipeerViewModel.nickname)
-            
+            Text(errorMsg)
+                .foregroundColor(.red)
             Spacer()
             
-            ButtonLinkView(text: "Create Room", destination: MultipeerCreateView(multipeerViewModel: multipeerViewModel))
-            ButtonLinkView(text: "Join Room", isPrimary: false, destination: MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), vm: multipeerViewModel))
+            ButtonView(text: "Create Room"){
+                if (isNicknameValid(multipeerViewModel.nickname)) {
+                    navigateToCreateView = true
+                }
+            }
+            ButtonView(text: "Join Room", isPrimary: false){
+                if (isNicknameValid(multipeerViewModel.nickname)) {
+                    navigateToConnectView = true
+                }
+            }
         }
         .padding()
         .navigationTitle("Play Together")
+        .navigationDestination(isPresented: $navigateToCreateView){
+            MultipeerCreateView(multipeerViewModel: multipeerViewModel)
+        }.navigationDestination(isPresented: $navigateToConnectView){
+            MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), vm: multipeerViewModel)
+        }
+        
+    }
+    
+    func isNicknameValid (_ nickname: String) -> Bool {
+        if nickname.isEmpty {
+            errorMsg = "Nickname must be filled!"
+            return false
+        }
+        errorMsg = ""
+        return true
     }
 }
 
