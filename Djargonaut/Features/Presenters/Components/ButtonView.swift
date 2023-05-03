@@ -38,8 +38,8 @@ struct ButtonLinkView: View {
     var isPrimary: Bool = true
     var destination: any View
     var body: some View {
-        NavigationLink{
-            AnyView(destination)
+        NavigationLink(){
+                AnyView(destination)
         } label: {
             ButtonContent(text: text, isPrimary: isPrimary)
         }
