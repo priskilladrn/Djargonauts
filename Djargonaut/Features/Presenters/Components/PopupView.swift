@@ -23,7 +23,7 @@ struct PopupView: View {
                         .padding()
                     }
                     .frame(width: geometry.size.width * 0.9,
-                           height: geometry.size.height * 0.9)
+                           height: geometry.size.height * 0.8)
                     .padding()
                     .background(Color.white)
                     .cornerRadius(20)
