@@ -110,7 +110,7 @@ struct HomeView: View {
                 Spacer()
                 
                 Button{
-                    
+                    isPresented = true
                 } label: {
                     ZStack {
                         Image("home_how_to_play_btn")
@@ -134,6 +134,9 @@ struct HomeView: View {
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .sheet(isPresented: $isPresented) {
+            PopupView(isPresented: $isPresented)
         }
         .onAppear{
             jargonListVM.populate()

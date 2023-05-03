@@ -17,8 +17,7 @@ struct SliderView: View {
             TabView{
                 ForEach (0..<2) { i in
                     VStack{
-                        Text("\(helpHeading[i])").font(.headline)
-                            .padding()
+                        Text("\(helpHeading[i])").font(.system(size: 24, weight:.semibold))
                             .foregroundColor(AppColor.purpleDark)
                         HStack{
                             Image("astronot_talk")
@@ -32,16 +31,17 @@ struct SliderView: View {
                                     .padding()
                                     .foregroundColor(AppColor.purple)
                                     .multilineTextAlignment(.center)
+                                    .font(.system(size: 16, weight: .medium))
                             }
                         }
                         .padding()
                         Text("\(items[i])")
                             .padding()
                             .foregroundColor(AppColor.purple)
+                            .font(.system(size: 16, weight: .medium))
                     }
                 }
             }.tabViewStyle(PageTabViewStyle())
-            
         }.indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
     }
 }
