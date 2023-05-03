@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct PlayAloneQuestionView: View {
-    var category: String
+//    var category: String
     var questions: [Jargon]
     
     @State var isCorrect = [0,1,-1,0,0,0,0,0,0,0]
     @State var score: Int = 0
+    @State var i = 9
     
-    @State private var timeRemaining = 0
+    @State private var timeRemaining = 15
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -27,8 +28,8 @@ struct PlayAloneQuestionView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    CustomBackButton(text: category)
-                        .frame(height: geo.size.height * 0.05)
+//                    CustomBackButton(text: category)
+//                        .frame(height: geo.size.height * 0.05)
 
                     HStack (alignment: .center){
                         Text("Choose an answer!")
@@ -46,11 +47,8 @@ struct PlayAloneQuestionView: View {
                     .padding(.horizontal, geo.size.width * 0.05)
                     
                     //MARK: flash card view
-                    ForEach(0..<10) { i in
-                        Text("category: \(questions[i].category ?? "")")
-                        Text("base: \(questions[i].base ?? "")")
-                        Text("desc: \(questions[i].desc ?? "")")
-                    }
+                    Text("category: \(questions[i].base ?? "")")
+                    
                     
                     Spacer()
                     
@@ -92,26 +90,48 @@ struct PlayAloneQuestionView: View {
                             .font(.system(size: 60, weight: .bold))
                             .foregroundColor(AppColor.title)
                     } else {
-//                        TODO: Flip Card
-                        Button {
-                            
-                        } label: {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill()
-                                    .foregroundColor(AppColor.secondary)
-                                    .shadow(color: .black, radius: 4)
-                                    .overlay(content: {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color(.white), lineWidth: 3)
-                                    })
-                                Text("Next")
-                                    .font(.system(size: 20, weight: .semibold))
-                                    .foregroundColor(Color(hex: 001477))
+                        if i < 9 {
+                            Button {
+                                i += 1
+                                timeRemaining = 15
+                            } label: {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill()
+                                        .foregroundColor(AppColor.secondary)
+                                        .shadow(color: .black, radius: 4)
+                                        .overlay(content: {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color(.white), lineWidth: 3)
+                                        })
+                                    Text("Next")
+                                        .font(.system(size: 20, weight: .semibold))
+                                        .foregroundColor(Color(hex: 001477))
+                                }
                             }
+                            .frame(width: geo.size.width * 0.5 ,height: geo.size.height * 0.06)
+                            .padding(.top, geo.size.height * 0.05)
+                        } else {
+                            NavigationLink{
+                                AnyView(ScoreSoloView())
+                            } label: {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill()
+                                        .foregroundColor(AppColor.secondary)
+                                        .shadow(color: .black, radius: 4)
+                                        .overlay(content: {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color(.white), lineWidth: 3)
+                                        })
+                                    Text("Next")
+                                        .font(.system(size: 20, weight: .semibold))
+                                        .foregroundColor(Color(hex: 001477))
+                                }
+                            }
+                            .frame(width: geo.size.width * 0.5 ,height: geo.size.height * 0.06)
+                            .padding(.top, geo.size.height * 0.05)
                         }
-                        .frame(width: geo.size.width * 0.5 ,height: geo.size.height * 0.06)
-                        .padding(.top, geo.size.height * 0.05)
                     }
                     
                     Spacer()
@@ -121,6 +141,9 @@ struct PlayAloneQuestionView: View {
             .onReceive(timer) { time in
                 if timeRemaining > 0 {
                     timeRemaining -= 1
+                }
+                if timeRemaining == 0 && isCorrect[i] == 0 {
+                    isCorrect[i] = -1
                 }
             }
         }
