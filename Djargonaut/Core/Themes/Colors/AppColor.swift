@@ -12,5 +12,7 @@ struct AppColor {
     static let secondary = Color("Secondary")
     static let purple = Color("Purple")
     static let purpleDark = Color("PurpleDark")
+    static let green = Color("Green")
+    static let red = Color("Red")
     private init() {}
 }

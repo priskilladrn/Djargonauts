@@ -102,7 +102,7 @@ struct HomeView: View {
                     .foregroundColor(AppColor.title)
                     .kerning(4)
                 HStack (spacing: 32){
-                    ImageButtonLink(text: "Solo Mode", imageName: "home_solo", destination: PlayAlonePickCategoryView())
+                    ImageButtonLink(text: "Solo Mode", imageName: "home_solo", destination: PlayAlonePickCategoryView(playAloneVM: PlayAloneViewModel()))
                     ImageButtonLink(text: "Multiplayer", imageName: "home_1v1", destination: MultipeerInitView())
                 }
                 .padding()

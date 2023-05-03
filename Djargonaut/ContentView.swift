@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var jargonListVM: JargonListViewModel
     
     var body: some View {
         NavigationStack{
             HomeView()
                 .background(Image("background").resizable()
                     .aspectRatio( contentMode: .fill))
+        }
+        .onAppear {
+            jargonListVM.deleteAll()
+            jargonListVM.populate()
         }
     }
 }

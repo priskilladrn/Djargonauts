@@ -25,7 +25,7 @@ struct CustomBackButton: View {
                         .padding(.leading, geo.size.width * 0.05)
                         .padding(.trailing, geo.size.width * 0.02)
                     Text(text)
-                        .font(.title3)
+                        .font(.title2)
                         .fontWeight(.bold)
                         .foregroundColor(AppColor.title)
                     Spacer()

@@ -25,6 +25,8 @@
 		260D57A12A00AB04008A225E /* BorderedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D57A02A00AB04008A225E /* BorderedButtonView.swift */; };
 		26878DE429F827210036497D /* PlayAlonePickCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26878DE329F827210036497D /* PlayAlonePickCategoryView.swift */; };
 		26901D462A00F657006B5172 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26901D452A00F657006B5172 /* CustomBackButton.swift */; };
+		26901D482A00F995006B5172 /* PlayAloneQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26901D472A00F995006B5172 /* PlayAloneQuestionView.swift */; };
+		26901D4A2A01126F006B5172 /* PlayAloneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26901D492A01126F006B5172 /* PlayAloneViewModel.swift */; };
 		26AA110629FD82490003B82A /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AA110529FD82490003B82A /* ColorExtension.swift */; };
 		26AA110A29FD8AC80003B82A /* RandomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AA110929FD8AC80003B82A /* RandomView.swift */; };
 		26B9653129F6440300A9465A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B9653029F6440300A9465A /* CoreDataManager.swift */; };
@@ -62,6 +64,8 @@
 		260D57A02A00AB04008A225E /* BorderedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButtonView.swift; sourceTree = "<group>"; };
 		26878DE329F827210036497D /* PlayAlonePickCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAlonePickCategoryView.swift; sourceTree = "<group>"; };
 		26901D452A00F657006B5172 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
+		26901D472A00F995006B5172 /* PlayAloneQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAloneQuestionView.swift; sourceTree = "<group>"; };
+		26901D492A01126F006B5172 /* PlayAloneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAloneViewModel.swift; sourceTree = "<group>"; };
 		26AA110529FD82490003B82A /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		26AA110929FD8AC80003B82A /* RandomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomView.swift; sourceTree = "<group>"; };
 		26B9653029F6440300A9465A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 			children = (
 				0ACD838E29F286920031E9BD /* MultipeerViewModel.swift */,
 				26B9653829F6476400A9465A /* JargonListViewModel.swift */,
+				26901D492A01126F006B5172 /* PlayAloneViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				A352E24729EE95FB0000C7D5 /* SearchResultView.swift */,
 				0ACD839229F6BA880031E9BD /* HomeView.swift */,
 				26878DE329F827210036497D /* PlayAlonePickCategoryView.swift */,
+				26901D472A00F995006B5172 /* PlayAloneQuestionView.swift */,
 				26AA110929FD8AC80003B82A /* RandomView.swift */,
 				2855D86329FA106C00833BDD /* ScoreMultipeerView.swift */,
 				283A6CD229FE541F0063F966 /* ScoreSoloView.swift */,
@@ -349,6 +355,7 @@
 				26B9653F29F6600E00A9465A /* BaseModel.swift in Sources */,
 				26B9653529F6445C00A9465A /* DjargonautModel.xcdatamodeld in Sources */,
 				26AA110629FD82490003B82A /* ColorExtension.swift in Sources */,
+				26901D4A2A01126F006B5172 /* PlayAloneViewModel.swift in Sources */,
 				26B9653929F6476400A9465A /* JargonListViewModel.swift in Sources */,
 				26B9653D29F65EA400A9465A /* JargonExtension.swift in Sources */,
 				0ACD838B29F282870031E9BD /* MultipeerSession.swift in Sources */,
@@ -361,6 +368,7 @@
 				0ACD838229F26C7E0031E9BD /* TextFieldView.swift in Sources */,
 				26B9653729F6448400A9465A /* JargonModel.swift in Sources */,
 				0ACD838429F26DE00031E9BD /* ButtonView.swift in Sources */,
+				26901D482A00F995006B5172 /* PlayAloneQuestionView.swift in Sources */,
 				A352E24829EE95FB0000C7D5 /* SearchResultView.swift in Sources */,
 				0A42FAFD29EE55280031AB01 /* DjargonautApp.swift in Sources */,
 				26B9653129F6440300A9465A /* CoreDataManager.swift in Sources */,

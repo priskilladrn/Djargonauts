@@ -23,6 +23,7 @@ class JargonListViewModel: ObservableObject {
             let fetchRequest: NSFetchRequest<Jargon> = Jargon.fetchRequest()
             let dataCount = try context.count(for: fetchRequest)
             if dataCount != jargons.count {
+                deleteAll()
                 for jargon in jargons {
                     do {
                         let oneJargon = Jargon(context: context)
@@ -37,6 +38,17 @@ class JargonListViewModel: ObservableObject {
                     }
                 }
             }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func deleteAll() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Jargon.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try self.context.execute(deleteRequest)
+            try self.context.save()
         } catch {
             print(error)
         }
