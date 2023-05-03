@@ -24,7 +24,7 @@ struct JargonListView: View {
         ScrollView {
             List {
                 ForEach(jargonListVM.jargonList, id: \.self) { jargon in
-                    NavigationLink(destination: CardView(base: jargon.base ?? "", category: jargon.category ?? "", desc: jargon.desc ?? "")) {
+                    NavigationLink(destination: CardView(base: jargon.base ?? "unknown", category: jargon.category ?? "unknown", desc: jargon.desc ?? "unknown")) {
                         Text(jargon.base ?? "unknown")
                     }
                 }

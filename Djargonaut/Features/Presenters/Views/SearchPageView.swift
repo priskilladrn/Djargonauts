@@ -56,6 +56,7 @@ struct SearchPageView: View {
 
 struct SearchPageView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchPageView()
+        let viewContext = CoreDataManager.shared.container.viewContext
+        SearchPageView().environmentObject(JargonListViewModel(context: viewContext))
     }
 }

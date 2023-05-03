@@ -39,6 +39,8 @@
 		2855D86429FA106C00833BDD /* ScoreMultipeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2855D86329FA106C00833BDD /* ScoreMultipeerView.swift */; };
 		815177BC29FB7F1C007B4E2E /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815177BB29FB7F1C007B4E2E /* PopupView.swift */; };
 		81A4193029F10BEA00B645B8 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A4192F29F10BEA00B645B8 /* SliderView.swift */; };
+		A33663B02A01DBD9001417C9 /* JargonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33663AF2A01DBD9001417C9 /* JargonListView.swift */; };
+		A33663B22A01DBFD001417C9 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33663B12A01DBFD001417C9 /* CardView.swift */; };
 		A352E24829EE95FB0000C7D5 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A352E24729EE95FB0000C7D5 /* SearchResultView.swift */; };
 		A38487AE29EE859800DC25EF /* SearchPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38487AD29EE859800DC25EF /* SearchPageView.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +79,8 @@
 		2855D86329FA106C00833BDD /* ScoreMultipeerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreMultipeerView.swift; sourceTree = "<group>"; };
 		815177BB29FB7F1C007B4E2E /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		81A4192F29F10BEA00B645B8 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		A33663AF2A01DBD9001417C9 /* JargonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JargonListView.swift; sourceTree = "<group>"; };
+		A33663B12A01DBFD001417C9 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A352E24729EE95FB0000C7D5 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		A38487AD29EE859800DC25EF /* SearchPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,6 +200,7 @@
 				2855D86329FA106C00833BDD /* ScoreMultipeerView.swift */,
 				283A6CD229FE541F0063F966 /* ScoreSoloView.swift */,
 				2826624D2A0113A0009EF2E3 /* DummyView.swift */,
+				A33663AF2A01DBD9001417C9 /* JargonListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 				260D57A02A00AB04008A225E /* BorderedButtonView.swift */,
 				815177BB29FB7F1C007B4E2E /* PopupView.swift */,
 				26901D452A00F657006B5172 /* CustomBackButton.swift */,
+				A33663B12A01DBFD001417C9 /* CardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -352,9 +358,12 @@
 				26B9653F29F6600E00A9465A /* BaseModel.swift in Sources */,
 				26B9653529F6445C00A9465A /* DjargonautModel.xcdatamodeld in Sources */,
 				26AA110629FD82490003B82A /* ColorExtension.swift in Sources */,
+				A33663B92A01E11F001417C9 /* Jargons+CoreDataClass.swift in Sources */,
 				26B9653929F6476400A9465A /* JargonListViewModel.swift in Sources */,
 				26B9653D29F65EA400A9465A /* JargonExtension.swift in Sources */,
 				0ACD838B29F282870031E9BD /* MultipeerSession.swift in Sources */,
+				A33663BA2A01E11F001417C9 /* Jargons+CoreDataProperties.swift in Sources */,
+				A33663B02A01DBD9001417C9 /* JargonListView.swift in Sources */,
 				0ACD838829F273910031E9BD /* MultipeerCreateView.swift in Sources */,
 				0ACD839329F6BA880031E9BD /* HomeView.swift in Sources */,
 				26878DE429F827210036497D /* PlayAlonePickCategoryView.swift in Sources */,
@@ -378,6 +387,7 @@
 				0ACD839529F6CB9E0031E9BD /* ImageButtonLink.swift in Sources */,
 				260D57A12A00AB04008A225E /* BorderedButtonView.swift in Sources */,
 				0ACD838029F26A730031E9BD /* MultipeerInitView.swift in Sources */,
+				A33663B22A01DBFD001417C9 /* CardView.swift in Sources */,
 				81A4193029F10BEA00B645B8 /* SliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
