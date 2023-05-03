@@ -11,6 +11,11 @@ struct TextFieldView: View {
     @Binding var text: String
     var body: some View {
         TextField("", text: $text)
+            .onChange(of: text) { newValue in
+                if newValue.count > 15 {
+                    self.text = String(newValue.prefix(15))
+                }
+            }
             .padding(10)
             .overlay(
                 RoundedRectangle(cornerRadius: 12)

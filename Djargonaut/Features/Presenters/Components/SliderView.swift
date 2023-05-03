@@ -8,24 +8,40 @@
 import SwiftUI
 
 struct SliderView: View {
-    let images = ["help_bumi_1", "help_bumi_2"]
-    let helpHeading = ["Single Player Guide", "Multi Player Guide"]
-    let items = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis leo tempus, rutrum lectus non, pharetra magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis leo tempus, rutrum lectus non, pharetra magna. ", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis leo tempus, rutrum lectus non, pharetra magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis leo tempus, rutrum lectus non, pharetra magna. "]
+    let bubbleChat = ["Hi, Djargonauts! I'm Jarjar!", "Oh, you want to play with your friend? Sure!"]
+    let helpHeading = ["Solo Guide", "Multi Player Guide"]
+    let items = ["I'll accompany you in learning jargon via Solo Mode. Pick one category you want to learn or let me choose it for you. On the card, choose one jargon that fits the explanation. I will give you stars for every correct answer!", "Get closer to your friend so we can know you're playing with them. After you choose Multiplayer Mode, choose your nickname and create a room. You can set the room with your preferences. Let your friend join the room and we'll start the game. I will give you a role, either an explainer or a guesser. As an explainer, you need to explain the word given to the guesser. The guesser needs to choose the correct jargon based on the explanation. I'll give you stars if you explain or answer it right. Collect as many stars as you can to win the game!"]
     
     var body: some View {
         VStack{
             TabView{
                 ForEach (0..<2) { i in
                     VStack{
-                        Text("\(helpHeading[i])").font(.headline)
-                            .padding()
-                        Image("\(images[i])").resizable().scaledToFit()
+                        Text("\(helpHeading[i])").font(.system(size: 24, weight:.semibold))
+                            .foregroundColor(AppColor.purpleDark)
+                        HStack{
+                            Image("astronot_talk")
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 15)
+                                    .fill()
+                                    .foregroundColor(Color.white)
+                                    .shadow(color: .black, radius: 4)
+                                    .frame(height: 70)
+                                Text("\(bubbleChat[i])")
+                                    .padding()
+                                    .foregroundColor(AppColor.purple)
+                                    .multilineTextAlignment(.center)
+                                    .font(.system(size: 16, weight: .medium))
+                            }
+                        }
+                        .padding()
                         Text("\(items[i])")
                             .padding()
+                            .foregroundColor(AppColor.purple)
+                            .font(.system(size: 16, weight: .medium))
                     }
                 }
             }.tabViewStyle(PageTabViewStyle())
-            
         }.indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
     }
 }

@@ -8,23 +8,76 @@
 import SwiftUI
 
 struct RandomView: View {
+    @State var CurrentColor = Color.blue
+    @State var scaleEffect = 1.0
+    @State var navigateToCategoryPage = false
+    
+    static var colors: [Color] = [AppColor.secondary, AppColor.purple, AppColor.title, AppColor.purpleDark]
+    static var randomColor: Color {
+        colors.randomElement() ?? .blue
+    }
+    
     var body: some View {
-        ZStack {
-            Image("background")
-                .resizable()
-                .scaledToFill()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .ignoresSafeArea()
+        GeometryReader { geo in
+            ZStack {
+                Image("background")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea()
+                
+                VStack {
+                    CustomBackButton(text: "Pick a Category")
+                        .frame(height: geo.size.height * 0.05)
+                    Spacer()
+                    Text("Randomizing")
+                        .foregroundColor(Color("Title"))
+                        .fontWeight(.bold)
+                        .kerning(1)
+                        .font(.system(size: 24))
+
+                    HStack {
+                        ForEach(0..<3, id: \.self) { i in
+                        Circle()
+                            .frame(width: 15, height: 15)
+                            .scaleEffect(
+                                CGSize(width: scaleEffect, height: scaleEffect), anchor: .center)
+                            .foregroundColor(RandomView.randomColor)
+                            .animation(
+                                Animation
+                                    .interpolatingSpring(mass: 10, stiffness: 10, damping: 5, initialVelocity: 0.5)
+                                    .repeatForever(autoreverses: true)
+                                    .speed(60)
+                                        ,value: self.CurrentColor)
+                                    .foregroundColor(RandomView.randomColor)
+                                    .onAppear() {
+                                        CurrentColor = Color.purple
+                                        scaleEffect = 0.8
+                                    }
+                            }
+                        }
+                        Spacer()
+                            .frame(height: 450)
+                    }
+                }
+                .navigationBarBackButtonHidden(true)
             
-            Text("Randomizing")
-                .fontWeight(.bold)
-                .kerning(1)
+                NavigationLink(
+                    destination: DummyView(),
+                    isActive: $navigateToCategoryPage,
+                    label: {}
+                )
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                navigateToCategoryPage = true
+            }
         }
     }
 }
-
-struct RandomView_Previews: PreviewProvider {
-    static var previews: some View {
-        RandomView()
+    
+    struct RandomView_Previews: PreviewProvider {
+        static var previews: some View {
+            RandomView()
+        }
     }
-}

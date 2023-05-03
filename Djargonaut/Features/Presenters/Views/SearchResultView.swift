@@ -7,14 +7,21 @@
 
 import SwiftUI
 
+
 struct SearchResultView: View {
+    
+    @EnvironmentObject var jargonListVM: JargonListViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        JargonListView()
+        Text("ola")
     }
 }
 
 struct SearchResultView_Previews: PreviewProvider {
     static var previews: some View {
+        let viewContext = CoreDataManager.shared.container.viewContext
         SearchResultView()
+            .environmentObject(JargonListViewModel(context: viewContext))
     }
 }
