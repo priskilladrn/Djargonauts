@@ -15,5 +15,6 @@ struct AppColor {
     static let green = Color("Green")
     static let red = Color("Red")
     static let scoreColor = Color("ScoreColor")
+    static let lightGray = Color("LightGray")
     private init() {}
 }
