@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CustomBackButton: View {
     @Environment(\.presentationMode) var presentationMode
+    
     var text: String
     
     var body: some View {
@@ -32,6 +33,7 @@ struct CustomBackButton: View {
                 }
             }
         }
+        
     }
 }
 
