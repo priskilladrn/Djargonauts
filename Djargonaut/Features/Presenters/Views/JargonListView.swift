@@ -27,17 +27,22 @@ struct JargonListView: View {
     
     //    let random = jargonListVM.jargonList.randomElement()!
     var body: some View {
-            List {
-                ForEach(jargonListVM.jargonList) { jargon in
-                    Text(jargon.base ?? " ")
-                    //                    NavigationLink(destination: CardView(base: jargon.base ?? "unknown", category: jargon.category ?? "unknown", desc: jargon.desc ?? "unknown")) {
-                    //                        Text(jargon.base ?? "unknown")
-                    //                        Text("halo")
-                    //                    }
+        List {
+            ForEach(jargonListVM.jargonList) { jargon in
+                NavigationLink(destination: DictionaryCardView(base: jargon.base ?? "unknown", category: jargon.category ?? "unknown", desc: jargon.desc ?? "unknown")) {
+                    VStack (alignment: .leading) {
+                        Text(jargon.base ?? "unknown")
+                            .font(.headline)
+                        Text(jargon.category ?? "unknown")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                    }
                 }
             }
-            .ignoresSafeArea()
-            .scrollContentBackground(.hidden)
+        }
+        .listStyle(PlainListStyle())
+
+        .scrollContentBackground(.hidden)
         .onAppear(perform: {
             jargonListVM.populate()
         })

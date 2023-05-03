@@ -30,29 +30,26 @@ struct SearchPageView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Image(systemName: "arrow.backward")
-                    .foregroundColor(Color("Title"))
-                    .fontWeight(.bold)
-                Text("Search Jargon")
-                    .foregroundColor(Color("Title"))
-                    .fontWeight(.bold)
-                    .padding(.horizontal, 20)
-                Spacer()
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 10)
-            .padding(.horizontal, 25)
-            
-            searchBar
-                .padding(.horizontal, 25)
-            
             JargonListView()
-            
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationTitle("Title")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                HStack {
+                    Image(systemName: "arrow.backward")
+                        .foregroundColor(Color("Title"))
+                        .fontWeight(.bold)
+                    searchBar
+                }
+                .frame(maxWidth: .infinity)
+            }
         }
         .padding(.bottom, 20)
         .frame(maxHeight: .infinity)
     }
+    
 }
 
 struct SearchPageView_Previews: PreviewProvider {
