@@ -14,6 +14,7 @@ struct SearchResultView: View {
     
     var body: some View {
         JargonListView()
+        Text("ola")
     }
 }
 

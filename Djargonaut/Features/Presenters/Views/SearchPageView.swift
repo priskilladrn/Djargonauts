@@ -42,14 +42,15 @@ struct SearchPageView: View {
             }
             .frame(maxWidth: .infinity)
             .padding(.vertical, 10)
+            .padding(.horizontal, 25)
             
             searchBar
+                .padding(.horizontal, 25)
             
-            SearchResultView()
+            JargonListView()
             
         }
         .padding(.bottom, 20)
-        .padding(.horizontal, 25)
         .frame(maxHeight: .infinity)
     }
 }

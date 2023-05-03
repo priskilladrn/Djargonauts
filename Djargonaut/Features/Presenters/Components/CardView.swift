@@ -18,7 +18,7 @@ struct CardView: View {
                 .foregroundColor(.white)
                 .font(.system(size: 23))
                 .padding(.vertical, 3)
-                .padding(.horizontal)
+                .padding(.horizontal, 30)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color(.white), lineWidth: 1.5)
@@ -40,16 +40,30 @@ struct CardView: View {
         .padding(40)
         .background(
             ZStack (alignment: .top){
-                Image("Flashcards_Tech")
+                Image("\(selectBackground())")
                     .resizable()
                     .scaledToFill()
             }
         )
     }
+    func selectBackground() -> String {
+        var bg: String = ""
+        if (category == "Technology") {
+            bg = "Flashcards_Tech"
+        } else if (category == "Design") {
+            bg = "Flashcards_Design"
+        } else if (category == "Accounting") {
+            bg = "Flashcards_Accounting"
+        } else if (category == "Game") {
+            bg = "Flashcards_Game"
+        }
+        return bg
+    }
 }
+
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(base: "Deprecate", category: "Technology", desc: "In several fields, especially computing, deprecation is the discouragement of use of some terminology, feature, design, or practice, typically because it has been superseded or is no longer considered efficient or safe, without completely removing it or prohibiting its use. ")
+        CardView(base: "Deprecate", category: "Design", desc: "In several fields, especially computing, deprecation is the discouragement of use of some terminology, feature, design, or practice, typically because it has been superseded or is no longer considered efficient or safe, without completely removing it or prohibiting its use. ")
     }
 }

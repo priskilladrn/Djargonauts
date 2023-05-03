@@ -11,45 +11,43 @@ struct JargonListView: View {
     
     @EnvironmentObject var jargonListVM: JargonListViewModel
     
-//    //MARK: vars
-//    let jargonModel: JargonModel
-//
-//    //MARK: init
-//    init(jargonModel: JargonModel) {
-//        self.jargonModel = jargonModel
-//    }
-//
-//    //MARK: body
+    //    //MARK: vars
+    //    let jargonModel: JargonModel
+    //
+    //    //MARK: init
+    //    init(jargonModel: JargonModel) {
+    //        self.jargonModel = jargonModel
+    //    }
+    
+    //    @FetchRequest(entity: Jargon.entity(), sortDescriptors: [
+    //            NSSortDescriptor(keyPath: \Jargon.base, ascending: true)
+    //        ]) var jargons: FetchedResults<Jargon>
+    //
+    //    //MARK: body
+    
+    //    let random = jargonListVM.jargonList.randomElement()!
     var body: some View {
-        ScrollView {
             List {
-                ForEach(jargonListVM.jargonList, id: \.self) { jargon in
-                    NavigationLink(destination: CardView(base: jargon.base ?? "unknown", category: jargon.category ?? "unknown", desc: jargon.desc ?? "unknown")) {
-                        Text(jargon.base ?? "unknown")
-                    }
+                ForEach(jargonListVM.jargonList) { jargon in
+                    Text(jargon.base ?? " ")
+                    //                    NavigationLink(destination: CardView(base: jargon.base ?? "unknown", category: jargon.category ?? "unknown", desc: jargon.desc ?? "unknown")) {
+                    //                        Text(jargon.base ?? "unknown")
+                    //                        Text("halo")
+                    //                    }
                 }
             }
-        }
-//        VStack {
-//            HStack {
-//                VStack {
-//                    Text("\(jargonListVM.jargonList.base ?? "")")
-//                        .font(Font.system(size: 20))
-//                        .foregroundColor(.black)
-//                        .fontWeight(.light)
-//                        .padding(.top, 7)
-//                        .padding(.bottom, 7)
-//                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-//                    Text("\(jargonListVM.jargonList.category)")
-//                        .font(Font.system(size: 16))
-//                        .foregroundColor(.gray)
-//                        .fontWeight(.light)
-//                        .padding(.top, 7)
-//                        .padding(.bottom, 7)
-//                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-//                }
-//                
-//            }
-//        }
+            .ignoresSafeArea()
+            .scrollContentBackground(.hidden)
+        .onAppear(perform: {
+            jargonListVM.populate()
+        })
+    }
+}
+
+struct JargonListView_Previews: PreviewProvider {
+    static var previews: some View {
+        let viewContext = CoreDataManager.shared.container.viewContext
+        JargonListView()
+            .environmentObject(JargonListViewModel(context: viewContext))
     }
 }
