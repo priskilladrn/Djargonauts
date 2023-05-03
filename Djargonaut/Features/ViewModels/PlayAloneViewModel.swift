@@ -22,7 +22,8 @@ class PlayAloneViewModel {
     func getTenRandomQuestions() -> Array<Jargon> {
         let categories = ["Technology", "Design", "Gaming", "Accounting"]
         
-        jargonListVM!.searchCategory(category: categories.randomElement()!)
+//        jargonListVM!.searchCategory(category: categories.randomElement()!)
+        jargonListVM!.searchCategory(category: "Tech")
         
         while resultSet.count < 10 {
             let randomIndex = Int(arc4random_uniform(UInt32(jargonListVM!.jargonList.count)))
