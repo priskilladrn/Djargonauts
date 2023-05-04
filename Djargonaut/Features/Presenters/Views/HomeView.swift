@@ -80,7 +80,6 @@ struct HomeView: View {
                     ZStack (alignment: .top){
                         RoundedRectangle(cornerRadius: 32)
                             .fill(AppColor.purpleDark)
-                            .opacity(0.8)
                         RoundedRectangle(cornerRadius: 32)
                             .strokeBorder(AppColor.purple, lineWidth: 3)
                             .opacity(0.8)
