@@ -15,18 +15,20 @@ struct MultipeerGuesserCardView: View {
     let cardCount: Int
     let currentCard: Int
     
+    @Binding var isFlipped: Bool
+    
     @State var backDegree = 90.0
     @State var frontDegree = 0.0
-    @State var isFlipped = false
     
     let width : CGFloat = 200
     let height : CGFloat = 250
     let durationAndDelay : CGFloat = 0.3
-    
+    var correctAnswerAction: () -> Void
+    var wrongAnswerAction: () -> Void
     //MARK: Flip Card Function
     func flipCard () {
-        isFlipped = !isFlipped
-        if isFlipped {
+//        isFlipped = !isFlipped
+        if !isFlipped {
             withAnimation(.linear(duration: durationAndDelay)) {
                 backDegree = 90
             }
@@ -46,14 +48,16 @@ struct MultipeerGuesserCardView: View {
     var body: some View {
         VStack{
             ZStack {
-                GuesserFront(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $frontDegree)
+                GuesserFront(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $frontDegree, correctAnswerAction: correctAnswerAction, wrongAnswerAction: wrongAnswerAction)
                 GuesserBack(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $backDegree)
             }.onTapGesture {
                 flipCard ()
             }
             .padding()
         }
-        
+        .onChange(of: isFlipped){ _ in
+            flipCard()
+        }
         
     }
 }
@@ -66,6 +70,9 @@ struct GuesserFront : View {
     let currentCard: Int
     
     @Binding var degree : Double
+    
+    var correctAnswerAction: () -> Void
+    var wrongAnswerAction: () -> Void
     
     var body: some View {
         ZStack {
@@ -88,26 +95,31 @@ struct GuesserFront : View {
                     Spacer()
                     
                     //MARK: Answer 1
-                    Text("ARTIFICIAL INTELLIGENCE")
-                        .foregroundColor(.white)
-                        .font(.system(size:18, weight: .bold))
-                        .padding(15)
-                        .frame(maxWidth: .infinity)
-                        .background(AppColor.purple)
-                        .cornerRadius(13)
-
+                    Button(action: correctAnswerAction) {
+                        
+                        Text(base)
+                            .foregroundColor(.white)
+                            .font(.system(size:18, weight: .bold))
+                            .padding(15)
+                            .frame(maxWidth: .infinity)
+                            .background(AppColor.purple)
+                            .cornerRadius(13)
+                    }
                     Divider()
                         .overlay(.white)
                         .padding(.vertical, 20)
                     
                     //MARK: Answer 2
-                    Text("ARTIFICIAL INTELLIGENCE")
-                        .foregroundColor(.white)
-                        .font(.system(size:18, weight: .bold))
-                        .padding(15)
-                        .frame(maxWidth: .infinity)
-                        .background(AppColor.purple)
-                        .cornerRadius(13)
+                    Button(action: wrongAnswerAction) {
+                        
+                        Text("[opsi salah]")
+                            .foregroundColor(.white)
+                            .font(.system(size:18, weight: .bold))
+                            .padding(15)
+                            .frame(maxWidth: .infinity)
+                            .background(AppColor.purple)
+                            .cornerRadius(13)
+                    }
                     Spacer()
                 }
             }
@@ -204,8 +216,8 @@ struct GuesserBack : View {
     }
 }
 
-struct MultipeerGuesserCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        MultipeerGuesserCardView(base: "Deprecate", category: "Technology", desc: "Lorem Ipsum", cardCount: 10, currentCard: 1)
-    }
-}
+//struct MultipeerGuesserCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MultipeerGuesserCardView(base: "Deprecate", category: "Technology", desc: "Lorem Ipsum", cardCount: 10, currentCard: 1)
+//    }
+//}

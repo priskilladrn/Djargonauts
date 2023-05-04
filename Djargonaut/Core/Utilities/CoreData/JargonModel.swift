@@ -24,7 +24,7 @@ struct JargonModel: Identifiable, Codable {
     }
     
     init(from: Jargon){
-        self.jargonID = from.jargonID ?? ""
+        self.jargonID = ""
         self.base = from.base ?? ""
         self.jargon = from.jargon ?? ""
         self.category = from.category ?? ""
