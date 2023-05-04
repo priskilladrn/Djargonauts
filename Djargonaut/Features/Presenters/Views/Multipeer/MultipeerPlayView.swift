@@ -34,13 +34,23 @@ struct MultipeerPlayView: View {
     
     var body: some View {
         VStack{
-            HStack{
+            HStack {
                 Image(systemName: "star.fill")
+                    .foregroundColor(AppColor.title)
                 Text("\(score)")
+                    .font(.system(size: 36, weight: .bold))
+                    .foregroundColor(AppColor.title)
+                
                 Spacer()
                 
-                Image(systemName: "house.fill")
+                Button {
+                    NavigationUtil.popToRootView()
+                } label: {
+                    Image(systemName: "house.fill")
+                        .foregroundColor(AppColor.title)
+                }
             }
+            .foregroundColor(AppColor.title)
             Spacer()
             
 //            VStack{
@@ -74,32 +84,38 @@ struct MultipeerPlayView: View {
             Spacer()
             if vm.currentStage == .revealResultGuesser {
                 if isAnswerCorrect {
-                    Text("jawaban bener!")
+                    Text("Your answer is correct!")
                     Button("Next"){
                         nextQuestionFromGuesser()
                     }
                 } else {
-                    Text("jawaban salah!")
+                    Text("Your answer is incorrect! How’s your partner’s explanation before?")
                     HStack{
-                        Button("Penjelasan bener"){
+                        BorderedButtonView(text: "Unclear"){
+                            nextQuestionFromGuesser()
+                            
+                        }
+                        Spacer()
+                        BorderedButtonView(text: "Well Explained", isPrimary: true){
                             
                             multipeerSession.send(data: GameMessage(type: GameMessageType.isExplanationCorrect))
                             
                             nextQuestionFromGuesser()
                         }
-                        Button("Penjelasan salah"){
-                            nextQuestionFromGuesser()
-                            
-                        }
                     }
                 }
             } else if vm.currentStage == .revealResultExplainer {
-                if multipeerSession.receivedData?.isAnswerCorrect == true {
-                    Text("tebakan guesser bener")
-                } else {
-                    Text("tebakan guesser salah")
-                }            }
-            Text("[time]")
+//                if multipeerSession.receivedData?.isAnswerCorrect == true {
+//                    Text("tebakan guesser bener")
+//                } else {
+//                    Text("tebakan guesser salah")
+//                }
+                Text("Waiting confirmation your partner…")
+            }
+            
+            if vm.currentStage == .explain || vm.currentStage == .guess{
+                Text("[time]")
+            }
         }
         .onChange(of: multipeerSession.receivedData){ receivedData in
             if receivedData?.type == GameMessageType.answer && vm.currentStage == .explain {
