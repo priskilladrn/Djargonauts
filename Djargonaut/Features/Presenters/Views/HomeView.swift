@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import LottieUI
 struct HomeView: View {
     @EnvironmentObject var jargonListVM: JargonListViewModel
     @State private var randomJargon: Jargon?
@@ -113,10 +113,13 @@ struct HomeView: View {
                     isPresented = true
                 } label: {
                     ZStack {
-                        Image("home_how_to_play_btn")
-                            .resizable()
-                            .scaledToFit()
-                            .padding(.bottom, -10)
+                        LottieView(state: LUStateData(type: .name("how-to-play", .main), loopMode: .loop))
+                            .scaleEffect(2.5)
+                            .padding(.bottom, -20)
+//                        Image("home_how_to_play_btn")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .padding(.bottom, -10)
                         Text("How To Play")
                             .foregroundColor(.black)
                             .textCase(.uppercase)
@@ -125,6 +128,7 @@ struct HomeView: View {
                     }
                     .frame(width: 75)
                 }
+                .padding(.bottom, -60)
                 
                 
                 Image("home_how_to_play_rock")
