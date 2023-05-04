@@ -54,12 +54,9 @@ struct ScoreMultipeerView: View {
                 }
                 .padding(38)
                 Spacer()
-                Button {
-                    
-                } label: {
-                    BorderedButtonView(text: "Exit to Main Menu", destination: HomeView())
-                }
-                .frame(width: geo.size.width * 0.7, height: geo.size.height * 0.07)
+                    BorderedButtonLinkView(text: "Exit to Main Menu", destination: HomeView())
+                    .padding(.horizontal, 32)
+//                .frame(width: geo.size.width * 0.7, height: geo.size.height * 0.07)
             }
             .navigationBarBackButtonHidden(true)
         }

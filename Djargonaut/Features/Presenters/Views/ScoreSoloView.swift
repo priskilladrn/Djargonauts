@@ -57,7 +57,7 @@ struct ScoreSoloView: View {
                 Button {
                     
                 } label: {
-                    BorderedButtonView(text: "Exit to Main Menu", destination: HomeView())
+                    BorderedButtonLinkView(text: "Exit to Main Menu", destination: HomeView())
                 }
                 .frame(width: geo.size.width * 0.7, height: geo.size.height * 0.07)
             }
