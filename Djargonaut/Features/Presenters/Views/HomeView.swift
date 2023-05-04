@@ -113,7 +113,7 @@ struct HomeView: View {
                     isPresented = true
                 } label: {
                     ZStack {
-                        Image("HowToPlayCyan")
+                        Image("home_how_to_play_btn")
                             .resizable()
                             .scaledToFit()
                             .padding(.bottom, -10)
