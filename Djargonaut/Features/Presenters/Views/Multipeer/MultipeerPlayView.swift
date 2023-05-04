@@ -20,7 +20,12 @@ struct MultipeerPlayView: View {
     @State var isFlipped = false
     
     @State var score = 0
-    fileprivate func nextQuestionFromGuesser() {
+    
+    @State private var timeRemaining: Int = 3
+    
+    let globalTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    private func nextQuestionFromGuesser() {
         multipeerSession.send(data: GameMessage(type: GameMessageType.triggerNext))
         
         // guesser become explainer
@@ -30,6 +35,16 @@ struct MultipeerPlayView: View {
         }
         
         isFlipped = false
+        
+        timeRemaining = vm.roomSetting.duration
+    }
+    
+    fileprivate func sendWrongAnswerToExplainer() {
+        isAnswerCorrect = false
+        multipeerSession.send(data: GameMessage(type: GameMessageType.answer, isAnswerCorrect: false))
+        vm.currentStage = .revealResultGuesser
+        
+        isFlipped = true
     }
     
     var body: some View {
@@ -74,18 +89,14 @@ struct MultipeerPlayView: View {
                         
                         score += 50
                     }, wrongAnswerAction: {
-                        isAnswerCorrect = false
-                        multipeerSession.send(data: GameMessage(type: GameMessageType.answer, isAnswerCorrect: false))
-                        vm.currentStage = .revealResultGuesser
-                        
-                        isFlipped = true
+                        sendWrongAnswerToExplainer()
                     })
                 }
             Spacer()
             if vm.currentStage == .revealResultGuesser {
                 if isAnswerCorrect {
                     Text("Your answer is correct!")
-                    Button("Next"){
+                    BorderedButtonView(text: "Next"){
                         nextQuestionFromGuesser()
                     }
                 } else {
@@ -114,7 +125,7 @@ struct MultipeerPlayView: View {
             }
             
             if vm.currentStage == .explain || vm.currentStage == .guess{
-                Text("[time]")
+                Text("\(timeRemaining)")
             }
         }
         .onChange(of: multipeerSession.receivedData){ receivedData in
@@ -132,6 +143,8 @@ struct MultipeerPlayView: View {
                 }
                 
                 isFlipped = false
+                
+                timeRemaining = vm.roomSetting.duration
             } else if receivedData?.type == GameMessageType.isExplanationCorrect {
                 score += 50
             }
@@ -143,7 +156,20 @@ struct MultipeerPlayView: View {
             }
         }
         .navigationDestination(isPresented: $redirectToScore) {
-            ScoreMultipeerView()
+            ScoreMultipeerView(score: $score)
+        }
+        .onAppear{
+            timeRemaining = vm.roomSetting.duration
+        }
+        .onReceive(globalTimer){ time in
+            if timeRemaining > 0 {
+                timeRemaining -= 1
+            }else {
+                // next
+                if vm.currentStage == .guess {
+                    sendWrongAnswerToExplainer()
+                }
+            }
         }
     }
 }

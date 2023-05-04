@@ -51,9 +51,10 @@ struct MultipeerExplainerCardView: View {
             ZStack {
                 ExplainerSideCard(base: base, category: category, desc: "Explain this to your partner!", cardCount: cardCount, currentCard: currentCard, degree: $frontDegree)
                 ExplainerSideCard(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $backDegree)
-            }.onTapGesture {
-                flipCard ()
             }
+//            .onTapGesture {
+//                flipCard ()
+//            }
             .padding()
         }
         .onChange(of: isFlipped){ _ in

@@ -50,9 +50,10 @@ struct MultipeerGuesserCardView: View {
             ZStack {
                 GuesserFront(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $frontDegree, correctAnswerAction: correctAnswerAction, wrongAnswerAction: wrongAnswerAction)
                 GuesserBack(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $backDegree)
-            }.onTapGesture {
-                flipCard ()
             }
+//            .onTapGesture {
+//                flipCard ()
+//            }
             .padding()
         }
         .onChange(of: isFlipped){ _ in

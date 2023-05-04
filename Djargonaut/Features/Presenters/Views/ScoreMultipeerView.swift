@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ScoreMultipeerView: View {
+    @Binding var score: Int
     var body: some View {
         GeometryReader { geo in
             VStack {
@@ -46,7 +47,7 @@ struct ScoreMultipeerView: View {
                                 Image(systemName: "star.fill")
                                     .foregroundColor(Color("Secondary"))
                             }
-                        Text("800")
+                        Text("\(score)")
                             .foregroundColor(Color("ScoreColor"))
                             .fontWeight(.bold)
                             .font(.system(size: 60))
@@ -82,9 +83,9 @@ struct ScoreMultipeerView: View {
             }
         )
     }
-    struct ScoreMultipeerView_Previews: PreviewProvider {
-        static var previews: some View {
-            ScoreMultipeerView()
-        }
-    }
+//    struct ScoreMultipeerView_Previews: PreviewProvider {
+//        static var previews: some View {
+//            ScoreMultipeerView()
+//        }
+//    }
 }
