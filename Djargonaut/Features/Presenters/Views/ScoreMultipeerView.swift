@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ScoreMultipeerView: View {
     @Binding var score: Int
+    @Binding var isWin: Bool
     var body: some View {
         GeometryReader { geo in
             VStack {
@@ -32,10 +33,10 @@ struct ScoreMultipeerView: View {
                         }
                     }
                     VStack {
-                        Text("Winner")
+                        Text(isWin ? "Winner" : "Nice Try!")
                             .foregroundColor(Color("ScoreColor"))
                             .fontWeight(.bold)
-                            .font(.system(size: 45))
+                            .font(.system(size: 30))
                             .offset(y:-55)
                             HStack {
                                 Image(systemName: "star.fill")

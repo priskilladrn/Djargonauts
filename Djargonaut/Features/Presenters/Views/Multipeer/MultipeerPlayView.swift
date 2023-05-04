@@ -23,6 +23,8 @@ struct MultipeerPlayView: View {
     
     @State private var timeRemaining: Int = 3
     
+    @State private var isWin: Bool = false
+    
     let globalTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     private func nextQuestionFromGuesser() {
@@ -87,7 +89,7 @@ struct MultipeerPlayView: View {
                         
                         isFlipped = true
                         
-                        score += 50
+                        score += 25
                     }, wrongAnswerAction: {
                         sendWrongAnswerToExplainer()
                     })
@@ -146,17 +148,20 @@ struct MultipeerPlayView: View {
                 
                 timeRemaining = vm.roomSetting.duration
             } else if receivedData?.type == GameMessageType.isExplanationCorrect {
-                score += 50
+                score += 25
+            } else if receivedData?.type == GameMessageType.opponentFinalScore {
+                isWin = score > (receivedData?.opponentFinalScore ?? 0)
+                redirectToScore = true
             }
         }
         .padding(.horizontal, 16)
         .onChange(of: currentQuestionIndex){ index in
             if index >= vm.roomSetting.words.count {
-                redirectToScore = true
+                multipeerSession.send(data: GameMessage(type: GameMessageType.opponentFinalScore, opponentFinalScore: score))
             }
         }
         .navigationDestination(isPresented: $redirectToScore) {
-            ScoreMultipeerView(score: $score)
+            ScoreMultipeerView(score: $score, isWin: $isWin)
         }
         .onAppear{
             timeRemaining = vm.roomSetting.duration

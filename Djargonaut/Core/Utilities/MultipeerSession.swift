@@ -11,18 +11,18 @@ import os
 
 // TODO: move to models
 struct GameMessageType {
-    static var roomSetting = 0, answer = 1, triggerNext = 2, isExplanationCorrect = 3
+    static var roomSetting = 0, answer = 1, triggerNext = 2, isExplanationCorrect = 3, opponentFinalScore = 4
 }
 public struct GameMessage: Codable, Equatable, Identifiable {
     public static func == (lhs: GameMessage, rhs: GameMessage) -> Bool {
         return lhs.id == rhs.id
     }
     public var id = UUID()
-    var type: Int // 0 = room setting (di room setting sekalian udh lengkap wordsnya), 1 = answer, 2 = result / opponent points?
+    var type: Int
     
     var roomSetting: RoomSetting?
     var isAnswerCorrect: Bool = false
-    var isExplanationCorrect: Bool = false
+    var opponentFinalScore: Int?
 }
 
 // TODO: move to models
