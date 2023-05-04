@@ -12,7 +12,7 @@ struct HomeView: View {
     @EnvironmentObject var jargonListVM: JargonListViewModel
     @State private var randomJargon: Jargon?
     @State var isPresented = false //Variabel popup
-
+    
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0){
@@ -71,7 +71,7 @@ struct HomeView: View {
                             Text("Read More >")
                                 .underline()
                                 .font(.system(size: 12))
-                                .foregroundColor(AppColor.secondary)                        }
+                            .foregroundColor(AppColor.secondary)                        }
                     }
                     .padding()
                     .frame(width: geometry.size.width * 0.55)
@@ -103,8 +103,6 @@ struct HomeView: View {
                     .kerning(4)
                 HStack (spacing: 32){
                     ImageButtonLink(text: "Solo Mode", imageName: "home_solo", destination: PlayAlonePickCategoryView(playAloneVM: PlayAloneViewModel()).toolbarRole(.editor))
-                HStack (spacing: 48){
-                    ImageButtonLink(text: "Solo Mode", imageName: "home_solo", destination: PlayAlonePickCategoryView(playAloneVM: PlayAloneViewModel()))
                     ImageButtonLink(text: "Multiplayer", imageName: "home_1v1", destination: MultipeerInitView())
                 }
                 .padding()
@@ -120,10 +118,10 @@ struct HomeView: View {
                             .scaledToFill()
                             .frame(width: 72, height: 128)
                             .padding(.bottom, -10)
-//                        Image("home_how_to_play_btn")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .padding(.bottom, -10)
+                        //                        Image("home_how_to_play_btn")
+                        //                            .resizable()
+                        //                            .scaledToFit()
+                        //                            .padding(.bottom, -10)
                         Text("How To Play")
                             .foregroundColor(.black)
                             .textCase(.uppercase)
