@@ -11,8 +11,8 @@ struct HomeView: View {
     @EnvironmentObject var jargonListVM: JargonListViewModel
     @State private var randomJargon: Jargon?
     @State var isPresented = false //Variabel popup
-
     
+
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0){
@@ -113,7 +113,7 @@ struct HomeView: View {
                     isPresented = true
                 } label: {
                     ZStack {
-                        Image("home_how_to_play_btn")
+                        Image("HowToPlayCyan")
                             .resizable()
                             .scaledToFit()
                             .padding(.bottom, -10)
