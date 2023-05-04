@@ -101,7 +101,7 @@ struct HomeView: View {
                     .textCase(.uppercase)
                     .foregroundColor(AppColor.title)
                     .kerning(4)
-                HStack (spacing: 32){
+                HStack (spacing: 48){
                     ImageButtonLink(text: "Solo Mode", imageName: "home_solo", destination: PlayAlonePickCategoryView(playAloneVM: PlayAloneViewModel()))
                     ImageButtonLink(text: "Multiplayer", imageName: "home_1v1", destination: MultipeerInitView())
                 }
@@ -114,8 +114,10 @@ struct HomeView: View {
                 } label: {
                     ZStack {
                         LottieView(state: LUStateData(type: .name("how-to-play", .main), loopMode: .loop))
-                            .scaleEffect(2.5)
-                            .padding(.bottom, -20)
+                            .scaleEffect(1.5)
+                            .scaledToFill()
+                            .frame(width: 72, height: 128)
+                            .padding(.bottom, -10)
 //                        Image("home_how_to_play_btn")
 //                            .resizable()
 //                            .scaledToFit()
@@ -128,9 +130,6 @@ struct HomeView: View {
                     }
                     .frame(width: 75)
                 }
-                .padding(.bottom, -60)
-                
-                
                 Image("home_how_to_play_rock")
                     .resizable()
                     .scaledToFit()
