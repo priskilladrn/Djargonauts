@@ -46,8 +46,8 @@ struct MultipeerExplainerCardView: View {
     var body: some View {
         VStack{
             ZStack {
-                ExplainerFront(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $frontDegree)
-                ExplainerBack(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $backDegree)
+                ExplainerSideCard(base: base, category: category, desc: "Explain this to your partner!", cardCount: cardCount, currentCard: currentCard, degree: $frontDegree)
+                ExplainerSideCard(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $backDegree)
             }.onTapGesture {
                 flipCard ()
             }
@@ -58,74 +58,7 @@ struct MultipeerExplainerCardView: View {
     }
 }
 
-struct ExplainerFront : View {
-    let base: String
-    let category: String
-    let desc: String
-    let cardCount: Int
-    let currentCard: Int
-    
-    @Binding var degree : Double
-    
-    var body: some View {
-        ZStack {
-            HStack (alignment: .top) {
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("\(category)")
-                            .foregroundColor(.white)
-                            .font(.system(size: 23))
-                            .padding(.vertical, 3)
-                            .padding(.horizontal, 30)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color(.white), lineWidth: 1.5)
-                            )
-                        Spacer()
-                        Text("\(currentCard) / \(cardCount)")
-                            .foregroundColor(.white)
-                            .font(.system(size: 23, weight: .bold))
-                    }
-                    Spacer()
-                    Text("\(base)")
-                        .font(.system(size: 43, weight: .bold))
-                        .foregroundColor(.white)
-                    Spacer()
-                    Divider()
-                        .overlay(.white)
-                    Spacer()
-                    Text("Explain this to your partner!")
-                        .foregroundColor(.white)
-                        .font(.system(size: 18, weight: .medium))
-                    Spacer()
-                }
-            }
-            .frame(width: 332, height: 452)
-            .padding(40)
-            .background(
-                Image("\(selectBackground())")
-                    .resizable()
-                    .scaledToFit()
-            )
-        }.rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))
-    }
-    
-    func selectBackground() -> String {
-        var bg: String = ""
-        if (category == "Technology") {
-            bg = "Flashcards_Tech"
-        } else if (category == "Design") {
-            bg = "Flashcards_Design"
-        } else if (category == "Accounting") {
-            bg = "Flashcards_Accounting"
-        } else if (category == "Game") {
-            bg = "Flashcards_Game"
-        }
-        return bg
-    }
-}
-
-struct ExplainerBack : View {
+struct ExplainerSideCard : View {
     let base: String
     let category: String
     let desc: String
@@ -164,6 +97,8 @@ struct ExplainerBack : View {
                     Text("\(desc)")
                         .foregroundColor(.white)
                         .font(.system(size: 18, weight: .medium))
+                        .frame(minHeight: 30, alignment: .top)
+                    
                     Spacer()
                     
                 }
