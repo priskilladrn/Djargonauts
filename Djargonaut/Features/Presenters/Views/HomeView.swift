@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+import LottieUI
 struct HomeView: View {
     @EnvironmentObject var jargonListVM: JargonListViewModel
     @State private var randomJargon: Jargon?
@@ -102,6 +103,8 @@ struct HomeView: View {
                     .kerning(4)
                 HStack (spacing: 32){
                     ImageButtonLink(text: "Solo Mode", imageName: "home_solo", destination: PlayAlonePickCategoryView(playAloneVM: PlayAloneViewModel()).toolbarRole(.editor))
+                HStack (spacing: 48){
+                    ImageButtonLink(text: "Solo Mode", imageName: "home_solo", destination: PlayAlonePickCategoryView(playAloneVM: PlayAloneViewModel()))
                     ImageButtonLink(text: "Multiplayer", imageName: "home_1v1", destination: MultipeerInitView())
                 }
                 .padding()
@@ -112,10 +115,15 @@ struct HomeView: View {
                     isPresented = true
                 } label: {
                     ZStack {
-                        Image("home_how_to_play_btn")
-                            .resizable()
-                            .scaledToFit()
+                        LottieView(state: LUStateData(type: .name("how-to-play", .main), loopMode: .loop))
+                            .scaleEffect(1.5)
+                            .scaledToFill()
+                            .frame(width: 72, height: 128)
                             .padding(.bottom, -10)
+//                        Image("home_how_to_play_btn")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .padding(.bottom, -10)
                         Text("How To Play")
                             .foregroundColor(.black)
                             .textCase(.uppercase)
@@ -124,8 +132,6 @@ struct HomeView: View {
                     }
                     .frame(width: 75)
                 }
-                
-                
                 Image("home_how_to_play_rock")
                     .resizable()
                     .scaledToFit()

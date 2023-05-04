@@ -59,7 +59,11 @@ struct PlayAlonePickCategoryView: View {
                     
                     Spacer()
                     
+<<<<<<< HEAD
                     BorderedButtonView(text: "Randomize", destination: RandomView(questions: questions).toolbarRole(.editor))
+=======
+                    BorderedButtonLinkView(text: "Randomize", destination: RandomView(questions: questions))
+>>>>>>> 4b541eed9dd2f8f2bbf734d589fd01918613d35e
                         .simultaneousGesture(TapGesture().onEnded{
                             questions = playAloneVM.getTenRandomQuestions()
                         })
