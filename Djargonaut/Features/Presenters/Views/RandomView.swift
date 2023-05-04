@@ -12,6 +12,7 @@ struct RandomView: View {
     @State var scaleEffect = 1.0
     @State var navigateToCategoryPage = false
     
+    var playAloneVM: PlayAloneViewModel
     var questions: [Jargon]
     static var colors: [Color] = [AppColor.secondary, AppColor.purple, AppColor.title, AppColor.purpleDark]
     static var randomColor: Color {
@@ -29,12 +30,7 @@ struct RandomView: View {
                 
                 VStack {
                     Spacer()
-                    Text("Randomizing")
-                        .foregroundColor(Color("Title"))
-                        .fontWeight(.bold)
-                        .kerning(1)
-                        .font(.system(size: 24))
-
+                    
                     HStack {
                         ForEach(0..<3, id: \.self) { i in
                         Circle()
@@ -55,13 +51,20 @@ struct RandomView: View {
                                     }
                             }
                         }
+                    
+                    Text("Randomizing")
+                        .foregroundColor(Color("Title"))
+                        .fontWeight(.bold)
+                        .kerning(1)
+                        .font(.system(size: 24))
+
                         Spacer()
                             .frame(height: 450)
                     }
                 }
             
                 NavigationLink(
-                    destination: PlayAloneQuestionView(questions: questions),
+                    destination: PlayAloneQuestionView(playAloneVM: playAloneVM, questions: questions),
                     isActive: $navigateToCategoryPage,
                     label: {}
                 )

@@ -19,11 +19,11 @@ class PlayAloneViewModel {
     init() {}
     
     func getTenRandomQuestions() -> Array<Jargon> {
-        let categories = ["Technology", "Design", "Gaming", "Accounting"]
+        let categories = ["Technology", "Design", "Game", "Accounting"]
         
         jargonListVM!.searchCategory(category: categories.randomElement()!)
         
-        while resultSet.count < 10 {
+        while resultSet.count <= 10 {
             let randomIndex = Int(arc4random_uniform(UInt32(jargonListVM!.jargonList.count)))
             resultSet.insert(jargonListVM!.jargonList[randomIndex])
         }
@@ -37,7 +37,7 @@ class PlayAloneViewModel {
     func getTenQuestions(category: String) -> Array<Jargon> {
         jargonListVM!.searchCategory(category: category)
         
-        while resultSet.count < 10 {
+        while resultSet.count <= 10 {
             let randomIndex = Int(arc4random_uniform(UInt32(jargonListVM!.jargonList.count)))
             resultSet.insert(jargonListVM!.jargonList[randomIndex])
         }
@@ -46,4 +46,21 @@ class PlayAloneViewModel {
         
         return Array(resultSet)
     }
+    
+    func randomOption(answers: [String]) -> Array<String> {
+        var answersSet = Set<String>()
+        
+        while answers.count < 2 {
+            let randomIndex = Int(arc4random_uniform(UInt32(answers.count)))
+            answersSet.insert(answers[randomIndex])
+        }
+        
+        return Array(answersSet)
+    }
+//    
+//    func randomWord(category: String) -> String {
+//        jargonListVM!.searchCategory(category: category)
+//        
+//        return (jargonListVM!.jargonList.randomElement()!.base)!
+//    }
 }

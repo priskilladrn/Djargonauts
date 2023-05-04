@@ -30,13 +30,13 @@ struct PlayAlonePickCategoryView: View {
                     Spacer()
                     
                     HStack {
-                        ImageButtonLink(text: "Technology", imageName: "tech_category", destination: PlayAloneQuestionView(questions: questions))
+                        ImageButtonLink(text: "Technology", imageName: "tech_category", destination: PlayAloneQuestionView(playAloneVM: playAloneVM, questions: questions))
                             .simultaneousGesture(TapGesture().onEnded {
                                 questions = playAloneVM.getTenQuestions(category: "Technology")
                             })
                             .padding(.trailing, geo.size.width * 0.1)
                         
-                        ImageButtonLink(text: "Design", imageName: "design_category", destination: PlayAloneQuestionView(questions: questions))
+                        ImageButtonLink(text: "Design", imageName: "design_category", destination: PlayAloneQuestionView(playAloneVM: playAloneVM, questions: questions))
                             .simultaneousGesture(TapGesture().onEnded {
                                 questions = playAloneVM.getTenQuestions(category: "Design")
                             })
@@ -45,13 +45,13 @@ struct PlayAlonePickCategoryView: View {
                     .padding(.top, geo.size.height * 0.08)
                     
                     HStack {
-                        ImageButtonLink(text: "Gaming", imageName: "game_category", destination: PlayAloneQuestionView(questions: questions))
+                        ImageButtonLink(text: "Gaming", imageName: "game_category", destination: PlayAloneQuestionView(playAloneVM: playAloneVM, questions: questions))
                             .simultaneousGesture(TapGesture().onEnded {
-                                questions = playAloneVM.getTenQuestions(category: "Gaming")
+                                questions = playAloneVM.getTenQuestions(category: "Game")
                             })
                             .padding(.trailing, geo.size.width * 0.1)
                         
-                        ImageButtonLink(text: "Accounting", imageName: "accounting_category", destination: PlayAloneQuestionView(questions: questions))
+                        ImageButtonLink(text: "Accounting", imageName: "accounting_category", destination: PlayAloneQuestionView(playAloneVM: playAloneVM, questions: questions))
                             .simultaneousGesture(TapGesture().onEnded {
                                 questions = playAloneVM.getTenQuestions(category: "Accounting")
                             })
@@ -59,7 +59,7 @@ struct PlayAlonePickCategoryView: View {
                     
                     Spacer()
                     
-                    BorderedButtonLinkView(text: "Randomize", destination: RandomView(questions: questions).toolbarRole(.editor))
+                    BorderedButtonLinkView(text: "Randomize", destination: RandomView(playAloneVM: playAloneVM, questions: questions).toolbarRole(.editor))
                         .simultaneousGesture(TapGesture().onEnded{
                             questions = playAloneVM.getTenRandomQuestions()
                         })

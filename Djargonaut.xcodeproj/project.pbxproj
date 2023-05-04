@@ -32,6 +32,7 @@
 		26901D482A00F995006B5172 /* PlayAloneQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26901D472A00F995006B5172 /* PlayAloneQuestionView.swift */; };
 		26901D4A2A01126F006B5172 /* PlayAloneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26901D492A01126F006B5172 /* PlayAloneViewModel.swift */; };
 		2691DE9F2A0391B80075D941 /* Suggestion Data.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2691DE9E2A0391B80075D941 /* Suggestion Data.csv */; };
+		2691DEA12A0398370075D941 /* PlayAloneCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2691DEA02A0398370075D941 /* PlayAloneCardView.swift */; };
 		26AA110629FD82490003B82A /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AA110529FD82490003B82A /* ColorExtension.swift */; };
 		26AA110A29FD8AC80003B82A /* RandomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AA110929FD8AC80003B82A /* RandomView.swift */; };
 		26B9653129F6440300A9465A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B9653029F6440300A9465A /* CoreDataManager.swift */; };
@@ -77,6 +78,7 @@
 		26901D472A00F995006B5172 /* PlayAloneQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAloneQuestionView.swift; sourceTree = "<group>"; };
 		26901D492A01126F006B5172 /* PlayAloneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAloneViewModel.swift; sourceTree = "<group>"; };
 		2691DE9E2A0391B80075D941 /* Suggestion Data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Suggestion Data.csv"; sourceTree = "<group>"; };
+		2691DEA02A0398370075D941 /* PlayAloneCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAloneCardView.swift; sourceTree = "<group>"; };
 		26AA110529FD82490003B82A /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		26AA110929FD8AC80003B82A /* RandomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomView.swift; sourceTree = "<group>"; };
 		26B9653029F6440300A9465A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				A33663B12A01DBFD001417C9 /* DictionaryCardView.swift */,
 				A33885212A0244C9002217A2 /* MultipeerExplainerCardView.swift */,
 				A3B08CB62A035EEA0003A479 /* MultipeerGuesserCardView.swift */,
+				2691DEA02A0398370075D941 /* PlayAloneCardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				26B9653929F6476400A9465A /* JargonListViewModel.swift in Sources */,
 				26B9653D29F65EA400A9465A /* JargonExtension.swift in Sources */,
 				2602DCFF2A0351EA000E0FA5 /* RootPresentationExtension.swift in Sources */,
+				2691DEA12A0398370075D941 /* PlayAloneCardView.swift in Sources */,
 				0ACD838B29F282870031E9BD /* MultipeerSession.swift in Sources */,
 				A33663B02A01DBD9001417C9 /* JargonListView.swift in Sources */,
 				0ACD838829F273910031E9BD /* MultipeerCreateView.swift in Sources */,

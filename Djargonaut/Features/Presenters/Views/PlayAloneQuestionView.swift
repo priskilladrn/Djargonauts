@@ -9,15 +9,19 @@ import SwiftUI
 
 struct PlayAloneQuestionView: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var jargonListVM: JargonListViewModel
     
-    @State var isCorrect = [0,1,-1,0,0,0,0,0,0,0]
+    @State var isCorrect = [0,0,0,0,0,0,0,0,0,0]
     @State var score: Int = 0
     @State var i = 0
     @State private var timeRemaining = 15
+    @State var randomWord: String = ""
+    @State var randomInt: Int = 0
+    var playAloneVM: PlayAloneViewModel
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     var questions: [Jargon]
-    
+    @State var isFlipped = false
     var body: some View {
         GeometryReader { geo in
             ZStack {
@@ -37,9 +41,9 @@ struct PlayAloneQuestionView: View {
                         Text("\(score)")
                             .font(.system(size: 36, weight: .bold))
                             .foregroundColor(AppColor.title)
-                        
+
                         Spacer()
-                        
+
                         Button {
                             NavigationUtil.popToRootView()
                         } label: {
@@ -54,8 +58,8 @@ struct PlayAloneQuestionView: View {
                     .padding(.horizontal, geo.size.width * 0.05)
                     
                     //MARK: flash card view
-//                    Text("category: \(questions[i].base ?? "")")
-                    
+                    PlayAloneCardView(base: questions[i].base ?? "", wrongAnswer: randomWord, category: questions[i].category ?? "", desc: questions[i].desc ?? "", cardCount: 10, currentCard: i+1, randomInt: randomInt, score: $score, i: $i, isCorrect: $isCorrect, isFlipped: $isFlipped, playAloneVM: playAloneVM)
+                        .frame(width: geo.size.width * 0.5, height: geo.size.height * 0.65)
                     
                     Spacer()
                     
@@ -101,6 +105,7 @@ struct PlayAloneQuestionView: View {
                             Button {
                                 i += 1
                                 timeRemaining = 15
+                                isFlipped = false
                             } label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 10)
@@ -151,7 +156,14 @@ struct PlayAloneQuestionView: View {
                 }
                 if timeRemaining == 0 && isCorrect[i] == 0 {
                     isCorrect[i] = -1
+                    
+                    isFlipped = true
                 }
+            }
+            .onAppear {
+                jargonListVM.searchCategory(category: questions[0].category!)
+                randomWord = (jargonListVM.jargonList.randomElement()!.base)!
+                randomInt = Int.random(in: 1..<3)
             }
         }
     }
