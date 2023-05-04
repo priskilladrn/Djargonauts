@@ -187,7 +187,7 @@ struct CardFront : View {
                     }
                 }
             }
-            .frame(width: 332, height: 452)
+            .frame(height: 452)
             .padding(40)
             .background(
                 Image("\(selectBackground())")
@@ -255,7 +255,7 @@ struct CardBack : View {
                     Spacer()
                 }
             }
-            .frame(width: 332, height: 452)
+            .frame(height: 452)
             .padding(40)
             .background(
                 Image("\(selectBackground())")

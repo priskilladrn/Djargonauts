@@ -34,10 +34,7 @@ struct PlayAloneQuestionView: View {
                 VStack {
                     HStack {
                         Image(systemName: "star.fill")
-                            .resizable()
-                            .scaledToFit()
                             .foregroundColor(AppColor.title)
-                            .frame(height: geo.size.height * 0.03)
                         Text("\(score)")
                             .font(.system(size: 36, weight: .bold))
                             .foregroundColor(AppColor.title)
@@ -48,53 +45,50 @@ struct PlayAloneQuestionView: View {
                             NavigationUtil.popToRootView()
                         } label: {
                             Image(systemName: "house.fill")
-                                .resizable()
-                                .scaledToFit()
                                 .foregroundColor(AppColor.title)
-                                .frame(height: geo.size.height * 0.03)
                         }
                     }
                     .foregroundColor(AppColor.title)
-                    .padding(.horizontal, geo.size.width * 0.05)
-                    
                     //MARK: flash card view
                     PlayAloneCardView(base: questions[i].base ?? "", wrongAnswer: randomWord, category: questions[i].category ?? "", desc: questions[i].desc ?? "", cardCount: 10, currentCard: i+1, randomInt: randomInt, score: $score, i: $i, isCorrect: $isCorrect, isFlipped: $isFlipped, playAloneVM: playAloneVM)
-                        .frame(width: geo.size.width * 0.5, height: geo.size.height * 0.65)
+//                        .frame(width: geo.size.width * 0.5, height: geo.size.height * 0.65)
+//                    Button("test"){
+//                        print("12345 masuk")
+//                    }
+//                    Spacer()
                     
-                    Spacer()
-                    
-                    ScrollView(.horizontal) {
-                        HStack (spacing: 20) {
-                            ForEach(0..<10) { i in
-                                switch (isCorrect[i]) {
-                                case -1:
-                                    ZStack {
-                                        Circle()
-                                            .frame(width: geo.size.width * 0.1)
-                                            .foregroundColor(AppColor.red)
-                                        Image(systemName: "xmark")
-                                            .fontWeight(.black)
-                                            .foregroundColor(.white)
-                                    }
-                                case 1:
-                                    ZStack {
-                                        Circle()
-                                            .frame(width: geo.size.width * 0.1)
-                                            .foregroundColor(AppColor.green)
-                                        
-                                        Image(systemName: "checkmark")
-                                            .fontWeight(.black)
-                                            .foregroundColor(.white)
-                                    }
-                                default:
-                                    Circle()
-                                        .frame(width: geo.size.width * 0.1)
-                                        .foregroundColor(.gray)
-                                }
-                            }
-                        }
-                        .padding(.leading, geo.size.width * 0.05)
-                    }
+//                    ScrollView(.horizontal) {
+//                        HStack (spacing: 20) {
+//                            ForEach(0..<10) { i in
+//                                switch (isCorrect[i]) {
+//                                case -1:
+//                                    ZStack {
+//                                        Circle()
+//                                            .frame(width: geo.size.width * 0.1)
+//                                            .foregroundColor(AppColor.red)
+//                                        Image(systemName: "xmark")
+//                                            .fontWeight(.black)
+//                                            .foregroundColor(.white)
+//                                    }
+//                                case 1:
+//                                    ZStack {
+//                                        Circle()
+//                                            .frame(width: geo.size.width * 0.1)
+//                                            .foregroundColor(AppColor.green)
+//                                        
+//                                        Image(systemName: "checkmark")
+//                                            .fontWeight(.black)
+//                                            .foregroundColor(.white)
+//                                    }
+//                                default:
+//                                    Circle()
+//                                        .frame(width: geo.size.width * 0.1)
+//                                        .foregroundColor(.gray)
+//                                }
+//                            }
+//                        }
+//                        .padding(.leading, geo.size.width * 0.05)
+//                    }
                     
                     if timeRemaining > 0 {
                         Text("\(timeRemaining)")
@@ -102,51 +96,53 @@ struct PlayAloneQuestionView: View {
                             .foregroundColor(AppColor.title)
                     } else {
                         if i < 9 {
-                            Button {
+                            BorderedButtonView(text: "Next"){
                                 i += 1
                                 timeRemaining = 15
                                 isFlipped = false
-                            } label: {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .fill()
-                                        .foregroundColor(AppColor.secondary)
-                                        .shadow(color: .black, radius: 4)
-                                        .overlay(content: {
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .stroke(Color(.white), lineWidth: 3)
-                                        })
-                                    Text("Next")
-                                        .font(.system(size: 20, weight: .semibold))
-                                        .foregroundColor(Color(hex: 001477))
-                                }
                             }
-                            .frame(width: geo.size.width * 0.5 ,height: geo.size.height * 0.06)
-                            .padding(.top, geo.size.height * 0.05)
+//                            Button {
+//
+//                            } label: {
+//                                ZStack {
+//                                    RoundedRectangle(cornerRadius: 10)
+//                                        .fill()
+//                                        .foregroundColor(AppColor.secondary)
+//                                        .shadow(color: .black, radius: 4)
+//                                        .overlay(content: {
+//                                            RoundedRectangle(cornerRadius: 10)
+//                                                .stroke(Color(.white), lineWidth: 3)
+//                                        })
+//                                    Text("Next")
+//                                        .font(.system(size: 20, weight: .semibold))
+//                                        .foregroundColor(Color(hex: 001477))
+//                                }
+//                            }
+//                            .padding(.top, geo.size.height * 0.05)
                         } else {
-                            NavigationLink{
-                                AnyView(ScoreSoloView(score: score))
-                            } label: {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .fill()
-                                        .foregroundColor(AppColor.secondary)
-                                        .shadow(color: .black, radius: 4)
-                                        .overlay(content: {
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .stroke(Color(.white), lineWidth: 3)
-                                        })
-                                    Text("Next")
-                                        .font(.system(size: 20, weight: .semibold))
-                                        .foregroundColor(Color(hex: 001477))
-                                }
-                            }
-                            .frame(width: geo.size.width * 0.5 ,height: geo.size.height * 0.06)
-                            .padding(.top, geo.size.height * 0.05)
+                            BorderedButtonLinkView(text: "Next", destination:  AnyView(ScoreSoloView(score: score)))
+//                            NavigationLink{
+//
+//                            } label: {
+//                                ZStack {
+//                                    RoundedRectangle(cornerRadius: 10)
+//                                        .fill()
+//                                        .foregroundColor(AppColor.secondary)
+//                                        .shadow(color: .black, radius: 4)
+//                                        .overlay(content: {
+//                                            RoundedRectangle(cornerRadius: 10)
+//                                                .stroke(Color(.white), lineWidth: 3)
+//                                        })
+//                                    Text("Next")
+//                                        .font(.system(size: 20, weight: .semibold))
+//                                        .foregroundColor(Color(hex: 001477))
+//                                }
+//                            }
+//                            .padding(.top, geo.size.height * 0.05)
                         }
                     }
                     
-                    Spacer()
+//                    Spacer()
                 }
             }
             .navigationBarBackButtonHidden(true)
@@ -161,7 +157,7 @@ struct PlayAloneQuestionView: View {
                 }
             }
             .onAppear {
-                jargonListVM.searchCategory(category: questions[0].category!)
+//                jargonListVM.searchCategory(category: questions[0].category!)
                 randomWord = (jargonListVM.jargonList.randomElement()!.base)!
                 randomInt = Int.random(in: 1..<3)
             }
