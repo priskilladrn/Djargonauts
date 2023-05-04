@@ -396,11 +396,8 @@
 				26B9653929F6476400A9465A /* JargonListViewModel.swift in Sources */,
 				26B9653D29F65EA400A9465A /* JargonExtension.swift in Sources */,
 				2602DCFF2A0351EA000E0FA5 /* RootPresentationExtension.swift in Sources */,
-<<<<<<< HEAD
 				2691DEA12A0398370075D941 /* PlayAloneCardView.swift in Sources */,
-=======
 				A3B08CB92A03A2540003A479 /* DictionaryView.swift in Sources */,
->>>>>>> 6ae4a70233e64591ec6231df7f9e007ababf4b68
 				0ACD838B29F282870031E9BD /* MultipeerSession.swift in Sources */,
 				A33663B02A01DBD9001417C9 /* JargonListView.swift in Sources */,
 				0ACD838829F273910031E9BD /* MultipeerCreateView.swift in Sources */,
