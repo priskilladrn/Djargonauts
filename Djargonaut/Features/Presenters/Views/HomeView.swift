@@ -11,7 +11,6 @@ struct HomeView: View {
     @EnvironmentObject var jargonListVM: JargonListViewModel
     @State private var randomJargon: Jargon?
     @State var isPresented = false //Variabel popup
-
     
     var body: some View {
         GeometryReader { geometry in
@@ -134,6 +133,7 @@ struct HomeView: View {
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .navigationBarBackButtonHidden(true)
         }
         .sheet(isPresented: $isPresented) {
             PopupView(isPresented: $isPresented)

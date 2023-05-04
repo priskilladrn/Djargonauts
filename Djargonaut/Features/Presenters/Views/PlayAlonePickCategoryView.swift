@@ -11,6 +11,7 @@ struct PlayAlonePickCategoryView: View {
     
     @EnvironmentObject var jargonListVM: JargonListViewModel
     @Environment(\.presentationMode) var presentationMode
+    
     @State var allJargons = [Jargon]()
     @State var questions = Array<Jargon>()
     @State var playAloneVM: PlayAloneViewModel

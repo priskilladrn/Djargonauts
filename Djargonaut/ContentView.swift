@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var jargonListVM: JargonListViewModel
-    
+//    @State var isPresented =
     init() {
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold)], for: .normal)
     }
@@ -25,6 +25,7 @@ struct ContentView: View {
             jargonListVM.deleteAll()
             jargonListVM.populate()
         }
+//        .environment(\.rootPresentationMode, self.$isPresented)
     }
 }
 
