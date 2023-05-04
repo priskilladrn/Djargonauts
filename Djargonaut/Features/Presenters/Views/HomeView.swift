@@ -12,7 +12,7 @@ struct HomeView: View {
     @EnvironmentObject var jargonListVM: JargonListViewModel
     @State private var randomJargon: Jargon?
     @State var isPresented = false //Variabel popup
-
+    
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0){
@@ -71,7 +71,7 @@ struct HomeView: View {
                             Text("Read More >")
                                 .underline()
                                 .font(.system(size: 12))
-                                .foregroundColor(AppColor.secondary)                        }
+                            .foregroundColor(AppColor.secondary)                        }
                     }
                     .padding()
                     .frame(width: geometry.size.width * 0.55)
@@ -103,53 +103,54 @@ struct HomeView: View {
                     .kerning(4)
                 HStack (spacing: 32){
                     ImageButtonLink(text: "Solo Mode", imageName: "home_solo", destination: PlayAlonePickCategoryView(playAloneVM: PlayAloneViewModel()).toolbarRole(.editor))
-                HStack (spacing: 48){
-                    ImageButtonLink(text: "Solo Mode", imageName: "home_solo", destination: PlayAlonePickCategoryView(playAloneVM: PlayAloneViewModel()))
-                    ImageButtonLink(text: "Multiplayer", imageName: "home_1v1", destination: MultipeerInitView())
-                }
-                .padding()
-                
-                Spacer()
-                
-                Button{
-                    isPresented = true
-                } label: {
-                    ZStack {
-                        LottieView(state: LUStateData(type: .name("how-to-play", .main), loopMode: .loop))
-                            .scaleEffect(1.5)
-                            .scaledToFill()
-                            .frame(width: 72, height: 128)
-                            .padding(.bottom, -10)
-//                        Image("home_how_to_play_btn")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .padding(.bottom, -10)
-                        Text("How To Play")
-                            .foregroundColor(.black)
-                            .textCase(.uppercase)
-                            .font(.system(size: 12, weight: .bold))
-                            .underline()
+                    HStack (spacing: 48){
+                        ImageButtonLink(text: "Solo Mode", imageName: "home_solo", destination: PlayAlonePickCategoryView(playAloneVM: PlayAloneViewModel()))
+                        ImageButtonLink(text: "Multiplayer", imageName: "home_1v1", destination: MultipeerInitView())
                     }
-                    .frame(width: 75)
+                    .padding()
+                    
+                    Spacer()
+                    
+                    Button{
+                        isPresented = true
+                    } label: {
+                        ZStack {
+                            LottieView(state: LUStateData(type: .name("how-to-play", .main), loopMode: .loop))
+                                .scaleEffect(1.5)
+                                .scaledToFill()
+                                .frame(width: 72, height: 128)
+                                .padding(.bottom, -10)
+                            //                        Image("home_how_to_play_btn")
+                            //                            .resizable()
+                            //                            .scaledToFit()
+                            //                            .padding(.bottom, -10)
+                            Text("How To Play")
+                                .foregroundColor(.black)
+                                .textCase(.uppercase)
+                                .font(.system(size: 12, weight: .bold))
+                                .underline()
+                        }
+                        .frame(width: 75)
+                    }
+                    Image("home_how_to_play_rock")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.bottom, -geometry.safeAreaInsets.bottom)
+                    
                 }
-                Image("home_how_to_play_rock")
-                    .resizable()
-                    .scaledToFit()
-                    .padding(.bottom, -geometry.safeAreaInsets.bottom)
-                
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .navigationBarBackButtonHidden(true)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .navigationBarBackButtonHidden(true)
+            .sheet(isPresented: $isPresented) {
+                PopupView(isPresented: $isPresented)
+            }
+            .onAppear{
+                jargonListVM.populate()
+                randomJargon = jargonListVM.jargonList.randomElement()!
+            }
         }
-        .sheet(isPresented: $isPresented) {
-            PopupView(isPresented: $isPresented)
-        }
-        .onAppear{
-            jargonListVM.populate()
-            randomJargon = jargonListVM.jargonList.randomElement()!
-        }
+        
     }
-    
 }
 
 struct HomeView_Previews: PreviewProvider {

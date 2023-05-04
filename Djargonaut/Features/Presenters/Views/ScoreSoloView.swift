@@ -59,11 +59,8 @@ struct ScoreSoloView: View {
                 Button {
                     NavigationUtil.popToRootView()
                 } label: {
-<<<<<<< HEAD
-                    BorderedButtonView(text: "Exit to Main Menu", destination: EmptyView())
-=======
+                    BorderedButtonLinkView(text: "Exit to Main Menu", destination: EmptyView())
                     BorderedButtonLinkView(text: "Exit to Main Menu", destination: HomeView())
->>>>>>> 4b541eed9dd2f8f2bbf734d589fd01918613d35e
                 }
                 .frame(width: geo.size.width * 0.7, height: geo.size.height * 0.07)
             }
