@@ -49,6 +49,7 @@ struct MultipeerConnectView: View {
                 Button("liat setting"){
                     print("\(vm.roomSetting.chosenCategory)")
                     print("\(vm.roomSetting.duration)")
+                    print("\(jargonListVM.jargonList.filter{ $0.category == vm.roomSetting.chosenCategory}.shuffled().prefix(vm.roomSetting.cardCount).map{ JargonModel(from: $0) })")
                     do{
                         let string = try String(data: GameMessage(type: GameMessageType.roomSetting, roomSetting: vm.roomSetting).encode(), encoding: .utf8) ?? "ERR"
                         print(string)
@@ -62,8 +63,7 @@ struct MultipeerConnectView: View {
             MultipeerPlayView(multipeerSession: multipeerSession, vm: vm)
                 .onAppear{
                     if isRoomCreator {
-                        vm.roomSetting.words = jargonListVM.jargonList.shuffled().prefix(vm.roomSetting.cardCount).map{ JargonModel(from: $0) }
-//                        print(vm.roomSetting.words)
+                        vm.roomSetting.words = jargonListVM.jargonList.filter{ $0.category == vm.roomSetting.chosenCategory}.shuffled().prefix(vm.roomSetting.cardCount).map{ JargonModel(from: $0) }
                         vm.currentStage = .explain
                         multipeerSession.send(data: GameMessage(type: GameMessageType.roomSetting, roomSetting: vm.roomSetting))
                     }

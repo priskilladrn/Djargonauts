@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MultipeerCreateView: View {
     @ObservedObject var multipeerViewModel: MultipeerViewModel
-    @State var chosenCategory: String = "Tech"
+    @State var chosenCategory: String = "Technology"
     @State var duration: Int = 15
     @State var cardCount: Int = 10
     var body: some View {
@@ -23,15 +23,12 @@ struct MultipeerCreateView: View {
                 
                 
                 Menu {
-                    Button {
-                        chosenCategory = "Tech"
-                    } label: {
-                        Text("Tech")
-                    }
-                    Button {
-                        chosenCategory = "Design"
-                    } label: {
-                        Text("Design")
+                    ForEach(["Technology", "Design", "Accounting", "Game"], id: \.self){ category in
+                        Button {
+                            chosenCategory = category
+                        } label: {
+                            Text(category)
+                        }
                     }
                 } label: {
                     Text(chosenCategory)

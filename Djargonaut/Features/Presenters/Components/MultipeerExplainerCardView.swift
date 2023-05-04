@@ -15,18 +15,21 @@ struct MultipeerExplainerCardView: View {
     let cardCount: Int
     let currentCard: Int
     
+    @Binding var isFlipped: Bool
+    
     @State var backDegree = 90.0
     @State var frontDegree = 0.0
-    @State var isFlipped = false
     
     let width : CGFloat = 200
     let height : CGFloat = 250
     let durationAndDelay : CGFloat = 0.3
     
+    
+    
     //MARK: Flip Card Function
     func flipCard () {
-        isFlipped = !isFlipped
-        if isFlipped {
+//        isFlipped = !isFlipped
+        if !isFlipped {
             withAnimation(.linear(duration: durationAndDelay)) {
                 backDegree = 90
             }
@@ -48,10 +51,14 @@ struct MultipeerExplainerCardView: View {
             ZStack {
                 ExplainerSideCard(base: base, category: category, desc: "Explain this to your partner!", cardCount: cardCount, currentCard: currentCard, degree: $frontDegree)
                 ExplainerSideCard(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $backDegree)
-            }.onTapGesture {
-                flipCard ()
             }
+//            .onTapGesture {
+//                flipCard ()
+//            }
             .padding()
+        }
+        .onChange(of: isFlipped){ _ in
+            flipCard()
         }
         
         
@@ -129,9 +136,9 @@ struct ExplainerSideCard : View {
     }
 }
 
-struct MultipeerExplainerView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        MultipeerExplainerCardView(base: "Deprecate Intelligence", category: "Technology", desc: "The theory and development of computer systems able to perform tasks that normally require human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages. Ipsum", cardCount: 10, currentCard: 1)
-    }
-}
+//struct MultipeerExplainerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        
+//        MultipeerExplainerCardView(base: "Deprecate Intelligence", category: "Technology", desc: "The theory and development of computer systems able to perform tasks that normally require human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages. Ipsum", cardCount: 10, currentCard: 1)
+//    }
+//}

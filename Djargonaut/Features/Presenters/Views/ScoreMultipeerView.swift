@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ScoreMultipeerView: View {
+    @Binding var score: Int
+    @Binding var isWin: Bool
     var body: some View {
         GeometryReader { geo in
             VStack {
@@ -31,10 +33,10 @@ struct ScoreMultipeerView: View {
                         }
                     }
                     VStack {
-                        Text("Winner")
+                        Text(isWin ? "Winner" : "Nice Try!")
                             .foregroundColor(Color("ScoreColor"))
                             .fontWeight(.bold)
-                            .font(.system(size: 45))
+                            .font(.system(size: 30))
                             .offset(y:-55)
                             HStack {
                                 Image(systemName: "star.fill")
@@ -46,7 +48,7 @@ struct ScoreMultipeerView: View {
                                 Image(systemName: "star.fill")
                                     .foregroundColor(Color("Secondary"))
                             }
-                        Text("800")
+                        Text("\(score)")
                             .foregroundColor(Color("ScoreColor"))
                             .fontWeight(.bold)
                             .font(.system(size: 60))
@@ -82,9 +84,9 @@ struct ScoreMultipeerView: View {
             }
         )
     }
-    struct ScoreMultipeerView_Previews: PreviewProvider {
-        static var previews: some View {
-            ScoreMultipeerView()
-        }
-    }
+//    struct ScoreMultipeerView_Previews: PreviewProvider {
+//        static var previews: some View {
+//            ScoreMultipeerView()
+//        }
+//    }
 }

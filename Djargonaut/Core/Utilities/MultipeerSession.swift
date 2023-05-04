@@ -11,23 +11,23 @@ import os
 
 // TODO: move to models
 struct GameMessageType {
-    static var roomSetting = 0, answer = 1, triggerNext = 2, opponentFinalPoints = 3
+    static var roomSetting = 0, answer = 1, triggerNext = 2, isExplanationCorrect = 3, opponentFinalScore = 4
 }
 public struct GameMessage: Codable, Equatable, Identifiable {
     public static func == (lhs: GameMessage, rhs: GameMessage) -> Bool {
         return lhs.id == rhs.id
     }
     public var id = UUID()
-    var type: Int // 0 = room setting (di room setting sekalian udh lengkap wordsnya), 1 = answer, 2 = result / opponent points?
+    var type: Int
     
     var roomSetting: RoomSetting?
     var isAnswerCorrect: Bool = false
-    var opponentFinalPoints: Int?
+    var opponentFinalScore: Int?
 }
 
 // TODO: move to models
 public struct RoomSetting: Codable {
-    var chosenCategory: String = "Tech"
+    var chosenCategory: String = "Technology"
     var duration: Int = 15
     var cardCount: Int = 10
     var words: [JargonModel] = []

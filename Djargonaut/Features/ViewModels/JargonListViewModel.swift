@@ -27,7 +27,7 @@ class JargonListViewModel: ObservableObject {
                 for jargon in jargons {
                     do {
                         let oneJargon = Jargon(context: context)
-                        oneJargon.jargonID = jargon.jargonID
+//                        oneJargon.jargonID = jargon.jargonID
                         oneJargon.base = jargon.base
                         oneJargon.jargon = jargon.jargon
                         oneJargon.category = jargon.category
