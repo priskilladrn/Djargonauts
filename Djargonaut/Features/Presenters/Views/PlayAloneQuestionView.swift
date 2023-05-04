@@ -59,8 +59,6 @@ struct PlayAloneQuestionView: View {
                     
                     //MARK: flash card view
                     PlayAloneCardView(base: questions[i].base ?? "", wrongAnswer: randomWord, category: questions[i].category ?? "", desc: questions[i].desc ?? "", cardCount: 10, currentCard: i+1, randomInt: randomInt, score: $score, i: $i, isCorrect: $isCorrect, isFlipped: $isFlipped, playAloneVM: playAloneVM)
-                        .frame(width: geo.size.width * 0.5, height: geo.size.height * 0.65)
-                    
                     Spacer()
                     
                     ScrollView(.horizontal) {
