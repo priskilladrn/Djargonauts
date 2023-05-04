@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ScoreSoloView: View {
+    let score: Int
+    
     var body: some View {
         GeometryReader { geo in
             VStack {
@@ -46,7 +48,7 @@ struct ScoreSoloView: View {
                             Image(systemName: "star.fill")
                                 .foregroundColor(Color("Secondary"))
                         }
-                        Text("800")
+                        Text("\(score)")
                             .foregroundColor(Color("ScoreColor"))
                             .fontWeight(.bold)
                             .font(.system(size: 60))
@@ -55,9 +57,9 @@ struct ScoreSoloView: View {
                 .padding(38)
                 Spacer()
                 Button {
-                    
+                    NavigationUtil.popToRootView()
                 } label: {
-                    BorderedButtonView(text: "Exit to Main Menu", destination: HomeView())
+                    BorderedButtonView(text: "Exit to Main Menu", destination: EmptyView())
                 }
                 .frame(width: geo.size.width * 0.7, height: geo.size.height * 0.07)
             }
@@ -89,7 +91,7 @@ struct ScoreSoloView: View {
     
     struct ScoreSoloView_Previews: PreviewProvider {
         static var previews: some View {
-            ScoreSoloView()
+            ScoreSoloView(score: 800)
         }
     }
 }

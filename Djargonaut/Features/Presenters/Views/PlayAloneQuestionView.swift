@@ -32,7 +32,7 @@ struct PlayAloneQuestionView: View {
                         Image(systemName: "star.fill")
                             .resizable()
                             .scaledToFit()
-                            .foregroundColor(AppColor.secondary)
+                            .foregroundColor(AppColor.title)
                             .frame(height: geo.size.height * 0.03)
                         Text("\(score)")
                             .font(.system(size: 36, weight: .bold))
@@ -120,7 +120,7 @@ struct PlayAloneQuestionView: View {
                             .padding(.top, geo.size.height * 0.05)
                         } else {
                             NavigationLink{
-                                AnyView(ScoreSoloView())
+                                AnyView(ScoreSoloView(score: score))
                             } label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 10)
@@ -136,6 +136,8 @@ struct PlayAloneQuestionView: View {
                                         .foregroundColor(Color(hex: 001477))
                                 }
                             }
+                            .frame(width: geo.size.width * 0.5 ,height: geo.size.height * 0.06)
+                            .padding(.top, geo.size.height * 0.05)
                         }
                     }
                     

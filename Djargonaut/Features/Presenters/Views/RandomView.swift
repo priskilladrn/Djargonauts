@@ -28,8 +28,6 @@ struct RandomView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    CustomBackButton(text: "Pick a Category")
-                        .frame(height: geo.size.height * 0.05)
                     Spacer()
                     Text("Randomizing")
                         .foregroundColor(Color("Title"))
@@ -46,7 +44,7 @@ struct RandomView: View {
                             .foregroundColor(RandomView.randomColor)
                             .animation(
                                 Animation
-                                    .interpolatingSpring(mass: 10, stiffness: 10, damping: 5, initialVelocity: 0.5)
+                                    .interpolatingSpring(mass: 8, stiffness: 10, damping: 5, initialVelocity: 0.5)
                                     .repeatForever(autoreverses: true)
                                     .speed(60)
                                         ,value: self.CurrentColor)
@@ -61,7 +59,6 @@ struct RandomView: View {
                             .frame(height: 450)
                     }
                 }
-                .navigationBarBackButtonHidden(true)
             
                 NavigationLink(
                     destination: PlayAloneQuestionView(questions: questions),
@@ -72,6 +69,13 @@ struct RandomView: View {
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 navigateToCategoryPage = true
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Text("Pick a Category")
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(AppColor.title)
             }
         }
     }

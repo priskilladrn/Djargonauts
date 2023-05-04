@@ -26,15 +26,13 @@ struct PlayAlonePickCategoryView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    CustomBackButton(text: "Pick a Category")
-                        .frame(height: geo.size.height * 0.05)
                     
                     Spacer()
                     
                     HStack {
                         ImageButtonLink(text: "Technology", imageName: "tech_category", destination: PlayAloneQuestionView(questions: questions))
                             .simultaneousGesture(TapGesture().onEnded {
-                                questions = playAloneVM.getTenQuestions(category: "Tech")
+                                questions = playAloneVM.getTenQuestions(category: "Technology")
                             })
                             .padding(.trailing, geo.size.width * 0.1)
                         
@@ -61,7 +59,7 @@ struct PlayAlonePickCategoryView: View {
                     
                     Spacer()
                     
-                    BorderedButtonView(text: "Randomize", destination: RandomView(questions: questions))
+                    BorderedButtonView(text: "Randomize", destination: RandomView(questions: questions).toolbarRole(.editor))
                         .simultaneousGesture(TapGesture().onEnded{
                             questions = playAloneVM.getTenRandomQuestions()
                         })
@@ -70,9 +68,15 @@ struct PlayAlonePickCategoryView: View {
                     Spacer()
                 }
             }
-            .navigationBarBackButtonHidden(true)
             .onAppear {
                 playAloneVM = PlayAloneViewModel(jargonListVM: jargonListVM)
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Text("Pick a Category")
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundColor(AppColor.title)
+                }
             }
         }
     }
