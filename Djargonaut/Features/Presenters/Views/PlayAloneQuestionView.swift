@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct PlayAloneQuestionView: View {
-//    var category: String
-    var questions: [Jargon]
+    @Environment(\.presentationMode) var presentationMode
     
     @State var isCorrect = [0,1,-1,0,0,0,0,0,0,0]
     @State var score: Int = 0
-    @State var i = 9
-    
+    @State var i = 0
     @State private var timeRemaining = 15
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    var questions: [Jargon]
     
     var body: some View {
         GeometryReader { geo in
@@ -28,26 +28,33 @@ struct PlayAloneQuestionView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-//                    CustomBackButton(text: category)
-//                        .frame(height: geo.size.height * 0.05)
-
-                    HStack (alignment: .center){
-                        Text("Choose an answer!")
-                            .font(.system(size: 18, weight: .bold))
-                        Spacer()
+                    HStack {
                         Image(systemName: "star.fill")
                             .resizable()
                             .scaledToFit()
+                            .foregroundColor(AppColor.secondary)
                             .frame(height: geo.size.height * 0.03)
                         Text("\(score)")
                             .font(.system(size: 36, weight: .bold))
+                            .foregroundColor(AppColor.title)
                         
+                        Spacer()
+                        
+                        Button {
+                            NavigationUtil.popToRootView()
+                        } label: {
+                            Image(systemName: "house.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .foregroundColor(AppColor.title)
+                                .frame(height: geo.size.height * 0.03)
+                        }
                     }
                     .foregroundColor(AppColor.title)
                     .padding(.horizontal, geo.size.width * 0.05)
                     
                     //MARK: flash card view
-                    Text("category: \(questions[i].base ?? "")")
+//                    Text("category: \(questions[i].base ?? "")")
                     
                     
                     Spacer()
@@ -129,8 +136,6 @@ struct PlayAloneQuestionView: View {
                                         .foregroundColor(Color(hex: 001477))
                                 }
                             }
-                            .frame(width: geo.size.width * 0.5 ,height: geo.size.height * 0.06)
-                            .padding(.top, geo.size.height * 0.05)
                         }
                     }
                     

@@ -11,6 +11,7 @@ struct PlayAlonePickCategoryView: View {
     
     @EnvironmentObject var jargonListVM: JargonListViewModel
     @Environment(\.presentationMode) var presentationMode
+    
     @State var allJargons = [Jargon]()
     @State var questions = Array<Jargon>()
     @State var playAloneVM: PlayAloneViewModel
@@ -60,7 +61,7 @@ struct PlayAlonePickCategoryView: View {
                     
                     Spacer()
                     
-                    BorderedButtonView(text: "Randomize", destination: RandomView(questions: questions))
+                    BorderedButtonLinkView(text: "Randomize", destination: RandomView(questions: questions))
                         .simultaneousGesture(TapGesture().onEnded{
                             questions = playAloneVM.getTenRandomQuestions()
                         })

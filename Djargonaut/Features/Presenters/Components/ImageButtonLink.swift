@@ -11,10 +11,12 @@ struct ImageButtonLink: View {
     var text: String
     var imageName: String
     var destination: any View
+//    @Binding var isActive: Bool
+    
     var body: some View {
-        NavigationLink{
-            AnyView(destination)
-        } label: {
+        NavigationLink(
+        destination: AnyView(destination)
+        ){
             VStack{
                 Image(imageName)
                     .resizable()
@@ -28,8 +30,8 @@ struct ImageButtonLink: View {
     }
 }
 
-struct ImageButton_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageButtonLink(text: "asdf", imageName: "home_solo", destination: EmptyView())
-    }
-}
+//struct ImageButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ImageButtonLink(text: "asdf", imageName: "home_solo", destination: EmptyView())
+//    }
+//}

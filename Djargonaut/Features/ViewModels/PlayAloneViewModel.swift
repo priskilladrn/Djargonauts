@@ -9,7 +9,6 @@ import Foundation
 import CoreData
 
 class PlayAloneViewModel {
-    private let categories = ["Tech", "Design", "Gaming", "Accounting"]
     private var resultSet = Set<Jargon>()
     private var jargonListVM: JargonListViewModel?
     

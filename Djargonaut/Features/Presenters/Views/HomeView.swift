@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
-
+import LottieUI
 struct HomeView: View {
     @EnvironmentObject var jargonListVM: JargonListViewModel
     @State private var randomJargon: Jargon?
     @State var isPresented = false //Variabel popup
-
     
+
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0){
@@ -80,7 +80,6 @@ struct HomeView: View {
                     ZStack (alignment: .top){
                         RoundedRectangle(cornerRadius: 32)
                             .fill(AppColor.purpleDark)
-                            .opacity(0.8)
                         RoundedRectangle(cornerRadius: 32)
                             .strokeBorder(AppColor.purple, lineWidth: 3)
                             .opacity(0.8)
@@ -101,7 +100,7 @@ struct HomeView: View {
                     .textCase(.uppercase)
                     .foregroundColor(AppColor.title)
                     .kerning(4)
-                HStack (spacing: 32){
+                HStack (spacing: 48){
                     ImageButtonLink(text: "Solo Mode", imageName: "home_solo", destination: PlayAlonePickCategoryView(playAloneVM: PlayAloneViewModel()))
                     ImageButtonLink(text: "Multiplayer", imageName: "home_1v1", destination: MultipeerInitView())
                 }
@@ -113,10 +112,15 @@ struct HomeView: View {
                     isPresented = true
                 } label: {
                     ZStack {
-                        Image("home_how_to_play_btn")
-                            .resizable()
-                            .scaledToFit()
+                        LottieView(state: LUStateData(type: .name("how-to-play", .main), loopMode: .loop))
+                            .scaleEffect(1.5)
+                            .scaledToFill()
+                            .frame(width: 72, height: 128)
                             .padding(.bottom, -10)
+//                        Image("home_how_to_play_btn")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .padding(.bottom, -10)
                         Text("How To Play")
                             .foregroundColor(.black)
                             .textCase(.uppercase)
@@ -125,8 +129,6 @@ struct HomeView: View {
                     }
                     .frame(width: 75)
                 }
-                
-                
                 Image("home_how_to_play_rock")
                     .resizable()
                     .scaledToFit()
@@ -134,6 +136,7 @@ struct HomeView: View {
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .navigationBarBackButtonHidden(true)
         }
         .sheet(isPresented: $isPresented) {
             PopupView(isPresented: $isPresented)

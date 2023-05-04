@@ -11,6 +11,9 @@
 		0A42FAFF29EE55280031AB01 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A42FAFE29EE55280031AB01 /* ContentView.swift */; };
 		0A42FB0129EE552A0031AB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A42FB0029EE552A0031AB01 /* Assets.xcassets */; };
 		0A42FB0429EE552A0031AB01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A42FB0329EE552A0031AB01 /* Preview Assets.xcassets */; };
+		0A5EF9632A0357750020A985 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0A5EF9622A0357750020A985 /* Lottie */; };
+		0A5EF9662A0357870020A985 /* LottieUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0A5EF9652A0357870020A985 /* LottieUI */; };
+		0A5EF96A2A035CF30020A985 /* how-to-play.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A5EF9692A035CF30020A985 /* how-to-play.json */; };
 		0ACD838029F26A730031E9BD /* MultipeerInitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD837F29F26A730031E9BD /* MultipeerInitView.swift */; };
 		0ACD838229F26C7E0031E9BD /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD838129F26C7E0031E9BD /* TextFieldView.swift */; };
 		0ACD838429F26DE00031E9BD /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD838329F26DE00031E9BD /* ButtonView.swift */; };
@@ -22,7 +25,8 @@
 		0ACD839529F6CB9E0031E9BD /* ImageButtonLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD839429F6CB9E0031E9BD /* ImageButtonLink.swift */; };
 		0ACD839929F6CE940031E9BD /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD839829F6CE940031E9BD /* AppColor.swift */; };
 		0AE848F529FCFA58004FB5CF /* MultipeerPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE848F429FCFA58004FB5CF /* MultipeerPlayView.swift */; };
-		260D57A12A00AB04008A225E /* BorderedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D57A02A00AB04008A225E /* BorderedButtonView.swift */; };
+		2602DCFF2A0351EA000E0FA5 /* RootPresentationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2602DCFE2A0351EA000E0FA5 /* RootPresentationExtension.swift */; };
+		260D57A12A00AB04008A225E /* BorderedButtonLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D57A02A00AB04008A225E /* BorderedButtonLinkView.swift */; };
 		26878DE429F827210036497D /* PlayAlonePickCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26878DE329F827210036497D /* PlayAlonePickCategoryView.swift */; };
 		26901D462A00F657006B5172 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26901D452A00F657006B5172 /* CustomBackButton.swift */; };
 		26901D482A00F995006B5172 /* PlayAloneQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26901D472A00F995006B5172 /* PlayAloneQuestionView.swift */; };
@@ -54,6 +58,7 @@
 		0A42FAFE29EE55280031AB01 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0A42FB0029EE552A0031AB01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A42FB0329EE552A0031AB01 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0A5EF9692A035CF30020A985 /* how-to-play.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "how-to-play.json"; sourceTree = "<group>"; };
 		0ACD837F29F26A730031E9BD /* MultipeerInitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerInitView.swift; sourceTree = "<group>"; };
 		0ACD838129F26C7E0031E9BD /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		0ACD838329F26DE00031E9BD /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
@@ -65,7 +70,8 @@
 		0ACD839429F6CB9E0031E9BD /* ImageButtonLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageButtonLink.swift; sourceTree = "<group>"; };
 		0ACD839829F6CE940031E9BD /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		0AE848F429FCFA58004FB5CF /* MultipeerPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerPlayView.swift; sourceTree = "<group>"; };
-		260D57A02A00AB04008A225E /* BorderedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButtonView.swift; sourceTree = "<group>"; };
+		2602DCFE2A0351EA000E0FA5 /* RootPresentationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresentationExtension.swift; sourceTree = "<group>"; };
+		260D57A02A00AB04008A225E /* BorderedButtonLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButtonLinkView.swift; sourceTree = "<group>"; };
 		26878DE329F827210036497D /* PlayAlonePickCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAlonePickCategoryView.swift; sourceTree = "<group>"; };
 		26901D452A00F657006B5172 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		26901D472A00F995006B5172 /* PlayAloneQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAloneQuestionView.swift; sourceTree = "<group>"; };
@@ -96,6 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A5EF9632A0357750020A985 /* Lottie in Frameworks */,
+				0A5EF9662A0357870020A985 /* LottieUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +227,7 @@
 				0ACD838129F26C7E0031E9BD /* TextFieldView.swift */,
 				0ACD838329F26DE00031E9BD /* ButtonView.swift */,
 				0ACD839429F6CB9E0031E9BD /* ImageButtonLink.swift */,
-				260D57A02A00AB04008A225E /* BorderedButtonView.swift */,
+				260D57A02A00AB04008A225E /* BorderedButtonLinkView.swift */,
 				815177BB29FB7F1C007B4E2E /* PopupView.swift */,
 				26901D452A00F657006B5172 /* CustomBackButton.swift */,
 				A33663B12A01DBFD001417C9 /* DictionaryCardView.swift */,
@@ -234,6 +242,7 @@
 			children = (
 				26AA110529FD82490003B82A /* ColorExtension.swift */,
 				26B9653C29F65EA400A9465A /* JargonExtension.swift */,
+				2602DCFE2A0351EA000E0FA5 /* RootPresentationExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -241,6 +250,7 @@
 		0A42FB1329EE564D0031AB01 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0A5EF9692A035CF30020A985 /* how-to-play.json */,
 				26B9654029F6794400A9465A /* Suggestion Data.csv */,
 				0A42FB0029EE552A0031AB01 /* Assets.xcassets */,
 			);
@@ -308,6 +318,10 @@
 			dependencies = (
 			);
 			name = Djargonaut;
+			packageProductDependencies = (
+				0A5EF9622A0357750020A985 /* Lottie */,
+				0A5EF9652A0357870020A985 /* LottieUI */,
+			);
 			productName = Djargonaut;
 			productReference = 0A42FAF929EE55280031AB01 /* Djargonaut.app */;
 			productType = "com.apple.product-type.application";
@@ -336,6 +350,10 @@
 				Base,
 			);
 			mainGroup = 0A42FAF029EE55280031AB01;
+			packageReferences = (
+				0A5EF9612A0357750020A985 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				0A5EF9642A0357870020A985 /* XCRemoteSwiftPackageReference "LottieUI" */,
+			);
 			productRefGroup = 0A42FAFA29EE55280031AB01 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -351,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26B9654129F6794400A9465A /* Suggestion Data.csv in Resources */,
+				0A5EF96A2A035CF30020A985 /* how-to-play.json in Resources */,
 				0A42FB0429EE552A0031AB01 /* Preview Assets.xcassets in Resources */,
 				0A42FB0129EE552A0031AB01 /* Assets.xcassets in Resources */,
 			);
@@ -370,6 +389,7 @@
 				26901D4A2A01126F006B5172 /* PlayAloneViewModel.swift in Sources */,
 				26B9653929F6476400A9465A /* JargonListViewModel.swift in Sources */,
 				26B9653D29F65EA400A9465A /* JargonExtension.swift in Sources */,
+				2602DCFF2A0351EA000E0FA5 /* RootPresentationExtension.swift in Sources */,
 				0ACD838B29F282870031E9BD /* MultipeerSession.swift in Sources */,
 				A33663B02A01DBD9001417C9 /* JargonListView.swift in Sources */,
 				0ACD838829F273910031E9BD /* MultipeerCreateView.swift in Sources */,
@@ -395,7 +415,7 @@
 				0ACD838D29F285270031E9BD /* MultipeerConnectView.swift in Sources */,
 				0ACD839929F6CE940031E9BD /* AppColor.swift in Sources */,
 				0ACD839529F6CB9E0031E9BD /* ImageButtonLink.swift in Sources */,
-				260D57A12A00AB04008A225E /* BorderedButtonView.swift in Sources */,
+				260D57A12A00AB04008A225E /* BorderedButtonLinkView.swift in Sources */,
 				0ACD838029F26A730031E9BD /* MultipeerInitView.swift in Sources */,
 				A33663B22A01DBFD001417C9 /* DictionaryCardView.swift in Sources */,
 				81A4193029F10BEA00B645B8 /* SliderView.swift in Sources */,
@@ -599,6 +619,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A5EF9612A0357750020A985 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		0A5EF9642A0357870020A985 /* XCRemoteSwiftPackageReference "LottieUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jasudev/LottieUI.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A5EF9622A0357750020A985 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A5EF9612A0357750020A985 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		0A5EF9652A0357870020A985 /* LottieUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A5EF9642A0357870020A985 /* XCRemoteSwiftPackageReference "LottieUI" */;
+			productName = LottieUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		26B9653329F6445C00A9465A /* DjargonautModel.xcdatamodeld */ = {

@@ -28,12 +28,13 @@ struct MultipeerInitView: View {
                 .foregroundColor(.red)
             Spacer()
             
-            ButtonView(text: "Create Room"){
+            BorderedButtonView(text: "Create Room", isPrimary: true){
                 if (isNicknameValid(multipeerViewModel.nickname)) {
                     navigateToCreateView = true
                 }
             }
-            ButtonView(text: "Join Room", isPrimary: false){
+            .padding(.bottom, 16)
+            BorderedButtonView(text: "Join Room"){
                 if (isNicknameValid(multipeerViewModel.nickname)) {
                     navigateToConnectView = true
                 }
@@ -46,7 +47,8 @@ struct MultipeerInitView: View {
         }.navigationDestination(isPresented: $navigateToConnectView){
             MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), vm: multipeerViewModel)
         }
-        
+        .background(Image("background").resizable()
+            .aspectRatio( contentMode: .fill))
     }
     
     func isNicknameValid (_ nickname: String) -> Bool {
