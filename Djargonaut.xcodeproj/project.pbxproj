@@ -14,6 +14,9 @@
 		0A5EF9632A0357750020A985 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0A5EF9622A0357750020A985 /* Lottie */; };
 		0A5EF9662A0357870020A985 /* LottieUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0A5EF9652A0357870020A985 /* LottieUI */; };
 		0A5EF96A2A035CF30020A985 /* how-to-play.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A5EF9692A035CF30020A985 /* how-to-play.json */; };
+		0A5EF96D2A0375E30020A985 /* MGFlipView in Frameworks */ = {isa = PBXBuildFile; productRef = 0A5EF96C2A0375E30020A985 /* MGFlipView */; };
+		0A5EF96F2A0376220020A985 /* TestFlipCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5EF96E2A0376220020A985 /* TestFlipCard.swift */; };
+		0A5EF9712A037C4D0020A985 /* FlippableCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5EF9702A037C4D0020A985 /* FlippableCard.swift */; };
 		0ACD838029F26A730031E9BD /* MultipeerInitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD837F29F26A730031E9BD /* MultipeerInitView.swift */; };
 		0ACD838229F26C7E0031E9BD /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD838129F26C7E0031E9BD /* TextFieldView.swift */; };
 		0ACD838429F26DE00031E9BD /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACD838329F26DE00031E9BD /* ButtonView.swift */; };
@@ -59,6 +62,8 @@
 		0A42FB0029EE552A0031AB01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A42FB0329EE552A0031AB01 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A5EF9692A035CF30020A985 /* how-to-play.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "how-to-play.json"; sourceTree = "<group>"; };
+		0A5EF96E2A0376220020A985 /* TestFlipCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFlipCard.swift; sourceTree = "<group>"; };
+		0A5EF9702A037C4D0020A985 /* FlippableCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlippableCard.swift; sourceTree = "<group>"; };
 		0ACD837F29F26A730031E9BD /* MultipeerInitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerInitView.swift; sourceTree = "<group>"; };
 		0ACD838129F26C7E0031E9BD /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		0ACD838329F26DE00031E9BD /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
@@ -104,6 +109,7 @@
 			files = (
 				0A5EF9632A0357750020A985 /* Lottie in Frameworks */,
 				0A5EF9662A0357870020A985 /* LottieUI in Frameworks */,
+				0A5EF96D2A0375E30020A985 /* MGFlipView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +239,8 @@
 				A33663B12A01DBFD001417C9 /* DictionaryCardView.swift */,
 				A33885212A0244C9002217A2 /* MultipeerExplainerCardView.swift */,
 				A3B08CB62A035EEA0003A479 /* MultipeerGuesserCardView.swift */,
+				0A5EF96E2A0376220020A985 /* TestFlipCard.swift */,
+				0A5EF9702A037C4D0020A985 /* FlippableCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -321,6 +329,7 @@
 			packageProductDependencies = (
 				0A5EF9622A0357750020A985 /* Lottie */,
 				0A5EF9652A0357870020A985 /* LottieUI */,
+				0A5EF96C2A0375E30020A985 /* MGFlipView */,
 			);
 			productName = Djargonaut;
 			productReference = 0A42FAF929EE55280031AB01 /* Djargonaut.app */;
@@ -353,6 +362,7 @@
 			packageReferences = (
 				0A5EF9612A0357750020A985 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				0A5EF9642A0357870020A985 /* XCRemoteSwiftPackageReference "LottieUI" */,
+				0A5EF96B2A0375E20020A985 /* XCRemoteSwiftPackageReference "MGFlipView" */,
 			);
 			productRefGroup = 0A42FAFA29EE55280031AB01 /* Products */;
 			projectDirPath = "";
@@ -392,6 +402,7 @@
 				2602DCFF2A0351EA000E0FA5 /* RootPresentationExtension.swift in Sources */,
 				0ACD838B29F282870031E9BD /* MultipeerSession.swift in Sources */,
 				A33663B02A01DBD9001417C9 /* JargonListView.swift in Sources */,
+				0A5EF9712A037C4D0020A985 /* FlippableCard.swift in Sources */,
 				0ACD838829F273910031E9BD /* MultipeerCreateView.swift in Sources */,
 				0ACD839329F6BA880031E9BD /* HomeView.swift in Sources */,
 				A3B08CB72A035EEA0003A479 /* MultipeerGuesserCardView.swift in Sources */,
@@ -402,6 +413,7 @@
 				0ACD838229F26C7E0031E9BD /* TextFieldView.swift in Sources */,
 				26B9653729F6448400A9465A /* JargonModel.swift in Sources */,
 				0ACD838429F26DE00031E9BD /* ButtonView.swift in Sources */,
+				0A5EF96F2A0376220020A985 /* TestFlipCard.swift in Sources */,
 				26901D482A00F995006B5172 /* PlayAloneQuestionView.swift in Sources */,
 				A352E24829EE95FB0000C7D5 /* SearchResultView.swift in Sources */,
 				0A42FAFD29EE55280031AB01 /* DjargonautApp.swift in Sources */,
@@ -637,6 +649,14 @@
 				kind = branch;
 			};
 		};
+		0A5EF96B2A0375E20020A985 /* XCRemoteSwiftPackageReference "MGFlipView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Zaprogramiacz/MGFlipView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -649,6 +669,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0A5EF9642A0357870020A985 /* XCRemoteSwiftPackageReference "LottieUI" */;
 			productName = LottieUI;
+		};
+		0A5EF96C2A0375E30020A985 /* MGFlipView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A5EF96B2A0375E20020A985 /* XCRemoteSwiftPackageReference "MGFlipView" */;
+			productName = MGFlipView;
 		};
 /* End XCSwiftPackageProductDependency section */
 

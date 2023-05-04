@@ -46,7 +46,7 @@ struct MultipeerGuesserCardView: View {
     var body: some View {
         VStack{
             ZStack {
-                GuesserFront(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $frontDegree)
+//                GuesserFront(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $frontDegree)
                 GuesserBack(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $backDegree)
             }.onTapGesture {
                 flipCard ()
@@ -66,6 +66,8 @@ struct GuesserFront : View {
     let currentCard: Int
     
     @Binding var degree : Double
+    
+    var action: () -> Void
     
     var body: some View {
         ZStack {
@@ -88,13 +90,15 @@ struct GuesserFront : View {
                     Spacer()
                     
                     //MARK: Answer 1
-                    Text("ARTIFICIAL INTELLIGENCE")
-                        .foregroundColor(.white)
-                        .font(.system(size:18, weight: .bold))
-                        .padding(15)
-                        .frame(maxWidth: .infinity)
-                        .background(AppColor.purple)
-                        .cornerRadius(13)
+                    Button(action: action) {
+                        Text(base)
+                            .foregroundColor(.white)
+                            .font(.system(size:18, weight: .bold))
+                            .padding(15)
+                            .frame(maxWidth: .infinity)
+                            .background(AppColor.purple)
+                            .cornerRadius(13)
+                    }
 
                     Divider()
                         .overlay(.white)

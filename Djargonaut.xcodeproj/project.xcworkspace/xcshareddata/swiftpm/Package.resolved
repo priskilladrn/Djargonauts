@@ -17,6 +17,15 @@
         "branch" : "main",
         "revision" : "27793ad19c887bc1fcf3846d94d2425692a39069"
       }
+    },
+    {
+      "identity" : "mgflipview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Zaprogramiacz/MGFlipView.git",
+      "state" : {
+        "revision" : "12e9f23696541b71b2fca9b3fae207867baef9e2",
+        "version" : "1.1.0"
+      }
     }
   ],
   "version" : 2
