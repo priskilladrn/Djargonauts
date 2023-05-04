@@ -79,6 +79,7 @@ struct GuesserFront : View {
     @EnvironmentObject var jargonListVM: JargonListViewModel
     
     @State private var currentWrongAnswer = ""
+    @State private var randomInt = 0
     var body: some View {
         ZStack {
             HStack (alignment: .top) {
@@ -100,9 +101,9 @@ struct GuesserFront : View {
                     Spacer()
                     
                     //MARK: Answer 1
-                    Button(action: correctAnswerAction) {
+                    Button(action: randomInt == 0 ? correctAnswerAction : wrongAnswerAction) {
                         
-                        Text(base)
+                        Text(randomInt == 0 ? base : currentWrongAnswer)
                             .textCase(.uppercase)
                             .foregroundColor(.white)
                             .font(.system(size:18, weight: .bold))
@@ -116,9 +117,9 @@ struct GuesserFront : View {
                         .padding(.vertical, 20)
                     
                     //MARK: Answer 2
-                    Button(action: wrongAnswerAction) {
+                    Button(action: randomInt == 0 ? wrongAnswerAction : correctAnswerAction) {
                         
-                        Text("\(currentWrongAnswer)")
+                        Text("\(randomInt == 0 ? currentWrongAnswer : base)")
                             .textCase(.uppercase)
                             .foregroundColor(.white)
                             .font(.system(size:18, weight: .bold))
@@ -140,6 +141,8 @@ struct GuesserFront : View {
         }.rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))
             .onAppear{
                 currentWrongAnswer = jargonListVM.jargonList.filter{ $0.category == category && $0.base != base }.map{ JargonModel(from: $0) }.randomElement()!.base
+                
+                randomInt = Int.random(in: 0...1)
             }
     }
     
