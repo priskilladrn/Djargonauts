@@ -12,6 +12,7 @@ struct HomeView: View {
     @State private var randomJargon: Jargon?
     @State var isPresented = false //Variabel popup
     
+
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0){

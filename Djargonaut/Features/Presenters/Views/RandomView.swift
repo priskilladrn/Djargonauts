@@ -12,6 +12,7 @@ struct RandomView: View {
     @State var scaleEffect = 1.0
     @State var navigateToCategoryPage = false
     
+    var questions: [Jargon]
     static var colors: [Color] = [AppColor.secondary, AppColor.purple, AppColor.title, AppColor.purpleDark]
     static var randomColor: Color {
         colors.randomElement() ?? .blue
@@ -63,7 +64,7 @@ struct RandomView: View {
                 .navigationBarBackButtonHidden(true)
             
                 NavigationLink(
-                    destination: DummyView(),
+                    destination: PlayAloneQuestionView(questions: questions),
                     isActive: $navigateToCategoryPage,
                     label: {}
                 )
@@ -76,8 +77,8 @@ struct RandomView: View {
     }
 }
     
-    struct RandomView_Previews: PreviewProvider {
-        static var previews: some View {
-            RandomView()
-        }
-    }
+//    struct RandomView_Previews: PreviewProvider {
+//        static var previews: some View {
+//            RandomView()
+//        }
+//    }
