@@ -1,33 +1,401 @@
-Base,Jargon,Category,Description,Part of Speech,,https://techterms.com/
-Array,,Technology,Data structure that contains a group of elements,,,
-Deadlock,,Tech,A condition where a program cannot access a resource it needs to continue,,,
-Bootstrap,,Tech,Process that automatically loads and executes command,,,
-Repository,,Tech,A central file storage location,,,
-Wrapper,,Tech,Any entity that encapsulates (wraps around) another item,,,
-Compile,,Tech,Convert program from human-readable source code into an executable file,,,
-Container,,Tech,Software package that contains everything the software needs to run,,,
-Deprecate,Deprecated,Tech,Functions or elements that are in the process of being replaced by newer ones,,,
-Interpreter,,Tech,Program that reads and executes code,,,
-Deployment,,Tech,The process of making software usable on one or more systems,,,
-Pseudocode,,Tech,Informal way of describing a program,,,
-SQL,,Tech,Query language used to access and modify information in a database,,,
-Backend,,Tech,Any part of a website or software program that users do not see,,,
-Encode,Encoding,Tech,Process of converting data from one form to another,,,
-GUI,,Tech,User interface that includes graphical elements, such as windows, icons and buttons,,,
-Index,,Tech,List of data, such as group of files or database entries,,,
-Iteration,,Tech,Repetition of a function or process in a computer program,,,
-Runtime,,Tech,The time a program runs on a computer or device,,,
-Frontend,,Tech,The interface design and the programming that makes the interface function,,,
-Root,,Tech,Top-level directory of a file system,,,
-Bug,,Tech,An error in a software program,,,
-Query,,Tech,Question,,,
-Source Code,,Tech,Text written in a programming language that contains a program's instructions,,,
-Virtual Machine,,Tech,Emulated computer system created using software,,,
-Algorithm,,Tech,Set of instructions designed to perform a specific task,,,
-Application,,Tech,Software program that runs on the computer,,,
-Operating System,,Tech,Software that communicates with the hardware and allows other programs to run,,,
-Readme,,Tech,Text file that provides some basic documentation for a software program,,,
-Desktop,,Tech,Primary user interface of a computer,,,
-Database,,Tech,Structured, organized collection of data stored on a computer system,,,
-Text Editor,,Tech,Software application that creates and edits plain text files,,,
-Software,,Tech,General term that describes computer programs,,,
+JargonID,Base,Jargon,Category,Description
+TECH001,Array,,Technology,Data structure that contains a group of elements
+TECH002,Deadlock,,Technology,A condition where a program cannot access a resource it needs to continue
+TECH003,Bootstrap,,Technology,Process that automatically loads and executes command
+TECH004,Repository,,Technology,A central file storage location
+TECH005,Wrapper,,Technology,Any entity that encapsulates (wraps around) another item
+TECH006,Compile,,Technology,Convert program from human-readable source code into an executable file
+TECH007,Container,,Technology,Software package that contains everything the software needs to run
+TECH008,Deprecate,Deprecated,Technology,Functions or elements that are in the process of being replaced by newer ones
+TECH009,Interpreter,,Technology,Program that reads and executes code
+TECH010,Deployment,,Technology,The process of making software usable on one or more systems
+TECH011,Pseudocode,,Technology,Informal way of describing a program
+TECH012,SQL,Structured Query Language,Technology,Query language used to access and modify information in a database
+TECH013,Backend,,Technology,Any part of a website or software program that users do not see
+TECH014,Encode,Encoding,Technology,Process of converting data from one form to another
+TECH015,GUI,Graphical User Interface,Technology,"User interface that includes graphical elements, such as windows, icons and buttons"
+TECH016,Index,,Technology,"List of data, such as group of files or database entries"
+TECH017,Iteration,,Technology,Repetition of a function or process in a computer program
+TECH018,Runtime,,Technology,The time a program runs on a computer or device
+TECH019,Frontend,,Technology,The interface design and the programming that makes the interface function
+TECH020,Root,,Technology,Top-level directory of a file system
+TECH021,Bug,,Technology,An error in a software program
+TECH022,Query,,Technology,Question
+TECH023,Source Code,,Technology,Text written in a programming language that contains a program's instructions
+TECH024,VM,Virtual Machine,Technology,Software that allows you to use one computer operating system with another
+TECH025,Algorithm,,Technology,Set of instructions designed to perform a specific task
+TECH026,Application,,Technology,Software program that runs on the computer
+TECH027,Operating System,,Technology,Software that communicates with the hardware and allows other programs to run
+TECH028,Readme,,Technology,Text file that provides some basic documentation for a software program
+TECH029,Desktop,,Technology,Primary user interface of a computer
+TECH030,Database,DB,Technology,"Structured, organized collection of data stored on a computer system"
+TECH031,Text Editor,,Technology,Software application that creates and edits plain text files
+TECH032,Software,,Technology,General term that describes computer programs
+TECH033,API,Application Programming Interface,Technology,Software that allows computers or applications to communicate with each other
+TECH034,Attribute,,Technology,Specification that provides extra information about an element
+TECH035,Framework,,Technology,Program or code library or another component for developing software applications
+TECH036,Library,,Technology,A collection of pre-written code that programmers often use to save time when writing applications
+TECH037,OOP,Object-Oriented Programming,Technology,Programming model that categorizes software design by data (objects) instead of logic and functions
+TECH038,Version Control,,Technology,Program that tracks code or file changes to a website or app
+TECH039,Comment,,Technology,A comment adds explanatory notes to the code without affecting the document's layout
+TECH040,Declaration,,Technology,Statement that introduces identifiers and specifies their properties
+TECH041,Element,,Technology,Single component of a larger group
+TECH042,Meta Elements,,Technology,Tags part of a website's head section that structure metadata
+TECH043,Big Data,,Technology,Set of data that's too large for a traditional processing system to handle
+TECH044,Data Architecture,,Technology,The structure that an organization has to collect and store and use its information
+TECH045,Database,,Technology,Collection of information that is easily accessible by computers
+TECH046,Data Modeling,,Technology,Analyzing a business's requirements for collecting and storing information
+TECH047,Load Balancing,,Technology,Distributes tasks across multiple resources
+TECH048,Parallel Processing,,Technology,A method of running two or more CPUs to complete separate parts of a task
+TECH049,RDMS,Relational Database Management System,Technology,Relational Database Management System - organizes information into tables while maintaining data integrity
+TECH050,Volume,,Technology,Total amount of data
+TECH051,A/B Testing,,Technology,An experiment that compares the performance of two versions of a website or app
+TECH052,Data Mining,,Technology,The practice of analyzing consumer behaviors to optimize marketing campaigns
+TECH053,Website Optimization,,Technology,The practice of improving a site's ability to rank in search engines and appeal to users
+TECH054,Cache,,Technology,Storage location that gathers temporary data to help websites load faster
+TECH055,Core,,Technology,Part of the CPU that performs logical operations and arithmetic
+TECH056,Hardware,,Technology,Physical parts of a computer
+TECH057,Network,,Technology,Group of computers and other devices
+TECH058,RAM,Random Access Memory,Technology,Random-Access Memory - type of data storage that makes data items quickly accessible
+TECH059,Volatile Memory,,Technology,A type of data storage that requires power to store information
+TECH060,Web Apps,,Technology,Websites that look and function like apps
+TECH061,SDK,Software Development Kit,Technology,Collection of tools for creating software
+TECH062,NFC,Near Field Communication,Technology,Technology mobile devices use to communicate via radio waves
+TECH063,Cloud Computing,,Technology,Method of storing data across remote servers instead of on a local computer
+TECH064,DNS,Domain Name System,Technology,Service for accessing a networked computer by its name instead of its IP address
+TECH065,Firewall,,Technology,Security device that monitors network traffic and prevents unauthorized access
+TECH066,Routers,,Technology,Device that connects two local area networks
+TECH067,VPN,Virtual Private Network,Technology,A network that allows you to use public Internet connections as private networks
+TECH068,Compress,Compression; Compressed; Compressing,Technology,Reduction of the size of a file
+TECH069,Domain,,Technology,A set of computers on a network that are managed as a unit
+TECH070,ISP,Internet Service Provider,Technology,Company that provides access to the Internet
+TECH071,Malware,,Technology,Malicious software
+TECH072,Phising,,Technology,A type of email fraud in which the perpetrator sends out emails that appear to come from a legitimate service or reputable company
+TECH073,SSL,Secure Sockets Layer,Technology,Protocol that allows Internet users to send encrypted messages across the Internet
+TECH074,SEO,Search Engine Optimization,Technology,The practice of making adjustments to certain aspects of a website in an effort to improve its ranking on search engines
+TECH075,URL,Unique Resource Locator; Web Address,Technology,String of characters you type into a browser to access a particular website or other resource on the Internet.
+TECH076,Virus,,Technology,Piece of programming code inserted into other programming to cause damage
+TECH077,Wi-Fi,,Technology,Technology that allows computers and other devices to communicate via a wireless signal
+TECH078,Spam,,Technology,Unsolicited email messages sent for marketing purposes
+TECH079,Internet,,Technology,A set of interconnected networks that allow computers in different locations to exchange information
+TECH080,Email,Electronic Mail,Technology,Way of sending messages over the internet
+TECH081,Encrypt,Encryption; Encrypting,Technology,Converting electronic data to an unrecognisable or encrypted form that cannot be easily understood by unauthorised parties
+TECH082,Decrypt,Decryption; Decrypting,Technology,Change electronic information or signals that were stored back into a form that people can understand and use normally
+TECH083,Bandwidth,,Technology,How much data you can send through a network or modem connection
+TECH084,Debug,,Technology,Eliminating as many errors as possible
+TECH085,Gateway,,Technology,Either hardware or software that acts as a bridge between two networks so that data can be transferred between a number of computers
+TECH086,GPS,Global Positioning System,Technology,Satellite navigation system used to determine ground position and velocity
+TECH087,Media,,Technology,Various means of communication
+TECH088,Queue,,Technology,A list of jobs that are awaiting to be processed
+TECH089,Recursion,,Technology,A process in which a function calls itself as a subroutine
+TECH090,Sampling,,Technology,Taking snapshots of an audio or video signal at very fast intervals
+TECH091,Webcam,,Technology,Small cameras that either attach to a user's monitor or sit on a desk
+TECH092,Stream,Streaming,Technology,When a multimedia file can be played back without being completely downloaded first
+TECH093,Access Point,,Technology,Provides wireless access to a network
+TECH094,Alert Box,Message Box,Technology,Small window that pops up on your screen to warn you that your computer is about to perform an operation with potentially damaging consequences
+TECH095,Apple,,Technology,Technology company based in Cupertino California
+TECH096,Avatar,,Technology,Online character that represents a person
+TECH097,Binary,,Technology,Two-digit (Base-2) numerical system
+TECH098,Bitrate,,Technology,Rate at which bits are transferred from one location to another
+TECH099,Byte,,Technology,Set of 8 bits that represent a single character in the computer's memory
+TECH100,Modem,,Technology,Communications device that can be either internal or external to your computer
+DSGN001,Composition,,Design,Arrangement of design elements that form a whole image
+DSGN002,Balance,,Design,Placement of elements on the page so that the text and graphic elements are evenly distributed
+DSGN003,Proximity,,Design,The way in which design elements are grouped or spaced on a page 
+DSGN004,Alignment,,Design,Position of text or graphics
+DSGN005,White Space,,Design,Part of the design that is unmarked by imagery or text
+DSGN006,Hierarchy,,Design,The organization of elements by level of importance
+DSGN007,Scale,,Design,The size of an object in relation to another object
+DSGN008,Mock Up,,Design,Real or digital model used to test early design ideas and see how they could look in the real world
+DSGN009,Resolution,,Design,The detail of an image based on the number of pixels
+DSGN010,DPI,Dots per Inch,Design,Dots per inch - measure of a printer’s quality
+DSGN011,PPI,Pixels per Inch,Design,Pixels per inch - measure of pixel density used by electronic image devices
+DSGN012,Bleed,,Design,When a design actually extends past its printed edge so there’s no chance of white borders when it’s trimmed down after printing
+DSGN013,Trim,,Design,Final size of a printed piece after it has been trimmed from its page
+DSGN014,Pixels,,Design,Square-shaped dots that make a digital raster image
+DSGN015,Stock Photo,,Design,Licensed images created by a third party
+DSGN016,Serif,Serifs,Design,Small lines and hooks at the end of the strokes in some letters
+DSGN017,Sans Serif,,Design,Font has no serifs
+DSGN018,Script,,Design,Typefaces use a flowing cursive stroke
+DSGN019,Slab Serif,,Design,Thick block-like serifs
+DSGN020,Ascender,,Design,The part of a lowercase letter that rises above the main body of the letter
+DSGN021,Baseline,,Design,The lowest point of all uppercase letters and most lowercase letters
+DSGN022,Descender,,Design,The part of a lowercase letter that descends below the main body of the letter
+DSGN023,X-Height,Median,Design,Where most lower-case letters should reach their maximum height
+DSGN024,Font Spacing,,Design,Vertical and horizontal spacing of a font is often altered to change its appearance
+DSGN025,Kerning,,Design,Adjustment of space between pairs of letters in the same word
+DSGN026,Leading,,Design,Space between two lines of text
+DSGN027,Tracking,,Design,The adjustment of space for groups of letters and entire blocks of text
+DSGN028,Uppercase,,Design,Large capital letters
+DSGN029,Lowercase,,Design,Small letters of a typeface
+DSGN030,Small Caps,,Design,Uppercase characters that are the same height as lowercase letters
+DSGN031,Point Size,,Design,The size of text
+DSGN032,Font Weight,,Design,Specifies the boldness of a font
+DSGN033,Italics,,Design,Characters slope to the right
+DSGN034,Lorem Ipsum,Dummy Text,Design,Placeholder that will be swapped out later with actual copy
+DSGN035,Hue,,Design,Pure color
+DSGN036,Tint,,Design,Hue with white added
+DSGN037,Tone,,Design,Hue with gray added
+DSGN038,Shade,,Design,Hue with black added
+DSGN039,Saturation,,Design,Intensity of color
+DSGN040,Palette,,Design,Range of colors used in a design
+DSGN041,Analogous,,Design,Colors that are adjacent to one another on the color wheel
+DSGN042,Complementary,,Design,Colors are opposites on the color wheel
+DSGN043,Triadic,,Design,Three colors evenly spaced on the color wheel
+DSGN044,Gradient,,Design,Gradual change from one color to another
+DSGN045,Opacity,Non-Transparency,Design,The more transparent an image will lower its opacity
+DSGN046,CMYK,Cyan Magenta Yellow Key,Design,Cyan Magenta Yellow Key(Black) - 4-color printing process
+DSGN047,RGB,Red Green Blue,Design,Red Green Blue - the three colors of light typically used to display images on a digital screen
+DSGN048,Pantone,,Design,Proprietary color system for blending colors
+DSGN049,Header,,Design,Design elements repeated at the top of every page
+DSGN050,Navigation,,Design,Roadmap to the most important parts of a website
+DSGN051,Breadcrumb Trail,,Design,Navigation elements that generally appear near the top of a page to show users the section hierarchy of the current page
+DSGN052,Body Text,,Design,Main written content of a page
+DSGN053,Sidebar,,Design,Left or righthand column of a page typically used for either vertical navigation links or advertising
+DSGN054,Footer,,Design,Design elements repeated at the bottom of every page
+DSGN055,Landing Page,,Design,Single page that appears in response to search engine result
+DSGN056,User Interface,UI,Design,The design of applications
+DSGN057,Wireframe,,Design,Basic images that display the essential functions of a website
+DSGN058,Vector Graphics,,Design,Small graphics that use math to display images
+DSGN059,Raster Graphics,,Design,Composed of pixels on a grid; where each pixel is assigned a color value
+DSGN060,GIF,Graphics Interchange Format,Design,Graphics Interchange Format - raster file format that supports animation and transparency
+DSGN061,JPEG,Joint Photographic Experts Group,Design,Joint Photographic Experts Group - the most widely used raster file type for web-based designs
+DSGN062,PNG,Portable Network Graphics,Design,Portable Network Graphics - a web-based format that does not lose quality when compressed
+DSGN063,PDF,Portable Document Format,Design,Portable Document Format developed by Adobe that can be universally downloaded and viewed by any computer
+DSGN064,Abstract Mark,,Design,Logo that uses the emotive qualities of color and form to convey your brand
+DSGN065,Emblem,,Design,Uses frames and shapes to enclose the company or organization name
+DSGN066,Lettermark,,Design,Feature one or more stylized letters to identify the brand
+DSGN067,Pictorial Mark,Pictorial Symbol,Design,Non-abstract visual icons that represent your company name or service
+DSGN068,Mascot,,Design,Rely on a character or brand spokesperson to represent a business
+DSGN069,Wordmark,,Design,Relies on custom typographic treatment of text to illustrate a brand
+DSGN070,Logotype,,Design,Any text-based logo; whether it is full words or initials
+DSGN071,Lettermark,,Design,Logo made up of the initials of the brand name or business
+DSGN072,Widow,,Design,A paragraph ending or beginning that starts at the top or bottom of a column or page
+DSGN073,Orphan,,Design,A single or few words that appears at the end of paragraphs; separated from the rest of the text
+DSGN074,Typeface,,Design,A design of letters; numbers and other symbols; to be used in printing or for electronic display
+DSGN075,Font,,Design,A set of printed letters; numbers; and other symbols of the same style
+DSGN076,Avant-garde,,Design,A genre of art - works that are experimental; radical; & unusual
+DSGN077,Golden Ratio,,Design,Ratio to locate aesthetically pleasing areas to place subjects and distribute weight in artworks
+DSGN078,Rule of Thirds,,Design,Simple 3x3 grid overlay that helps arranging elements within a composition
+DSGN079,Bowl,,Design,The generally round or elliptical forms which are the basic body shape of letters
+DSGN080,Ellipsis,,Design,Character composed of three horizontal dots
+DSGN081,Greyscale,,Design,Color palette that only uses black; white and different shades of grey
+DSGN082,Grid,,Design,Horizontal and vertical columns used to provide structure; consistency; accuracy of a design
+DSGN083,Ligature,,Design,Occurs where two or more letters are joined together as one character
+DSGN084,Moodboard,,Design,A way for designers to collect together lots of visual references
+DSGN085,Thumbnail,,Design,A small; rough sketches of design; to help decide upon a layout or how a design will come together
+DSGN086,UV Map,,Design,The flat surface representation of a 3D model used to wrap textures
+DSGN087,Rendering,,Design,The process of generating a photorealistic or non-photorealistic image from a 2D or 3D model
+DSGN088,Low Fidelity,,Design,Bare minimum visual details of a future product that focuses on ideas and concepts
+DSGN089,High Fidelity,,Design,High fidelity design look and work as close to the final product
+DSGN090,Masthead,,Design,The graphic image that is found at the top of the printed or electronic page
+DSGN091,Die Cut,,Design,A finishing process of cuts done after printing to create a unique shape or texture
+DSGN092,Clear Space,,Design,Refers to the specific amount of space or padding that a logo must have on all sides
+DSGN093,FPS,,Design,Frame Per Second is used to measure the number of images consecutively displayed each second
+DSGN094,Aperture,,Design,White space at the end of an open counter in typography
+DSGN095,Arm,,Design,When a horizontal stroke is not attached to a stem on one end
+DSGN096,Backslanted,,Design,Italics leaning backward
+DSGN097,Creep,,Design,Inside margin of a book
+DSGN098,Foiling,,Design,A type of printing where metallic or pigmented foil is applied to a surface through the application of heat and a die
+DSGN099,Monochrome,,Design,Colour palette made up of various different shades and tones of a single colour
+DSGN100,Type Properties,,Design,Specific qualities that allow characters to fit on a grid
+ACNT001,AP,Account Payable,Accounting,Account Payable. Expenses that a business has incurred but has not yet paid
+ACNT002,AR,Account Receivable,Accounting,Account Receivable. Revenue that a business has provided but has not yet collected payment on
+ACNT003,BS,Balance Sheet,Accounting,Balance sheet. A financial statement that reports on all of a company's assets; liabilities; and equity
+ACNT004,BV,Book Value,Accounting,Book Value. Original value of an Asset
+ACNT005,Asset,,Accounting,Anything the company owns that has monetary value
+ACNT006,Equity,,Accounting,Amount of money that a company's owner has put into it or owns
+ACNT007,Liability,,Accounting,Things that company owes or have borrowed
+ACNT008,Inventory,,Accounting,Asset that a company has purchased to sell to its customers that remain unsold
+ACNT009,COGS,Cost of Goods Sold,Accounting,Cost of Goods Sold. Expenses that directly relate to the creation of a product or service
+ACNT010,Expense,,Accounting,Any cost incurred by the business
+ACNT011,GM,Gross Margin,Accounting,Gross Margin. A percentage calculated by taking Gross Profit and dividing by Revenue for the same period
+ACNT012,GP,Gross Profit,Accounting,Gross Profit. Ratio that shows profitability of a company in monetary terms
+ACNT013,I/S,Income Statement,Accounting,Income Statement. Financial Statement that shows the revenues; expenses; and profits over a given time period
+ACNT014,N/I,Net Income,Accounting,Net Income. Amount that is earned in profits
+ACNT015,Net Margin,,Accounting,Percentage that illustrates the profit of a company in relation to its revenue
+ACNT016,Revenue,,Accounting,Any money earned by the business
+ACNT017,Accounting Period,,Accounting,Span of time that is reported in the financial statements
+ACNT018,Allocation,,Accounting,Procedure of assigning funds to various accounts or periods
+ACNT019,Accounts,,Accounting,A record in the general ledger that is used to sort and store transactions
+ACNT020,Entity,,Accounting,A legal structure of a company with unique set of requirements; laws; and tax implications
+ACNT021,CF,Cash Flow,Accounting,Cash Flow. The inflow and outflow of cash in a business
+ACNT022,CPA,Certified Public Accountant,Accounting,Certified Public Accountant. An accountant that passed the CPA exam and fulfilling the requirements for education and work experience
+ACNT023,Credit,,Accounting,Increase in a liability or equity account or decrease in an asset or expense account
+ACNT024,Debit,,Accounting,Decrease in a liability or equity account or increase in an asset or expense account
+ACNT025,Diversification,,Accounting,Allocate capital accros a multitude of assets so that the performance of any one asset doesn't dictate the performance of the total
+ACNT026,EA,Enrolled Agent,Accounting,Enrolled Agent. Professional accounting designation assigned to professionals who have succesfully passed tests showcasing expertise in business and personal taxes
+ACNT027,FC,Fixed Cost,Accounting,Fixed Cost. Cost that doesn't change with the volume of sales
+ACNT028,VC,Variable Cost,Accounting,Variable Cost. Cost that changes with the volume of sales
+ACNT029,GL,General Ledger,Accounting,General Ledger. Complete record of a company's financial transactions
+ACNT030,GAAP,Generally Accepted Accounting Principles,Accounting,Generally Accepted Accounting Principles. Rules that all accountants abide by when performing the act of accounting
+ACNT031,Interest,,Accounting,Amount paid on a loan or line of credit that exceeds the repayment of the principal balance
+ACNT032,Liquidity,,Accounting,How quickly something can be converted into cash
+ACNT033,Material,,Accounting,Term that refers whether information provided influences decisions
+ACNT034,Overhead,,Accounting,Expenses that relate to running the business
+ACNT035,Payroll,,Accounting,Account that shows payments to employee salaries; wages; bonuses; and deductions
+ACNT036,PV,,Accounting,Value of an Asset on present time
+ACNT037,Receipt,,Accounting,Document that proves payment was made
+ACNT038,TB,,Accounting,
+ACNT039,Bond,,Accounting,A fixed-income instrument that represents a loan made by an investor to a borrower
+ACNT040,Boot,,Accounting,Any cash or other property that is received in exchange of property that would be otherwise nontaxable
+ACNT041,BEP,Break Even point,Accounting,Break Even Point. The point at which total revenues equals total costs
+ACNT042,Budget,,Accounting,Financial plan that serves as an estimate of future cost
+ACNT043,Callable,,Accounting,Redeemable by the issuer before the scheduled maturity
+ACNT044,CIA,,Accounting,Internal auditor who has satisfied the examination requirements of the Institute of Internal Auditors
+ACNT045,Close,,Accounting,To clear balances of the temporary accounts in order to be ready for the next accounting period
+ACNT046,Collateral,,Accounting,Asset provided to a creditor as security for a loan
+ACNT047,Commission,,Accounting,Percentage of the selling price of the property that paid by the seller
+ACNT048,Compilation,,Accounting,Presentation of financial statement data without the accountant's assurance
+ACNT049,Confirmation,,Accounting,Auditor's receipts of a written or oral response from an independent third party verifying the accuracy of information requested
+ACNT050,Convertible Stock,,Accounting,Stock that may be exchanged for other securities of the issuer
+ACNT051,VAT,Value Added Tax,Accounting,Value Added Tax. A tax payable on sales of goods or services
+ACNT052,Coupon,,Accounting,Interest rate on a debt security the issuer promises to pay to the holder until maturity expressed as an annual percentage of face value
+ACNT053,Security,,Accounting,A certificate or other financial instrument that has monetary value and can be traded
+ACNT054,Default,,Accounting,Failure to meet any financial obligation
+ACNT055,Deficit,,Accounting,Financial shortage that occurs when liabilities exceed assets
+ACNT056,Endorsement,,Accounting,Process of transfers ownership of a check to a bank or another party by writing owner's name on the back of the check
+ACNT057,Escrow,,Accounting,"Money or property put into the custody of a third party for delivery to a grantee, only after fulfillment of specified conditions"
+ACNT058,Factoring,,Accounting,Selling a receivable at a discounted value to a third party for cash
+ACNT059,Discount,,Accounting,Reduction from the full amount of a price or debt
+ACNT060,Finished Goods,,Accounting,The products that have been made and are ready for sale
+ACNT061,FIFO,First In First Out,Accounting,First In First Out. Method of valuing inventory under which the cost of the first goods acquired are the first costs charged to expense
+ACNT062,Floor,,Accounting,"Term used when discussing inventories. Inventory cannot be valued lower than the ""floor"" which is the netrealizable value of the inventory less an allowance for a normal profit margin"
+ACNT063,FOB,Free on Board,Accounting,Free on Board. Indicates the point at which title to goods passes
+ACNT064,Forecast,,Accounting,Prospective financial statements that are an entity's expected financial position; results of operations; and cash flows
+ACNT065,Gain,,Accounting,Excess of revenues received over costs relating to a specific transaction
+ACNT066,Instrument,,Accounting,A legal document used for a specific purpose such as paying for goods received
+ACNT067,Intangible Asset,,Accounting,Asset having no physical existence such as trademarks and patents
+ACNT068,Invoice,,Accounting,Bill prepared by a seller of goods or services and submitted to the purchaser
+ACNT069,Issue,,Accounting,Stock or bonds sold by a corporation or a government entity at a particular time
+ACNT070,Leverage,,Accounting,The use of borrowes funds to increase the profit from an investment
+ACNT071,Lessee,,Accounting,Person or entity that has the right to use property under the terms of a lease
+ACNT072,Margin,,Accounting,Excess of selling price over the unit cost
+ACNT073,Markup,,Accounting,The amount added to the price of a product by a retailer to arrive at a selling price
+ACNT074,Maturity,,Accounting,The time at which payment of a loan or bond becomes due
+ACNT075,Merchandise,,Accounting,Items that can be bought or sold; commercial goods
+ACNT076,Merger,,Accounting,Business combination that occurs when one entity directly acquires the assets and liabilities of one or more entities and no new corporation is created
+ACNT077,Net,,Accounting,Figure remaining after all relevant deductions have been made from the gross amount
+ACNT078,Note,,Accounting,Written promise to pay a specified amount to a certain entity on demand or on a specified date
+ACNT079,Offer,,Accounting,Price at which someone who owns a security offers to sell it
+ACNT080,Operating Cycle,,Accounting,Period of time between the acquisition of goods and services involved in the manufacturing process and the final cash realization resulting from sales and subsequent collections
+ACNT081,Option,,Accounting,Right to buy or sell something at a specified price during a specified time period
+ACNT082,Outstanding,,Accounting,Not settled or paid
+ACNT083,Petty Cash,,Accounting,A small amount of cash that a company keeps on hand to pay for minor
+ACNT084,Plant,,Accounting,A building or group of buildings where something is made or processed
+ACNT085,Premium,,Accounting,Excess amount paid for a bond over its face amount
+ACNT086,Proxy,,Accounting,Document authorizing someone other than the shareholder to exercise the right to vote the stock owner by the shareholder.
+ACNT087,Purchase Order,,Accounting,Written authorization to a vendor to deliver specified goods or services at a stipulated price
+ACNT088,Realization,,Accounting,Conversion into cash in the sale of asset
+ACNT089,Residual Value,,Accounting,The estimated net scarp value of a tangible asset at the estimated date of disposal
+ACNT090,Restricted Asset,,Accounting,Cash or other asset whose use in whole or in part is restricted for specific purposes bound by virtue of contracted agreements
+ACNT091,Retire,,Accounting,To take something out of market
+ACNT092,Return,,Accounting,Profit on a securities or capital investment
+ACNT093,Share,,Accounting,Unit of equity in a a corporation
+ACNT094,Spread,,Accounting,Difference between a buying and selling price
+ACNT095,Term,,Accounting,Period of time during which the conditions of a contract will be carried out
+ACNT096,Ton,,Accounting,Bond trade valued at 100 million
+ACNT097,Unqualified Opinion,,Accounting,Clean opinion or an opinion given by auditor for financial statements that has no identified material weaknesses
+ACNT098,Variance,,Accounting,Deviation or difference between an estimated value and the actual value
+ACNT099,Warrant,,Accounting,Option to purchase additional securities from the issuer
+ACNT100,Write Off,,Accounting,Charging an asset account to expense or loss
+GAME001,NT,Nice Try,Game,Nice Try is used by players to cheer teammates up when they fail at something in-game despite trying their best
+GAME002,GG,Good Game,Game,Meant to be a sign of good sportsmanship in online games
+GAME003,Camping,,Game,Camping refers to sitting in one place to get the drop on other players
+GAME004,AFK,Away From Keyboard,Game,Away From Keyboard is used when a player is unavailable or took a quick break when playing multiplayer games.
+GAME005,DLC,Downloadable Content,Game,Downloadable Content: any extra elements that you can download separately from the main game
+GAME006,Vanilla,,Game,The basic/release version of said game without modification
+GAME007,Bots,,Game,Non-human opponents in multiplayer games
+GAME008,Buff,,Game,Change or update that makes a character or weapon more powerful in some way
+GAME009,Nerf,,Game,A change or update that reduces the power of an element
+GAME010,Easter Eggs,,Game,Hidden funny messages or features in games
+GAME011,Farming,,Game,Completing repeated tasks to gain materials or resources
+GAME012,Grinding,,Game,Completing repeated tasks to gain XP points or levels
+GAME013,Ragequit,,Game,When you quit in rage after losing a match
+GAME014,Noob,Newbie,Game,An inexperienced newcomer to a game
+GAME015,AAA,,Game,AAA titles are games produced by the most well-known developers such as EA / Ubisoft / Square / etc.
+GAME016,Adds,,Game,Additional monster summoned by one you’re fighting
+GAME017,AoE,Area of Attack,Game,An Area of Effect attack: an attack with a 360 degree spread
+GAME018,Bullet Sponge,,Game,An enemy that takes an extremely excessive amount of damage to kill
+GAME019,Cheesing,,Game,A cheap tactic to kill an enemy
+GAME020,Clans,,Game,People who team up and do raids together
+GAME021,Gacha,,Game,Spend in-game currency to gain random game items
+GAME022,Cooldown,,Game,The recharge time after using a special power
+GAME023,Crafting,,Game,Craft new items or upgrade weapons / armor / abilities. Usually found in RPG
+GAME024,DPS,Damage Per Second,Game,Damage per second: A calculation of how much damage per hit and how fast you attack
+GAME025,DRM,Digital RIghts Management,Game,Digital Rights Management refers to tools that manage copyright protection for games
+GAME026,Feeding,,Game,Feeding happens when a character is unintentionally killed repeatedly due to poor playing
+GAME027,Throwing,,Game,When a player intentionally tries to lose the game. Simply making no effort to try and win
+GAME028,FPS,First Person Shooter,Game,First-person shooter: Where you see the world in first person through the eyes of the character you are playing
+GAME029,HP,Health Points; Hit Points,Game,Health/Hit Points is the measurement of how much life your character has left
+GAME030,K/D,Kill-to-death,Game,Kill-to-death ratio is the number of enemies you killed compared to the number of deaths you had
+GAME031,QTE,Quick Time Event,Game,A Quick Time Event is a video game section that requires timed button presses
+GAME032,Mashing,Button Mashing,Game,When a player presses a single or random buttons at a fast rate
+GAME033,MMORPG,,Game,Massively Multiplayer Online Role-Playing Game. There are thousands of other players in the virtual world
+GAME034,Mod,,Game,Modification: It refers to any player-made changes to a game
+GAME035,RNG,Random Number Generator,Game,Random Number Generator: It refers to gaming elements or events that are not the same each time you play
+GAME036,NPC,Non-Player Character,Game,A non-player character that often furthers the story of the game
+GAME037,OP,Overpowered,Game,Overpowered: a weapon or ability that is disproportionately powerful compared to other game items
+GAME038,Ping,,Game,The time measurement in milliseconds between the player’s console/computer and the host server
+GAME039,PvP,Player vs Player,Game,When you fight another player’s character
+GAME040,PvE,Player vs Environment,Game,When you fight a non-player enemy
+GAME041,Pwned,,Game,Pronounced as “poned”: used to express superiority against a player you just defeated gloriously
+GAME042,RPG,Role Playing Games,Game,Role Playing Games: typically games with immersive world that lets you explore to learn more about the game’s lore.
+GAME043,Sandbox,,Game,Open-ended game where the player can do whatever they want and finish a game at their own pace
+GAME044,Skin,,Game,A cosmetic change to the appearance of your character
+GAME045,Smurf,,Game,A skilled player who created a second online account that they use to play with low-ranked players
+GAME046,Tank,,Game,Common character class used in most online multiplayer games. Generally very hard to kill
+GAME047,XP/EXP,Experience Points,Game,Experience points: the points you earn for completing tasks to increase your character level
+GAME048,Peel,,Game,Peel or peeling is the act of diverting an enemy’s attention away from your allies onto yourself
+GAME049,Campaign,,Game,A continuing storyline or set of adventures typically involving the same characters.
+GAME050,Horde,,Game,Endless waves of enemy combatants that put players' skills and endurance to the test.
+GAME051,Juke,,Game,to make a move intended to deceive an opponent
+GAME052,Forfeit,,Game,Lose the game or are forced to give it up because you have broken a rule or done something wrong.
+GAME053,SIM,,Game,Simulation Game designed to simulate aspects of reality. 
+GAME054,TPS,Third Person Shooter,Game,Third Person Shooter: where you see your character on screen
+GAME055,MOBA,Multiplayer Online Battle Arena,Game,Multiplayer Online Battle Arena: Competition between 2 teams by protecting their home base and destroying the opposing team’s stronghold
+GAME056,Aggro,,Game,When a monster is aggravated and focused on you
+GAME057,Bot,,Game,A cheat mechanism that auto aims for you
+GAME058,Dungeon,,Game,In RPG: Dungeon is a hostile Closed-Off Area within which a player will encounter enemies.
+GAME059,FoV,Field of View,Game,Field of view: the range of peripheral vision on screen
+GAME060,Glitch,Glitches; Glitching,Game,A bug in the game that may give a player an advantage
+GAME061,Loot,,Game,Items that drop from enemies or that you find while exploring
+GAME062,MP,Mana/Magic Points,Game,Mana / Magic points allow you to perform magical abilities
+GAME063,GOAT,Greatest of All Time,Game,Greatest of All Time: A superlative term to describe a highly-skilled gamer or character in the game
+GAME064,Crack,,Game,Indicates broken shield
+GAME065,Tag,,Game,A player’s online name
+GAME066,Indie Games,,Game,Independent video game: typically created by individuals or smaller development teams. Opposite to AAA 
+GAME067,MVP,Most Valuable Player,Game,Most Valuable Player: the player who ranked the highest in a single game is called most valuable player
+GAME068,F2P,Free to Play,Game,Completely free games that doesn't require in-game purchase
+GAME069,Console,,Game,An electronic device that outputs a video signal or image to display a video game that can be played with a game controller.
+GAME070,Save Point,,Game,A location in the game where progress is saved and the player can resume from
+GAME071,Speedrun,,Game,A playthrough of the game where the goal is to complete it as quickly as possible
+GAME072,HUD,Heads-up Display,Game,Heads-up display; the on-screen interface that displays information about the game's state
+GAME073,Griefer,,Game,A player who intentionally disrupts or annoys other players
+GAME074,Lag,,Game,Delay or slow response time in the game due to poor connection or hardware issues
+GAME075,Quest,,Game,An objective or task that must be completed in order to progress through the game
+GAME076,Stealth,,Game,A type of game where the player must avoid detection and use stealthy tactics to complete objectives
+GAME077,Boss,,Game,A powerful enemy that serves as a major challenge in a game
+GAME078,Support,,Game,A character that provides assistance to other characters; often by healing or buffing them
+GAME079,LFG,Looking For Group,Game,Looking For Group - term used to indicate that a player is seeking others to join them in a game or activity
+GAME080,PUG,Pick Up Group,Game,Pick Up Group - a group of players that come together to complete a specific objective without pre-existing connections or organization
+GAME081,Gank,,Game,The act of ambushing and killing an enemy player or NPC
+GAME082,PvP,Player versus Player,Game,Player versus Player; a game mode where players compete against each other
+GAME083,PvE,Player versus Environment,Game,Player versus Environment; a game mode where players cooperate to defeat computer-controlled enemies
+GAME084,Perk,,Game,A bonus or advantage that a character can acquire in a game
+GAME085,Skill Tree,,Game,Visual representation of a character's abilities and progression in a game
+GAME086,Loadout,,Game,The combination of weapons and equipment that a player uses in a game
+GAME087,HUDless,,Game,A game mode or option where the Heads-Up Display is turned off for a more immersive gameplay experience
+GAME088,Keybinds,,Game,Customized keyboard shortcuts that players use to activate abilities or perform actions in a game
+GAME089,Companion,,Game,A character or NPC that assists the player in a game
+GAME090,Avatar,,Game,A character in-game that player can customize
+GAME091,Sussy,Sus,Game,Someone who appears suspicious
+GAME092,Juggling,,Game,Knocking an opponent into the air and keeping them aloft with repeated blows
+GAME093,Whiff,,Game,An attempted melee attack which misses the opponent only very narrowly due to misjudgement by the attacker
+GAME094,Alpha,,Game,Early version of a game. Usually not accesible by the public
+GAME095,Animation Cancelling,,Game,Stopping the character from completing full animation of an attack
+GAME096,Beta,,Game,Version of upcoming game that released to build hype and provide feedback to the developers
+GAME097,COD,Call of Duty,Game,Call of Duty. A popular FPS game
+GAME098,Deathmatch,,Game,A simple game mode in which the winner is the player who gets the most kills
+GAME099,Emulator,,Game,A program that lets you play games designed for other consoles
+GAME100,Patch,,Game,A change to the game which is usually delivered automatically and over the Internet

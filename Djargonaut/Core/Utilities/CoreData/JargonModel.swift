@@ -8,27 +8,27 @@
 import Foundation
 
 struct JargonModel: Identifiable, Codable {
+    var jargonID: String
     var base: String
     var jargon: String
     var category: String
     var desc: String
-    var partOfSpeech: String
     var id = UUID()
 
     init(raw: [String]) {
-        self.base = raw[0]
-        self.jargon = raw[1]
-        self.category = raw[2]
-        self.desc = raw[3]
-        self.partOfSpeech = raw[4]
+        self.jargonID = raw[0]
+        self.base = raw[1]
+        self.jargon = raw[2]
+        self.category = raw[3]
+        self.desc = raw[4]
     }
     
     init(from: Jargon){
+        self.jargonID = from.jargonID ?? ""
         self.base = from.base ?? ""
         self.jargon = from.jargon ?? ""
         self.category = from.category ?? ""
         self.desc = from.desc ?? ""
-        self.partOfSpeech = from.partOfSpeech ?? ""
     }
 }
 

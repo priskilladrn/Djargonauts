@@ -27,11 +27,11 @@ class JargonListViewModel: ObservableObject {
                 for jargon in jargons {
                     do {
                         let oneJargon = Jargon(context: context)
+                        oneJargon.jargonID = jargon.jargonID
                         oneJargon.base = jargon.base
                         oneJargon.jargon = jargon.jargon
                         oneJargon.category = jargon.category
                         oneJargon.desc = jargon.desc
-                        oneJargon.partOfSpeech = jargon.partOfSpeech
                         try oneJargon.save()
                     } catch {
                         print(error)
@@ -56,6 +56,7 @@ class JargonListViewModel: ObservableObject {
     
     func populate() {
         let fetchRequest: NSFetchRequest<Jargon> = Jargon.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "base", ascending: true)]
         
         saveAll()
         
@@ -69,6 +70,7 @@ class JargonListViewModel: ObservableObject {
     func searchWord(word: String) {
         let fetchRequest: NSFetchRequest<Jargon> = Jargon.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "base = %@", word)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "base", ascending: true)]
         
         do {
             jargonList = try context.fetch(fetchRequest)
@@ -80,6 +82,7 @@ class JargonListViewModel: ObservableObject {
     func searchCategory(category: String) {
         let fetchRequest: NSFetchRequest<Jargon> = Jargon.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "category = %@", category)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "base", ascending: true)]
         
         do {
             jargonList = try context.fetch(fetchRequest)
