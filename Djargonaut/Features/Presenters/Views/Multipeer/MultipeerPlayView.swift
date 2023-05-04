@@ -18,12 +18,28 @@ struct MultipeerPlayView: View {
     @State private var redirectToScore = false
     
     @State var isFlipped = false
+    
+    @State var score = 0
+    fileprivate func nextQuestionFromGuesser() {
+        multipeerSession.send(data: GameMessage(type: GameMessageType.triggerNext))
+        
+        // guesser become explainer
+        vm.currentStage = .explain
+        withAnimation{
+            currentQuestionIndex += 1
+        }
+        
+        isFlipped = false
+    }
+    
     var body: some View {
         VStack{
             HStack{
+                Image(systemName: "star.fill")
+                Text("\(score)")
                 Spacer()
-                Image(systemName: "star")
-                Text("[score]")
+                
+                Image(systemName: "house.fill")
             }
             Spacer()
             
@@ -45,6 +61,8 @@ struct MultipeerPlayView: View {
                         vm.currentStage = .revealResultGuesser
                         
                         isFlipped = true
+                        
+                        score += 50
                     }, wrongAnswerAction: {
                         isAnswerCorrect = false
                         multipeerSession.send(data: GameMessage(type: GameMessageType.answer, isAnswerCorrect: false))
@@ -57,19 +75,23 @@ struct MultipeerPlayView: View {
             if vm.currentStage == .revealResultGuesser {
                 if isAnswerCorrect {
                     Text("jawaban bener!")
+                    Button("Next"){
+                        nextQuestionFromGuesser()
+                    }
                 } else {
                     Text("jawaban salah!")
-                }
-                Button("Next"){
-                    multipeerSession.send(data: GameMessage(type: GameMessageType.triggerNext))
-                    
-                    // guesser become explainer
-                    vm.currentStage = .explain
-                    withAnimation{
-                        currentQuestionIndex += 1
+                    HStack{
+                        Button("Penjelasan bener"){
+                            
+                            multipeerSession.send(data: GameMessage(type: GameMessageType.isExplanationCorrect))
+                            
+                            nextQuestionFromGuesser()
+                        }
+                        Button("Penjelasan salah"){
+                            nextQuestionFromGuesser()
+                            
+                        }
                     }
-                    
-                    isFlipped = false
                 }
             } else if vm.currentStage == .revealResultExplainer {
                 if multipeerSession.receivedData?.isAnswerCorrect == true {
@@ -83,6 +105,10 @@ struct MultipeerPlayView: View {
             if receivedData?.type == GameMessageType.answer && vm.currentStage == .explain {
                 vm.currentStage = .revealResultExplainer
                 isFlipped = true
+                
+                if receivedData?.isAnswerCorrect == true {
+                    score += 100
+                }
             } else if receivedData?.type == GameMessageType.triggerNext {
                 vm.currentStage = vm.currentStage == .revealResultGuesser ? .explain : .guess
                 withAnimation{
@@ -90,6 +116,8 @@ struct MultipeerPlayView: View {
                 }
                 
                 isFlipped = false
+            } else if receivedData?.type == GameMessageType.isExplanationCorrect {
+                score += 50
             }
         }
         .padding(.horizontal, 16)

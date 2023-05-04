@@ -11,7 +11,7 @@ import os
 
 // TODO: move to models
 struct GameMessageType {
-    static var roomSetting = 0, answer = 1, triggerNext = 2, opponentFinalPoints = 3
+    static var roomSetting = 0, answer = 1, triggerNext = 2, isExplanationCorrect = 3
 }
 public struct GameMessage: Codable, Equatable, Identifiable {
     public static func == (lhs: GameMessage, rhs: GameMessage) -> Bool {
@@ -22,12 +22,12 @@ public struct GameMessage: Codable, Equatable, Identifiable {
     
     var roomSetting: RoomSetting?
     var isAnswerCorrect: Bool = false
-    var opponentFinalPoints: Int?
+    var isExplanationCorrect: Bool = false
 }
 
 // TODO: move to models
 public struct RoomSetting: Codable {
-    var chosenCategory: String = "Tech"
+    var chosenCategory: String = "Technology"
     var duration: Int = 15
     var cardCount: Int = 10
     var words: [JargonModel] = []
