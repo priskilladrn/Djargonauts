@@ -30,8 +30,8 @@ struct ImageButtonLink: View {
     }
 }
 
-//struct ImageButton_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ImageButtonLink(text: "asdf", imageName: "home_solo", destination: EmptyView())
-//    }
-//}
+struct ImageButton_Previews: PreviewProvider {
+    static var previews: some View {
+        ImageButtonLink(text: "asdf", imageName: "home_solo", destination: EmptyView())
+    }
+}

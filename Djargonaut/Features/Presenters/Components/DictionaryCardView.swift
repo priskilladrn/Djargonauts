@@ -17,7 +17,7 @@ struct DictionaryCardView: View {
             VStack(alignment: .leading) {
                 Text("\(category)")
                     .foregroundColor(.white)
-                    .font(.system(size: 23))
+                    .font(.system(size: 21))
                     .padding(.vertical, 3)
                     .padding(.horizontal, 30)
                     .overlay(
@@ -26,7 +26,7 @@ struct DictionaryCardView: View {
                     )
                 Spacer()
                 Text("\(base)")
-                    .font(.system(size: 43, weight: .bold))
+                    .font(.system(size: 41, weight: .bold))
                     .foregroundColor(.white)
                     .padding(.vertical, 15)
                 Spacer()
@@ -36,11 +36,11 @@ struct DictionaryCardView: View {
                 Spacer()
                 Text("\(desc)")
                     .foregroundColor(.white)
-                    .font(.system(size: 18, weight: .medium))
+                    .font(.system(size: 16, weight: .medium))
                 Spacer()
             }
         }
-        .frame(width: 332, height: 452)
+        .frame(maxWidth: 332, maxHeight: 452)
         .padding(40)
         .background(
                 Image("\(selectBackground())")

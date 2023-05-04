@@ -24,7 +24,7 @@ struct HomeView: View {
                     Spacer()
                     
                     NavigationLink{
-                        SearchPageView()
+                        JargonListView()
                     } label: {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(AppColor.title)
