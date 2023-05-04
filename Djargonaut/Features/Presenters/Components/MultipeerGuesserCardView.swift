@@ -26,6 +26,7 @@ struct MultipeerGuesserCardView: View {
     var correctAnswerAction: () -> Void
     var wrongAnswerAction: () -> Void
     //MARK: Flip Card Function
+    
     func flipCard () {
 //        isFlipped = !isFlipped
         if !isFlipped {
@@ -75,6 +76,9 @@ struct GuesserFront : View {
     var correctAnswerAction: () -> Void
     var wrongAnswerAction: () -> Void
     
+    @EnvironmentObject var jargonListVM: JargonListViewModel
+    
+    @State private var currentWrongAnswer = ""
     var body: some View {
         ZStack {
             HStack (alignment: .top) {
@@ -99,6 +103,7 @@ struct GuesserFront : View {
                     Button(action: correctAnswerAction) {
                         
                         Text(base)
+                            .textCase(.uppercase)
                             .foregroundColor(.white)
                             .font(.system(size:18, weight: .bold))
                             .padding(15)
@@ -113,7 +118,8 @@ struct GuesserFront : View {
                     //MARK: Answer 2
                     Button(action: wrongAnswerAction) {
                         
-                        Text("[opsi salah]")
+                        Text("\(currentWrongAnswer)")
+                            .textCase(.uppercase)
                             .foregroundColor(.white)
                             .font(.system(size:18, weight: .bold))
                             .padding(15)
@@ -132,6 +138,9 @@ struct GuesserFront : View {
                     .scaledToFit()
             )
         }.rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))
+            .onAppear{
+                currentWrongAnswer = jargonListVM.jargonList.filter{ $0.category == category && $0.base != base }.map{ JargonModel(from: $0) }.randomElement()!.base
+            }
     }
     
     func selectBackground() -> String {
