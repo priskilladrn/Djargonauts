@@ -50,16 +50,16 @@ struct MultipeerConnectView: View {
                 Spacer()
                 Text("Waiting for other player to join...")
                     .alert("\(multipeerSession.invitationSender?.displayName ?? "ERR") wants to join your room!", isPresented: $multipeerSession.hasReceivedInvite) {
+                        Button("Reject") {
+                            if (multipeerSession.invitationHandler != nil) {
+                                multipeerSession.invitationHandler!(false, nil)
+                                
+                            }
+                        }
                         Button("Accept") {
                             if (multipeerSession.invitationHandler != nil) {
                                 multipeerSession.invitationHandler!(true, multipeerSession.session)
                                 opponentName = multipeerSession.invitationSender?.displayName ?? "ERR"
-                                
-                            }
-                        }
-                        Button("Reject") {
-                            if (multipeerSession.invitationHandler != nil) {
-                                multipeerSession.invitationHandler!(false, nil)
                                 
                             }
                         }
