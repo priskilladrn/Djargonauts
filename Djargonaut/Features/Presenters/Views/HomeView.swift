@@ -63,10 +63,10 @@ struct HomeView: View {
                         Text(randomJargon?.desc ?? "")
                             .foregroundColor(.white)
                             .font(.system(size: 15, weight: .medium))
-                        
+                            .lineLimit(2)
                         
                         NavigationLink{
-                            // destination
+                            DictionaryView(base: randomJargon?.base ?? "", category: randomJargon?.category ?? "", desc: randomJargon?.desc ?? "").toolbarRole(.editor)
                         } label: {
                             Text("Read More >")
                                 .underline()
