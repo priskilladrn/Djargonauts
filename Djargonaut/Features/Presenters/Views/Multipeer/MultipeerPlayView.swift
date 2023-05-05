@@ -75,7 +75,7 @@ struct MultipeerPlayView: View {
                 //                    ScoreMultipeerView()
                 //
                 //                } else
-                if vm.roomSetting.words.isEmpty || currentQuestionIndex >= vm.roomSetting.words.count {
+                if vm.roomSetting.words.isEmpty {
                     Text("Loading")
                 } else if vm.currentStage == .explain || vm.currentStage == .revealResultExplainer {
                     var currentJargon = vm.roomSetting.words[currentQuestionIndex]
@@ -131,6 +131,8 @@ struct MultipeerPlayView: View {
             
             if vm.currentStage == .explain || vm.currentStage == .guess{
                 Text("\(timeRemaining)")
+                    .font(.system(size: 60, weight: .bold))
+                    .foregroundColor(AppColor.title)
             }
         }
         .navigationBarBackButtonHidden(true)

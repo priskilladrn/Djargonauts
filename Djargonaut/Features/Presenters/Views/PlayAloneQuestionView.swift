@@ -105,7 +105,7 @@ struct PlayAloneQuestionView: View {
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                     i += 1
-                                    randomWord = (jargonListVM.jargonList.randomElement()!.base)!
+                                    randomWord = jargonListVM.jargonList.filter{ $0.category == questions[i].category && $0.base != questions[i].base }.map{ JargonModel(from: $0) }.randomElement()!.base
                                     randomInt = Int.random(in: 1..<3)
                                 }
                             } label: {
@@ -164,7 +164,7 @@ struct PlayAloneQuestionView: View {
             }
             .onAppear {
                 jargonListVM.searchCategory(category: questions[0].category!)
-                randomWord = (jargonListVM.jargonList.randomElement()!.base)!
+                randomWord = jargonListVM.jargonList.filter{ $0.category == questions[i].category && $0.base != questions[i].base }.map{ JargonModel(from: $0) }.randomElement()!.base
                 randomInt = Int.random(in: 1..<3)
             }
         }
