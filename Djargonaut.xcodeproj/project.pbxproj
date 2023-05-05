@@ -55,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A0CFE772A049EDE00F925C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0A42FAF929EE55280031AB01 /* Djargonaut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Djargonaut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A42FAFC29EE55280031AB01 /* DjargonautApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DjargonautApp.swift; sourceTree = "<group>"; };
 		0A42FAFE29EE55280031AB01 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -133,6 +134,7 @@
 		0A42FAFB29EE55280031AB01 /* Djargonaut */ = {
 			isa = PBXGroup;
 			children = (
+				0A0CFE772A049EDE00F925C6 /* Info.plist */,
 				0A42FB0C29EE55EC0031AB01 /* Features */,
 				0A42FB0B29EE55E60031AB01 /* Core */,
 				0A42FB0A29EE55C00031AB01 /* Application */,
@@ -558,6 +560,7 @@
 				DEVELOPMENT_TEAM = ACWW5N46RD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Djargonaut/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -587,6 +590,7 @@
 				DEVELOPMENT_TEAM = ACWW5N46RD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Djargonaut/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
