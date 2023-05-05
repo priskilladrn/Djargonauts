@@ -19,8 +19,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack{
             HomeView()
-                .background(Image("background").resizable()
-                    .aspectRatio( contentMode: .fill))
+                
         }
         .tint(AppColor.title)
         .onAppear {

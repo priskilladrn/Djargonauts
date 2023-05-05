@@ -136,6 +136,8 @@ struct HomeView: View {
                     .padding(.bottom, -geometry.safeAreaInsets.bottom)
                 
             }
+            .background(Image("background").resizable()
+                .aspectRatio( contentMode: .fill))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .navigationBarBackButtonHidden(true)
         }
