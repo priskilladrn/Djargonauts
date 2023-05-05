@@ -18,47 +18,51 @@ struct MultipeerConnectView: View {
     @EnvironmentObject var jargonListVM: JargonListViewModel
     var body: some View {
         if !multipeerSession.hasPaired && !isRoomCreator {
-            HStack {
-                List(multipeerSession.availablePeers, id: \.self) { peer in
-                    Button(peer.displayName) {
-                        opponentName = peer.displayName
-                        multipeerSession.serviceBrowser.invitePeer(peer, to: multipeerSession.session, withContext: nil, timeout: 30)
+            VStack {
+                if multipeerSession.availablePeers.isEmpty {
+                    Spacer()
+                    Text("Searching for other players...")
+                    Spacer()
+                } else {
+                    List(multipeerSession.availablePeers, id: \.self) { peer in
+                        Button(peer.displayName) {
+                            opponentName = peer.displayName
+                            multipeerSession.serviceBrowser.invitePeer(peer, to: multipeerSession.session, withContext: nil, timeout: 30)
+                        }
                     }
+                    .background(Image("background").resizable()
+                        .aspectRatio( contentMode: .fill))
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Image("background").resizable()
+                .aspectRatio( contentMode: .fill))
             
         } else if !multipeerSession.hasPaired && isRoomCreator {
             VStack {
-                Text("tunggu ada yang join")
-                    .alert("Received an invite from \(multipeerSession.invitationSender?.displayName ?? "ERR")!", isPresented: $multipeerSession.hasReceivedInvite) {
-                        Button("Accept invite") {
+                Spacer()
+                Text("Waiting for other player to join...")
+                    .alert("\(multipeerSession.invitationSender?.displayName ?? "ERR") wants to join your room!", isPresented: $multipeerSession.hasReceivedInvite) {
+                        Button("Accept") {
                             if (multipeerSession.invitationHandler != nil) {
                                 multipeerSession.invitationHandler!(true, multipeerSession.session)
                                 opponentName = multipeerSession.invitationSender?.displayName ?? "ERR"
                                 
                             }
                         }
-                        Button("Reject invite") {
+                        Button("Reject") {
                             if (multipeerSession.invitationHandler != nil) {
                                 multipeerSession.invitationHandler!(false, nil)
                                 
                             }
                         }
                 }
-                
-                Button("liat setting"){
-                    print("\(vm.roomSetting.chosenCategory)")
-                    print("\(vm.roomSetting.duration)")
-                    print("\(jargonListVM.jargonList.filter{ $0.category == vm.roomSetting.chosenCategory}.shuffled().prefix(vm.roomSetting.cardCount).map{ JargonModel(from: $0) })")
-                    do{
-                        let string = try String(data: GameMessage(type: GameMessageType.roomSetting, roomSetting: vm.roomSetting).encode(), encoding: .utf8) ?? "ERR"
-                        print(string)
-                        
-                    } catch {
-                        print("error")
-                    }
-                }
+             
+                Spacer()
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Image("background").resizable()
+                .aspectRatio( contentMode: .fill))
         } else {
             MultipeerPlayView(multipeerSession: multipeerSession, vm: vm)
                 .onAppear{

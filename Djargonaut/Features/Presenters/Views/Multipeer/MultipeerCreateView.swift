@@ -36,6 +36,9 @@ struct MultipeerCreateView: View {
                 }
             }
             
+            Divider()
+                .overlay(AppColor.title)
+            
             HStack{
                 Text("Duration")
                     .foregroundColor(AppColor.title)
@@ -46,6 +49,9 @@ struct MultipeerCreateView: View {
                 Stepper(duration == 0 ? "Off" : "\(duration) s", value: $duration, in: 0...60, step: 5)
                     .frame(width: 150)
             }
+            
+            Divider()
+                .overlay(AppColor.title)
             
             HStack{
                 Text("Cards")
@@ -61,10 +67,10 @@ struct MultipeerCreateView: View {
             Spacer()
             
             // TODO: fix destination (change empty view)
-            ButtonLinkView(text: "Start The Journey", isPrimary: false, destination: MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), vm: multipeerViewModel, isRoomCreator: true))
+            BorderedButtonLinkView(text: "Start The Journey", isPrimary: false, destination: MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), vm: multipeerViewModel, isRoomCreator: true))
         }
         .padding()
-        .navigationTitle("New Game")
+//        .navigationTitle("New Game")
         .onChange(of: chosenCategory){ chosenCategory in
             multipeerViewModel.roomSetting.chosenCategory = chosenCategory
         }
@@ -74,6 +80,8 @@ struct MultipeerCreateView: View {
         .onChange(of: cardCount){ cardCount in
             multipeerViewModel.roomSetting.cardCount = cardCount
         }
+        .background(Image("background").resizable()
+            .aspectRatio( contentMode: .fill))
     }
 }
 
