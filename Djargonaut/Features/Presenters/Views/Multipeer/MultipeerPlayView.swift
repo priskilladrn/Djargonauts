@@ -176,6 +176,8 @@ struct MultipeerPlayView: View {
                 }
             }
         }
+        .background(Image("background").resizable()
+            .aspectRatio( contentMode: .fill))
     }
 }
 

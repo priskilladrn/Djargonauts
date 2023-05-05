@@ -38,16 +38,16 @@ struct ScoreMultipeerView: View {
                             .fontWeight(.bold)
                             .font(.system(size: 30))
                             .offset(y:-55)
-                            HStack {
-                                Image(systemName: "star.fill")
-                                    .foregroundColor(Color("Secondary"))
-                                Text("Score")
-                                    .foregroundColor(Color("ScoreColor"))
-                                    .fontWeight(.medium)
-                                    .font(.system(size: 30))
-                                Image(systemName: "star.fill")
-                                    .foregroundColor(Color("Secondary"))
-                            }
+                        HStack {
+                            Image(systemName: "star.fill")
+                                .foregroundColor(Color("Secondary"))
+                            Text("Score")
+                                .foregroundColor(Color("ScoreColor"))
+                                .fontWeight(.medium)
+                                .font(.system(size: 30))
+                            Image(systemName: "star.fill")
+                                .foregroundColor(Color("Secondary"))
+                        }
                         Text("\(score)")
                             .foregroundColor(Color("ScoreColor"))
                             .fontWeight(.bold)
@@ -56,9 +56,9 @@ struct ScoreMultipeerView: View {
                 }
                 .padding(38)
                 Spacer()
-                    BorderedButtonLinkView(text: "Exit to Main Menu", destination: HomeView())
+                BorderedButtonLinkView(text: "Exit to Main Menu", destination: HomeView())
                     .padding(.horizontal, 32)
-//                .frame(width: geo.size.width * 0.7, height: geo.size.height * 0.07)
+                //                .frame(width: geo.size.width * 0.7, height: geo.size.height * 0.07)
             }
             .navigationBarBackButtonHidden(true)
         }
@@ -84,9 +84,9 @@ struct ScoreMultipeerView: View {
             }
         )
     }
-//    struct ScoreMultipeerView_Previews: PreviewProvider {
-//        static var previews: some View {
-//            ScoreMultipeerView()
-//        }
-//    }
+    //    struct ScoreMultipeerView_Previews: PreviewProvider {
+    //        static var previews: some View {
+    //            ScoreMultipeerView()
+    //        }
+    //    }
 }
