@@ -40,12 +40,16 @@ struct DictionaryCardView: View {
                 Spacer()
             }
         }
-        .frame(maxWidth: 332, maxHeight: 452)
+        .frame(height: 452)
         .padding(40)
         .background(
-                Image("\(selectBackground())")
-                    .resizable()
-                    .scaledToFit()
+            Image("\(selectBackground())")
+                .resizable()
+                .cornerRadius(20)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(selectBorder(), lineWidth: 5)
+                )
         )
     }
     func selectBackground() -> String {
@@ -60,6 +64,20 @@ struct DictionaryCardView: View {
             bg = "Flashcards_Game"
         }
         return bg
+    }
+    
+    func selectBorder() -> Color {
+        var border: Color = Color("Border_Tech")
+        if (category == "Technology") {
+            border = Color("Border_Tech")
+        } else if (category == "Design") {
+            border = Color("Border_Design")
+        } else if (category == "Accounting") {
+            border = Color("Border_Accounting")
+        } else if (category == "Game") {
+            border = Color("Border_Game")
+        }
+        return border
     }
 }
 

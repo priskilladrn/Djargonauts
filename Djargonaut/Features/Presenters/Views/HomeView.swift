@@ -10,7 +10,7 @@ import SwiftUI
 import LottieUI
 struct HomeView: View {
     @EnvironmentObject var jargonListVM: JargonListViewModel
-    @State private var randomJargon: Jargon?
+    @State var randomJargon: Jargon?
     @State var isPresented = false //Variabel popup
     
     var body: some View {
@@ -79,10 +79,10 @@ struct HomeView: View {
                 .background(
                     ZStack (alignment: .top){
                         RoundedRectangle(cornerRadius: 32)
-                            .fill(AppColor.purpleDark)
+                            .fill(selectBG())
                             .opacity(0.8)
                         RoundedRectangle(cornerRadius: 32)
-                            .strokeBorder(AppColor.purple, lineWidth: 3)
+                            .strokeBorder(selectBorder(), lineWidth: 3)
                             .opacity(0.8)
                         Image("home_astronot")
                             .resizable()
@@ -148,6 +148,34 @@ struct HomeView: View {
             jargonListVM.populate()
             randomJargon = jargonListVM.jargonList.randomElement()!
         }
+    }
+    
+    func selectBorder() -> Color {
+        var border: Color = Color("Border_Tech")
+        if (randomJargon?.category == "Technology") {
+            border = Color("Border_Tech")
+        } else if (randomJargon?.category == "Design") {
+            border = Color("Border_Design")
+        } else if (randomJargon?.category == "Accounting") {
+            border = Color("Border_Accounting")
+        } else if (randomJargon?.category == "Game") {
+            border = Color("Border_Game")
+        }
+        return border
+    }
+    
+    func selectBG() -> Color {
+        var border: Color = Color("BG_Tech")
+        if (randomJargon?.category == "Technology") {
+            border = Color("BG_Tech")
+        } else if (randomJargon?.category == "Design") {
+            border = Color("BG_Design")
+        } else if (randomJargon?.category == "Accounting") {
+            border = Color("BG_Accounting")
+        } else if (randomJargon?.category == "Game") {
+            border = Color("BG_Game")
+        }
+        return border
     }
 }
 

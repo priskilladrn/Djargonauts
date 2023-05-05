@@ -169,6 +169,21 @@ struct PlayAloneQuestionView: View {
             }
         }
     }
+    
+    func selectBorder() -> Color {
+            var border: Color = Color("Border_Tech")
+            if (questions[i].category  == "Technology") {
+                border = Color("Border_Tech")
+            } else if (questions[i].category == "Design") {
+                border = Color("Border_Design")
+            } else if (questions[i].category == "Accounting") {
+                border = Color("Border_Accounting")
+            } else if (questions[i].category == "Game") {
+                border = Color("Border_Game")
+            }
+            return border
+        }
+        
 }
 
 //struct PlayAloneQuestionView_Previews: PreviewProvider {

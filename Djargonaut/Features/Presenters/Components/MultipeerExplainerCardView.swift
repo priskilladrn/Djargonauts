@@ -81,7 +81,7 @@ struct ExplainerSideCard : View {
                     HStack {
                         Text("\(category)")
                             .foregroundColor(.white)
-                            .font(.system(size: 23))
+                            .font(.system(size: 21))
                             .padding(.vertical, 3)
                             .padding(.horizontal, 30)
                             .overlay(
@@ -91,11 +91,11 @@ struct ExplainerSideCard : View {
                         Spacer()
                         Text("\(currentCard) / \(cardCount)")
                             .foregroundColor(.white)
-                            .font(.system(size: 23, weight: .bold))
+                            .font(.system(size: 21, weight: .bold))
                     }
                     Spacer()
                     Text("\(base)")
-                        .font(.system(size: 43, weight: .bold))
+                        .font(.system(size: 41, weight: .bold))
                         .foregroundColor(.white)
                     Spacer()
                     Divider()
@@ -103,7 +103,7 @@ struct ExplainerSideCard : View {
                     Spacer()
                     Text("\(desc)")
                         .foregroundColor(.white)
-                        .font(.system(size: 18, weight: .medium))
+                        .font(.system(size: 16, weight: .medium))
                         .frame(minHeight: 30, alignment: .top)
                     
                     Spacer()

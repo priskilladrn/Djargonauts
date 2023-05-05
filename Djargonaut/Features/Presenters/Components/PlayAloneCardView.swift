@@ -94,7 +94,7 @@ struct CardFront : View {
                     HStack {
                         Text("\(category)")
                             .foregroundColor(.white)
-                            .font(.system(size: 23))
+                            .font(.system(size: 21))
                             .padding(.vertical, 3)
                             .padding(.horizontal, 30)
                             .overlay(
@@ -104,12 +104,12 @@ struct CardFront : View {
                         Spacer()
                         Text("\(currentCard) / \(cardCount)")
                             .foregroundColor(.white)
-                            .font(.system(size: 23, weight: .bold))
+                            .font(.system(size: 21, weight: .bold))
                     }
                     Spacer()
                     Text("\(desc)")
                         .foregroundColor(.white)
-                        .font(.system(size: 18, weight: .medium))
+                        .font(.system(size: 16, weight: .medium))
                     Spacer()
                     
                     Divider()
@@ -128,10 +128,10 @@ struct CardFront : View {
                         } label: {
                             Text("\(base)")
                                 .foregroundColor(.white)
-                                .font(.system(size:18, weight: .bold))
+                                .font(.system(size:16, weight: .bold))
                                 .padding(15)
                                 .frame(maxWidth: .infinity)
-                                .background(AppColor.purple)
+                                .background(selectBorder())
                                 .cornerRadius(13)
                                 .padding(.vertical, 20)
                         }
@@ -145,10 +145,10 @@ struct CardFront : View {
                         } label: {
                             Text("\(wrongAnswer)")
                                 .foregroundColor(.white)
-                                .font(.system(size:18, weight: .bold))
+                                .font(.system(size:16, weight: .bold))
                                 .padding(15)
                                 .frame(maxWidth: .infinity)
-                                .background(AppColor.purple)
+                                .background(selectBorder())
                                 .cornerRadius(13)
                         }
                         Spacer()
@@ -162,10 +162,10 @@ struct CardFront : View {
                         } label: {
                             Text("\(wrongAnswer)")
                                 .foregroundColor(.white)
-                                .font(.system(size:18, weight: .bold))
+                                .font(.system(size:16, weight: .bold))
                                 .padding(15)
                                 .frame(maxWidth: .infinity)
-                                .background(AppColor.purple)
+                                .background(selectBorder())
                                 .cornerRadius(13)
                                 .padding(.vertical, 20)
                         }
@@ -180,10 +180,10 @@ struct CardFront : View {
                         } label: {
                             Text("\(base)")
                                 .foregroundColor(.white)
-                                .font(.system(size:18, weight: .bold))
+                                .font(.system(size:16, weight: .bold))
                                 .padding(15)
                                 .frame(maxWidth: .infinity)
-                                .background(AppColor.purple)
+                                .background(selectBorder())
                                 .cornerRadius(13)
                         }
                         Spacer()
@@ -250,7 +250,7 @@ struct CardBack : View {
                     HStack {
                         Text("\(category)")
                             .foregroundColor(.white)
-                            .font(.system(size: 23))
+                            .font(.system(size: 21))
                             .padding(.vertical, 3)
                             .padding(.horizontal, 30)
                             .overlay(
@@ -260,11 +260,11 @@ struct CardBack : View {
                         Spacer()
                         Text("\(currentCard) / \(cardCount)")
                             .foregroundColor(.white)
-                            .font(.system(size: 23, weight: .bold))
+                            .font(.system(size: 21, weight: .bold))
                     }
                     Spacer()
                     Text("\(base)")
-                        .font(.system(size: 43, weight: .bold))
+                        .font(.system(size: 41, weight: .bold))
                         .foregroundColor(.white)
                     Spacer()
                     Divider()
@@ -272,7 +272,7 @@ struct CardBack : View {
                     Spacer()
                     Text("\(desc)")
                         .foregroundColor(.white)
-                        .font(.system(size: 18, weight: .medium))
+                        .font(.system(size: 16, weight: .medium))
                     Spacer()
                 }
             }
