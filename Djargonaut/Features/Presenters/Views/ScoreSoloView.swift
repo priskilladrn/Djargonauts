@@ -56,12 +56,9 @@ struct ScoreSoloView: View {
                 }
                 .padding(38)
                 Spacer()
-                Button {
+                BorderedButtonView(text: "Exit to Main Menu", action: {
                     NavigationUtil.popToRootView()
-                } label: {
-                    BorderedButtonLinkView(text: "Exit to Main Menu", destination: EmptyView())
-                    BorderedButtonLinkView(text: "Exit to Main Menu", destination: HomeView())
-                }
+                })
                 .frame(width: geo.size.width * 0.7, height: geo.size.height * 0.07)
             }
             .navigationBarBackButtonHidden(true)

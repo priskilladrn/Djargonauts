@@ -18,8 +18,8 @@ struct PlayAloneCardView: View {
     let cardCount: Int
     let currentCard: Int
     let randomInt: Int
+    let width: CGFloat
     
-    @State var timeTime: Int = 1
     @State var backDegree = 90.0
     @State var frontDegree = 0.0
     
@@ -27,6 +27,7 @@ struct PlayAloneCardView: View {
     @Binding var i: Int
     @Binding var isCorrect: [Int]
     @Binding var isFlipped: Bool
+    @Binding var timeRemaining: Int
     
     let durationAndDelay : CGFloat = 0.1
     let playAloneVM: PlayAloneViewModel
@@ -53,10 +54,10 @@ struct PlayAloneCardView: View {
     var body: some View {
         VStack{
             ZStack {
-                CardFront(base: base, category: category, desc: desc, wrongAnswer: wrongAnswer, cardCount: cardCount, currentCard: currentCard, playAloneVM: playAloneVM, randomInt: randomInt, isCorrect: $isCorrect, degree: $frontDegree, score: $score, i: $i, isFlipped: $isFlipped)
+                CardFront(base: base, category: category, desc: desc, wrongAnswer: wrongAnswer, cardCount: cardCount, currentCard: currentCard, playAloneVM: playAloneVM, randomInt: randomInt, isCorrect: $isCorrect, degree: $frontDegree, score: $score, i: $i, isFlipped: $isFlipped, timeRemaining: $timeRemaining)
                 CardBack(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $backDegree)
             }
-            .padding()
+            .padding(.horizontal, width)
         }
         .onChange(of: isFlipped){ _ in
             flipCard()
@@ -83,6 +84,7 @@ struct CardFront : View {
     @Binding var score: Int
     @Binding var i: Int
     @Binding var isFlipped: Bool
+    @Binding var timeRemaining: Int
     
     var body: some View {
         ZStack {
@@ -120,8 +122,8 @@ struct CardFront : View {
                             print("pencet")
                             isCorrect[i] = 1
                             score += 100
-                            i += 1
                             isFlipped = true
+                            timeRemaining = 0
                         } label: {
                             Text("\(base)")
                                 .foregroundColor(.white)
@@ -137,8 +139,8 @@ struct CardFront : View {
                         Button {
                             print("pencet")
                             isCorrect[i] = -1
-                            i += 1
                             isFlipped = true
+                            timeRemaining = 0
                         } label: {
                             Text("\(wrongAnswer)")
                                 .foregroundColor(.white)
@@ -154,8 +156,8 @@ struct CardFront : View {
                         Button {
                             print("pencet")
                             isCorrect[i] = -1
-                            i += 1
                             isFlipped = true
+                            timeRemaining = 0
                         } label: {
                             Text("\(wrongAnswer)")
                                 .foregroundColor(.white)
@@ -172,8 +174,8 @@ struct CardFront : View {
                             print("pencet")
                             isCorrect[i] = 1
                             score += 100
-                            i += 1
                             isFlipped = true
+                            timeRemaining = 0
                         } label: {
                             Text("\(base)")
                                 .foregroundColor(.white)

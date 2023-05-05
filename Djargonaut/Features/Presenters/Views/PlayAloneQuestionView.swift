@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PlayAloneQuestionView: View {
-    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var jargonListVM: JargonListViewModel
     
     @State var isCorrect = [0,0,0,0,0,0,0,0,0,0]
@@ -58,8 +57,7 @@ struct PlayAloneQuestionView: View {
                     .padding(.horizontal, geo.size.width * 0.05)
                     
                     //MARK: flash card view
-                    PlayAloneCardView(base: questions[i].base ?? "", wrongAnswer: randomWord, category: questions[i].category ?? "", desc: questions[i].desc ?? "", cardCount: 10, currentCard: i+1, randomInt: randomInt, score: $score, i: $i, isCorrect: $isCorrect, isFlipped: $isFlipped, playAloneVM: playAloneVM)
-                    Spacer()
+                    PlayAloneCardView(base: questions[i].base ?? "", wrongAnswer: randomWord, category: questions[i].category ?? "", desc: questions[i].desc ?? "", cardCount: 10, currentCard: i+1, randomInt: randomInt, width: geo.size.width * 0.05, score: $score, i: $i, isCorrect: $isCorrect, isFlipped: $isFlipped, timeRemaining: $timeRemaining, playAloneVM: playAloneVM)
                     
                     ScrollView(.horizontal) {
                         HStack (spacing: 20) {
@@ -93,6 +91,7 @@ struct PlayAloneQuestionView: View {
                         }
                         .padding(.leading, geo.size.width * 0.05)
                     }
+                    .scrollIndicators(.hidden)
                     
                     if timeRemaining > 0 {
                         Text("\(timeRemaining)")
@@ -101,9 +100,14 @@ struct PlayAloneQuestionView: View {
                     } else {
                         if i < 9 {
                             Button {
-                                i += 1
-                                timeRemaining = 15
                                 isFlipped = false
+                                timeRemaining = 15
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    i += 1
+                                    randomWord = (jargonListVM.jargonList.randomElement()!.base)!
+                                    randomInt = Int.random(in: 1..<3)
+                                }
                             } label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 10)
