@@ -109,7 +109,7 @@ struct GuesserFront : View {
                             .font(.system(size:16, weight: .bold))
                             .padding(15)
                             .frame(maxWidth: .infinity)
-                            .background(AppColor.purple)
+                            .background(selectBorder())
                             .cornerRadius(13)
                     }
                     Divider()
@@ -125,7 +125,7 @@ struct GuesserFront : View {
                             .font(.system(size:16, weight: .bold))
                             .padding(15)
                             .frame(maxWidth: .infinity)
-                            .background(AppColor.purple)
+                            .background(selectBorder())
                             .cornerRadius(13)
                     }
                     Spacer()
