@@ -79,6 +79,7 @@ struct JargonListView: View {
                 HStack {
                     searchBar
                 }
+                .padding(10)
                 .frame(maxWidth: .infinity)
             }
         }

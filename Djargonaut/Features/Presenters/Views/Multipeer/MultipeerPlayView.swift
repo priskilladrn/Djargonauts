@@ -103,6 +103,9 @@ struct MultipeerPlayView: View {
                     }
                 } else {
                     Text("Your answer is incorrect! How’s your partner’s explanation before?")
+                        .lineLimit(nil)
+                        .frame(maxHeight: .infinity)
+                        .multilineTextAlignment(.center)
                     HStack{
                         BorderedButtonView(text: "Unclear"){
                             nextQuestionFromGuesser()
@@ -123,13 +126,14 @@ struct MultipeerPlayView: View {
 //                } else {
 //                    Text("tebakan guesser salah")
 //                }
-                Text("Waiting confirmation your partner…")
+                Text("Waiting confirmation from your partner…")
             }
             
             if vm.currentStage == .explain || vm.currentStage == .guess{
                 Text("\(timeRemaining)")
             }
         }
+        .navigationBarBackButtonHidden(true)
         .onChange(of: multipeerSession.receivedData){ receivedData in
             if receivedData?.type == GameMessageType.answer && vm.currentStage == .explain {
                 vm.currentStage = .revealResultExplainer

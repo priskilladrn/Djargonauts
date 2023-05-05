@@ -28,7 +28,7 @@ struct MultipeerExplainerCardView: View {
     
     //MARK: Flip Card Function
     func flipCard () {
-//        isFlipped = !isFlipped
+        //        isFlipped = !isFlipped
         if !isFlipped {
             withAnimation(.linear(duration: durationAndDelay)) {
                 backDegree = 90
@@ -52,9 +52,9 @@ struct MultipeerExplainerCardView: View {
                 ExplainerSideCard(base: base, category: category, desc: "Explain this to your partner!", cardCount: cardCount, currentCard: currentCard, degree: $frontDegree)
                 ExplainerSideCard(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $backDegree)
             }
-//            .onTapGesture {
-//                flipCard ()
-//            }
+            //            .onTapGesture {
+            //                flipCard ()
+            //            }
             .padding()
         }
         .onChange(of: isFlipped){ _ in
@@ -110,12 +110,16 @@ struct ExplainerSideCard : View {
                     
                 }
             }
-            .frame(width: 332, height: 452)
+            .frame(height: 452)
             .padding(40)
             .background(
                 Image("\(selectBackground())")
                     .resizable()
-                    .scaledToFit()
+                    .cornerRadius(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(selectBorder(), lineWidth: 5)
+                    )
             )
         }.rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))
         
@@ -134,11 +138,26 @@ struct ExplainerSideCard : View {
         }
         return bg
     }
+    
+    func selectBorder() -> Color {
+        var border: Color = Color("Border_Tech")
+        if (category == "Technology") {
+            border = Color("Border_Tech")
+        } else if (category == "Design") {
+            border = Color("Border_Design")
+        } else if (category == "Accounting") {
+            border = Color("Border_Accounting")
+        } else if (category == "Game") {
+            border = Color("Border_Game")
+        }
+        return border
+    }
+    
 }
 
-//struct MultipeerExplainerView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        
-//        MultipeerExplainerCardView(base: "Deprecate Intelligence", category: "Technology", desc: "The theory and development of computer systems able to perform tasks that normally require human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages. Ipsum", cardCount: 10, currentCard: 1)
-//    }
-//}
+struct MultipeerExplainerView_Previews: PreviewProvider {
+    static var previews: some View {
+        
+        MultipeerExplainerCardView(base: "Deprecate Intelligence", category: "Game", desc: "The theory and development of computer systems able to perform tasks that normally require human intelligence, such as visual perception, speech recognition, decision-making, and translation between languages. Ipsum", cardCount: 10, currentCard: 1, isFlipped: .constant(false))
+    }
+}

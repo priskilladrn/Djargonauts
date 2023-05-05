@@ -103,7 +103,7 @@ struct HomeView: View {
                     .kerning(4)
                 HStack (spacing: 32){
                     ImageButtonLink(text: "Solo Mode", imageName: "home_solo", destination: PlayAlonePickCategoryView(playAloneVM: PlayAloneViewModel()).toolbarRole(.editor))
-                    ImageButtonLink(text: "Multiplayer", imageName: "home_1v1", destination: MultipeerInitView())
+                    ImageButtonLink(text: "Multiplayer", imageName: "home_1v1", destination: MultipeerInitView().toolbarRole(.editor))
                 }
                 .padding()
                 

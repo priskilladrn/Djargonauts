@@ -40,12 +40,19 @@ struct MultipeerInitView: View {
                 }
             }
         }
+        
         .padding()
-        .navigationTitle("Play Together")
         .navigationDestination(isPresented: $navigateToCreateView){
-            MultipeerCreateView(multipeerViewModel: multipeerViewModel)
+            MultipeerCreateView(multipeerViewModel: multipeerViewModel).toolbarRole(.editor)
         }.navigationDestination(isPresented: $navigateToConnectView){
-            MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), vm: multipeerViewModel)
+            MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), vm: multipeerViewModel).toolbarRole(.editor)
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Text("Play Together")
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(AppColor.title)
+            }
         }
         .background(Image("background").resizable()
             .aspectRatio( contentMode: .fill))

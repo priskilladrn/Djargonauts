@@ -58,6 +58,7 @@ struct PlayAloneCardView: View {
                 CardBack(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $backDegree)
             }
             .padding(.horizontal, width)
+            .padding(.bottom, 20)
         }
         .onChange(of: isFlipped){ _ in
             flipCard()
@@ -78,7 +79,7 @@ struct CardFront : View {
     let randomInt: Int
     
     @State var options = Array<String>()
-
+    
     @Binding var isCorrect: [Int]
     @Binding var degree : Double
     @Binding var score: Int
@@ -114,7 +115,7 @@ struct CardFront : View {
                     Divider()
                         .overlay(.white)
                         .padding(.vertical, 20)
-                 
+                    
                     
                     if randomInt == 1 {
                         //MARK: Answer 1
@@ -134,7 +135,7 @@ struct CardFront : View {
                                 .cornerRadius(13)
                                 .padding(.vertical, 20)
                         }
-
+                        
                         //MARK: Answer 2
                         Button {
                             print("pencet")
@@ -168,7 +169,7 @@ struct CardFront : View {
                                 .cornerRadius(13)
                                 .padding(.vertical, 20)
                         }
-
+                        
                         //MARK: Answer 2
                         Button {
                             print("pencet")
@@ -194,12 +195,16 @@ struct CardFront : View {
             .background(
                 Image("\(selectBackground())")
                     .resizable()
-                    .scaledToFit()
+                    .cornerRadius(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(selectBorder(), lineWidth: 5)
+                    )
             )
         }
         .rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))
     }
-
+    
     func selectBackground() -> String {
         var bg: String = ""
         if (category == "Technology") {
@@ -213,6 +218,20 @@ struct CardFront : View {
         }
         return bg
     }
+    
+    func selectBorder() -> Color {
+        var border: Color = Color("Border_Tech")
+        if (category == "Technology") {
+            border = Color("Border_Tech")
+        } else if (category == "Design") {
+            border = Color("Border_Design")
+        } else if (category == "Accounting") {
+            border = Color("Border_Accounting")
+        } else if (category == "Game") {
+            border = Color("Border_Game")
+        }
+        return border
+    }
 }
 
 struct CardBack : View {
@@ -221,9 +240,9 @@ struct CardBack : View {
     let desc: String
     let cardCount: Int
     let currentCard: Int
-
+    
     @Binding var degree : Double
-
+    
     var body: some View {
         ZStack {
             HStack (alignment: .top) {
@@ -257,18 +276,22 @@ struct CardBack : View {
                     Spacer()
                 }
             }
-//            .frame(width: 332, height: 452)
+            //            .frame(width: 332, height: 452)
             .frame(height: 452)
             .padding(40)
             .background(
                 Image("\(selectBackground())")
                     .resizable()
-                    .scaledToFit()
+                    .cornerRadius(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(selectBorder(), lineWidth: 5)
+                    )
             )
         }.rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))
-
+        
     }
-
+    
     func selectBackground() -> String {
         var bg: String = ""
         if (category == "Technology") {
@@ -282,6 +305,20 @@ struct CardBack : View {
         }
         return bg
     }
+    
+    func selectBorder() -> Color {
+            var border: Color = Color("Border_Tech")
+            if (category == "Technology") {
+                border = Color("Border_Tech")
+            } else if (category == "Design") {
+                border = Color("Border_Design")
+            } else if (category == "Accounting") {
+                border = Color("Border_Accounting")
+            } else if (category == "Game") {
+                border = Color("Border_Game")
+            }
+            return border
+        }
 }
 
 //struct PlayAloneCardView_Preview: PreviewProvider {

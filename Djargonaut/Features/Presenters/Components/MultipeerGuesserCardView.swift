@@ -28,7 +28,7 @@ struct MultipeerGuesserCardView: View {
     //MARK: Flip Card Function
     
     func flipCard () {
-//        isFlipped = !isFlipped
+        //        isFlipped = !isFlipped
         if !isFlipped {
             withAnimation(.linear(duration: durationAndDelay)) {
                 backDegree = 90
@@ -49,12 +49,12 @@ struct MultipeerGuesserCardView: View {
     var body: some View {
         VStack{
             ZStack {
-                GuesserFront(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $frontDegree, correctAnswerAction: correctAnswerAction, wrongAnswerAction: wrongAnswerAction)
                 GuesserBack(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $backDegree)
+                GuesserFront(base: base, category: category, desc: desc, cardCount: cardCount, currentCard: currentCard, degree: $frontDegree, correctAnswerAction: correctAnswerAction, wrongAnswerAction: wrongAnswerAction)
             }
-//            .onTapGesture {
-//                flipCard ()
-//            }
+            //            .onTapGesture {
+            //                flipCard ()
+            //            }
             .padding()
         }
         .onChange(of: isFlipped){ _ in
@@ -130,14 +130,18 @@ struct GuesserFront : View {
                     }
                     Spacer()
                 }
+                .frame(height: 452)
+                .padding()
+                .background(
+                    Image("\(selectBackground())")
+                        .resizable()
+                        .cornerRadius(20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(selectBorder(), lineWidth: 5)
+                        )
+                )
             }
-            .frame(width: 332, height: 452)
-            .padding(40)
-            .background(
-                Image("\(selectBackground())")
-                    .resizable()
-                    .scaledToFit()
-            )
         }.rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))
             .onAppear{
                 currentWrongAnswer = jargonListVM.jargonList.filter{ $0.category == category && $0.base != base }.map{ JargonModel(from: $0) }.randomElement()!.base
@@ -159,6 +163,20 @@ struct GuesserFront : View {
         }
         return bg
     }
+    func selectBorder() -> Color {
+        var border: Color = Color("Border_Tech")
+        if (category == "Technology") {
+            border = Color("Border_Tech")
+        } else if (category == "Design") {
+            border = Color("Border_Design")
+        } else if (category == "Accounting") {
+            border = Color("Border_Accounting")
+        } else if (category == "Game") {
+            border = Color("Border_Game")
+        }
+        return border
+    }
+    
 }
 
 struct GuesserBack : View {
@@ -203,12 +221,16 @@ struct GuesserBack : View {
                     Spacer()
                 }
             }
-            .frame(width: 332, height: 452)
+            .frame(height: 452)
             .padding(40)
             .background(
                 Image("\(selectBackground())")
                     .resizable()
-                    .scaledToFit()
+                    .cornerRadius(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(selectBorder(), lineWidth: 5)
+                    )
             )
         }.rotation3DEffect(Angle(degrees: degree), axis: (x: 0, y: 1, z: 0))
         
@@ -226,6 +248,20 @@ struct GuesserBack : View {
             bg = "Flashcards_Game"
         }
         return bg
+    }
+    
+    func selectBorder() -> Color {
+        var border: Color = Color("Border_Tech")
+        if (category == "Technology") {
+            border = Color("Border_Tech")
+        } else if (category == "Design") {
+            border = Color("Border_Design")
+        } else if (category == "Accounting") {
+            border = Color("Border_Accounting")
+        } else if (category == "Game") {
+            border = Color("Border_Game")
+        }
+        return border
     }
 }
 

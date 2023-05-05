@@ -67,7 +67,14 @@ struct MultipeerCreateView: View {
             Spacer()
             
             // TODO: fix destination (change empty view)
-            BorderedButtonLinkView(text: "Start The Journey", isPrimary: false, destination: MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), vm: multipeerViewModel, isRoomCreator: true))
+            BorderedButtonLinkView(text: "Start The Journey", isPrimary: false, destination: MultipeerConnectView(multipeerSession: MultipeerSession(nickname: multipeerViewModel.nickname), vm: multipeerViewModel, isRoomCreator: true).toolbarRole(.editor))
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Text("Nickname")
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(AppColor.title)
+            }
         }
         .padding()
 //        .navigationTitle("New Game")

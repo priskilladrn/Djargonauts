@@ -34,6 +34,13 @@ struct MultipeerConnectView: View {
                         .aspectRatio( contentMode: .fill))
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Text("Game Room")
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundColor(AppColor.title)
+                }
+            }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Image("background").resizable()
                 .aspectRatio( contentMode: .fill))
@@ -59,6 +66,13 @@ struct MultipeerConnectView: View {
                 }
              
                 Spacer()
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Text("Game Room")
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundColor(AppColor.title)
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Image("background").resizable()
