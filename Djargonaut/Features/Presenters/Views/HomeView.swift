@@ -88,6 +88,8 @@ struct HomeView: View {
                             .resizable()
                             .scaledToFill()
                             .padding(.top, -16)
+                            .cornerRadius(32)
+                            .clipped()
                     }
                 )
                 .frame(height: 220)

@@ -266,6 +266,8 @@ struct CardBack : View {
                     Text("\(base)")
                         .font(.system(size: 41, weight: .bold))
                         .foregroundColor(.white)
+                        .lineLimit(nil)
+                        .fixedSize(horizontal: false, vertical: true)
                     Spacer()
                     Divider()
                         .overlay(.white)

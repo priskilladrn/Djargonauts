@@ -109,7 +109,7 @@ struct GuesserFront : View {
                             .font(.system(size:16, weight: .bold))
                             .padding(15)
                             .frame(maxWidth: .infinity)
-                            .background(AppColor.purple)
+                            .background(selectBorder())
                             .cornerRadius(13)
                     }
                     Divider()
@@ -125,7 +125,7 @@ struct GuesserFront : View {
                             .font(.system(size:16, weight: .bold))
                             .padding(15)
                             .frame(maxWidth: .infinity)
-                            .background(AppColor.purple)
+                            .background(selectBorder())
                             .cornerRadius(13)
                     }
                     Spacer()
@@ -197,7 +197,7 @@ struct GuesserBack : View {
                             .foregroundColor(.white)
                             .font(.system(size: 23))
                             .padding(.vertical, 3)
-                            .padding(.horizontal, 30)
+                            .padding(.horizontal, 25)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color(.white), lineWidth: 1.5)
@@ -205,12 +205,14 @@ struct GuesserBack : View {
                         Spacer()
                         Text("\(currentCard) / \(cardCount)")
                             .foregroundColor(.white)
-                            .font(.system(size: 23, weight: .bold))
+                            .font(.system(size: 21, weight: .bold))
                     }
                     Spacer()
                     Text("\(base)")
-                        .font(.system(size: 43, weight: .bold))
+                        .font(.system(size: 41, weight: .bold))
                         .foregroundColor(.white)
+                        .lineLimit(nil)
+                        .fixedSize(horizontal: false, vertical: true)
                     Spacer()
                     Divider()
                         .overlay(.white)

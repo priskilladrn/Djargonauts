@@ -37,6 +37,6 @@ struct DictionaryView: View {
 
 struct DictionaryView_Previews: PreviewProvider {
     static var previews: some View {
-        DictionaryView(base: "Deprecate", category: "Design", desc: "In several fields, especially computing, deprecation ")
+        DictionaryView(base: "Confirmation", category: "Design", desc: "In several fields, especially computing, deprecation ")
     }
 }

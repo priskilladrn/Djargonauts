@@ -83,7 +83,7 @@ struct ExplainerSideCard : View {
                             .foregroundColor(.white)
                             .font(.system(size: 21))
                             .padding(.vertical, 3)
-                            .padding(.horizontal, 30)
+                            .padding(.horizontal, 25)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color(.white), lineWidth: 1.5)
@@ -97,6 +97,8 @@ struct ExplainerSideCard : View {
                     Text("\(base)")
                         .font(.system(size: 41, weight: .bold))
                         .foregroundColor(.white)
+                        .lineLimit(nil)
+                        .fixedSize(horizontal: false, vertical: true)
                     Spacer()
                     Divider()
                         .overlay(.white)
