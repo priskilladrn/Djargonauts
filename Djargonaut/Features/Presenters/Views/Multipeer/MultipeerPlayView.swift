@@ -131,6 +131,8 @@ struct MultipeerPlayView: View {
             
             if vm.currentStage == .explain || vm.currentStage == .guess{
                 Text("\(timeRemaining)")
+                    .font(.system(size: 60, weight: .bold))
+                    .foregroundColor(AppColor.title)
             }
         }
         .navigationBarBackButtonHidden(true)
